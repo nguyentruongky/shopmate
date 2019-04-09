@@ -12,6 +12,7 @@
 		2680CEA0225C97AE00693692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2680CE9E225C97AE00693692 /* Main.storyboard */; };
 		2680CEA2225C97AE00693692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2680CEA1225C97AE00693692 /* Assets.xcassets */; };
 		2680CEA5225C97AE00693692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2680CEA3225C97AE00693692 /* LaunchScreen.storyboard */; };
+		2680CEAD225C988000693692 /* Libs in Resources */ = {isa = PBXBuildFile; fileRef = 2680CEAC225C988000693692 /* Libs */; };
 		FCA28A599810537C07A0FEA4 /* Pods_Shopmate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E187B8C3BFEA359C454A7E11 /* Pods_Shopmate.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		2680CEA1225C97AE00693692 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2680CEA4225C97AE00693692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2680CEA6225C97AE00693692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2680CEAC225C988000693692 /* Libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Libs; sourceTree = "<group>"; };
 		C7DEC4811FF2CFB1A5F87783 /* Pods-Shopmate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopmate.debug.xcconfig"; path = "Target Support Files/Pods-Shopmate/Pods-Shopmate.debug.xcconfig"; sourceTree = "<group>"; };
 		D304633953D5990946743159 /* Pods-Shopmate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopmate.release.xcconfig"; path = "Target Support Files/Pods-Shopmate/Pods-Shopmate.release.xcconfig"; sourceTree = "<group>"; };
 		E187B8C3BFEA359C454A7E11 /* Pods_Shopmate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopmate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 		2680CE99225C97AE00693692 /* Shopmate */ = {
 			isa = PBXGroup;
 			children = (
+				2680CEAC225C988000693692 /* Libs */,
 				2680CE9A225C97AE00693692 /* AppDelegate.swift */,
 				2680CE9C225C97AE00693692 /* ViewController.swift */,
 				2680CE9E225C97AE00693692 /* Main.storyboard */,
@@ -77,7 +80,6 @@
 				C7DEC4811FF2CFB1A5F87783 /* Pods-Shopmate.debug.xcconfig */,
 				D304633953D5990946743159 /* Pods-Shopmate.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -151,6 +153,7 @@
 			files = (
 				2680CEA5225C97AE00693692 /* LaunchScreen.storyboard in Resources */,
 				2680CEA2225C97AE00693692 /* Assets.xcassets in Resources */,
+				2680CEAD225C988000693692 /* Libs in Resources */,
 				2680CEA0225C97AE00693692 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
