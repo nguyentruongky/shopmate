@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2680CE9B225C97AE00693692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CE9A225C97AE00693692 /* AppDelegate.swift */; };
-		2680CE9D225C97AE00693692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CE9C225C97AE00693692 /* ViewController.swift */; };
-		2680CEA0225C97AE00693692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2680CE9E225C97AE00693692 /* Main.storyboard */; };
 		2680CEA2225C97AE00693692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2680CEA1225C97AE00693692 /* Assets.xcassets */; };
 		2680CEA5225C97AE00693692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2680CEA3225C97AE00693692 /* LaunchScreen.storyboard */; };
 		2680CECA225C98BD00693692 /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEAF225C98BB00693692 /* NavigationExtension.swift */; };
@@ -45,8 +43,6 @@
 /* Begin PBXFileReference section */
 		2680CE97225C97AE00693692 /* Shopmate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopmate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2680CE9A225C97AE00693692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2680CE9C225C97AE00693692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2680CE9F225C97AE00693692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2680CEA1225C97AE00693692 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2680CEA4225C97AE00693692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2680CEA6225C97AE00693692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,12 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				2680CEAE225C98B300693692 /* Libs */,
-				2680CE9A225C97AE00693692 /* AppDelegate.swift */,
-				2680CE9C225C97AE00693692 /* ViewController.swift */,
-				2680CE9E225C97AE00693692 /* Main.storyboard */,
-				2680CEA1225C97AE00693692 /* Assets.xcassets */,
-				2680CEA3225C97AE00693692 /* LaunchScreen.storyboard */,
-				2680CEA6225C97AE00693692 /* Info.plist */,
+				2680CEE6225C98EC00693692 /* Config */,
+				2680CEE7225C98F900693692 /* Resources */,
 			);
 			path = Shopmate;
 			sourceTree = "<group>";
@@ -166,6 +158,24 @@
 				2680CEB0225C98BB00693692 /* UIViewExtension.swift */,
 			);
 			path = knStore;
+			sourceTree = "<group>";
+		};
+		2680CEE6225C98EC00693692 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2680CE9A225C97AE00693692 /* AppDelegate.swift */,
+				2680CEA6225C97AE00693692 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		2680CEE7225C98F900693692 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2680CEA1225C97AE00693692 /* Assets.xcassets */,
+				2680CEA3225C97AE00693692 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		7DEF1522A0485D1E978B984E /* Pods */ = {
@@ -247,7 +257,6 @@
 			files = (
 				2680CEA5225C97AE00693692 /* LaunchScreen.storyboard in Resources */,
 				2680CEA2225C97AE00693692 /* Assets.xcassets in Resources */,
-				2680CEA0225C97AE00693692 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +316,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2680CE9D225C97AE00693692 /* ViewController.swift in Sources */,
 				2680CED9225C98BD00693692 /* UITextFieldExtension.swift in Sources */,
 				2680CECD225C98BD00693692 /* DateExtension.swift in Sources */,
 				2680CEE2225C98BD00693692 /* OtherExtensions.swift in Sources */,
@@ -342,14 +350,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2680CE9E225C97AE00693692 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2680CE9F225C97AE00693692 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2680CEA3225C97AE00693692 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
