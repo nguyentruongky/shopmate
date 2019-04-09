@@ -12,7 +12,33 @@
 		2680CEA0225C97AE00693692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2680CE9E225C97AE00693692 /* Main.storyboard */; };
 		2680CEA2225C97AE00693692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2680CEA1225C97AE00693692 /* Assets.xcassets */; };
 		2680CEA5225C97AE00693692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2680CEA3225C97AE00693692 /* LaunchScreen.storyboard */; };
-		2680CEAD225C988000693692 /* Libs in Resources */ = {isa = PBXBuildFile; fileRef = 2680CEAC225C988000693692 /* Libs */; };
+		2680CECA225C98BD00693692 /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEAF225C98BB00693692 /* NavigationExtension.swift */; };
+		2680CECB225C98BD00693692 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB0225C98BB00693692 /* UIViewExtension.swift */; };
+		2680CECC225C98BD00693692 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB1225C98BB00693692 /* UIApplicationExtension.swift */; };
+		2680CECD225C98BD00693692 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB2225C98BC00693692 /* DateExtension.swift */; };
+		2680CECE225C98BD00693692 /* ServiceConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB3225C98BC00693692 /* ServiceConnector.swift */; };
+		2680CECF225C98BD00693692 /* knGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB4225C98BC00693692 /* knGridView.swift */; };
+		2680CED0225C98BD00693692 /* knConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB5225C98BC00693692 /* knConstraints.swift */; };
+		2680CED1225C98BD00693692 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB6225C98BC00693692 /* StringExtension.swift */; };
+		2680CED2225C98BD00693692 /* 1.Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB7225C98BC00693692 /* 1.Setting.swift */; };
+		2680CED3225C98BD00693692 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB8225C98BC00693692 /* DeviceType.swift */; };
+		2680CED4225C98BD00693692 /* Controller+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEB9225C98BC00693692 /* Controller+Keyboard.swift */; };
+		2680CED5225C98BD00693692 /* UISearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEBA225C98BC00693692 /* UISearchBarExtension.swift */; };
+		2680CED6225C98BD00693692 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEBB225C98BC00693692 /* General.swift */; };
+		2680CED7225C98BD00693692 /* knListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEBC225C98BC00693692 /* knListView.swift */; };
+		2680CED8225C98BD00693692 /* knUIMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEBD225C98BC00693692 /* knUIMaker.swift */; };
+		2680CED9225C98BD00693692 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEBE225C98BC00693692 /* UITextFieldExtension.swift */; };
+		2680CEDA225C98BD00693692 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEBF225C98BC00693692 /* IntExtension.swift */; };
+		2680CEDB225C98BD00693692 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC0225C98BC00693692 /* UIViewControllerExtension.swift */; };
+		2680CEDC225C98BD00693692 /* KMPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC1225C98BC00693692 /* KMPlaceholderTextView.swift */; };
+		2680CEDD225C98BD00693692 /* 1.StartPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC2225C98BC00693692 /* 1.StartPoint.swift */; };
+		2680CEDE225C98BD00693692 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC3225C98BC00693692 /* UIColorExtension.swift */; };
+		2680CEDF225C98BD00693692 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC4225C98BC00693692 /* UIImageExtension.swift */; };
+		2680CEE0225C98BD00693692 /* knView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC5225C98BC00693692 /* knView.swift */; };
+		2680CEE1225C98BD00693692 /* knController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC6225C98BD00693692 /* knController.swift */; };
+		2680CEE2225C98BD00693692 /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC7225C98BD00693692 /* OtherExtensions.swift */; };
+		2680CEE3225C98BD00693692 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC8225C98BD00693692 /* UIFontExtension.swift */; };
+		2680CEE4225C98BD00693692 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CEC9225C98BD00693692 /* UIButtonExtension.swift */; };
 		FCA28A599810537C07A0FEA4 /* Pods_Shopmate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E187B8C3BFEA359C454A7E11 /* Pods_Shopmate.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +50,33 @@
 		2680CEA1225C97AE00693692 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2680CEA4225C97AE00693692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2680CEA6225C97AE00693692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2680CEAC225C988000693692 /* Libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Libs; sourceTree = "<group>"; };
+		2680CEAF225C98BB00693692 /* NavigationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
+		2680CEB0225C98BB00693692 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		2680CEB1225C98BB00693692 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		2680CEB2225C98BC00693692 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		2680CEB3225C98BC00693692 /* ServiceConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceConnector.swift; sourceTree = "<group>"; };
+		2680CEB4225C98BC00693692 /* knGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knGridView.swift; sourceTree = "<group>"; };
+		2680CEB5225C98BC00693692 /* knConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knConstraints.swift; sourceTree = "<group>"; };
+		2680CEB6225C98BC00693692 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		2680CEB7225C98BC00693692 /* 1.Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 1.Setting.swift; sourceTree = "<group>"; };
+		2680CEB8225C98BC00693692 /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		2680CEB9225C98BC00693692 /* Controller+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Controller+Keyboard.swift"; sourceTree = "<group>"; };
+		2680CEBA225C98BC00693692 /* UISearchBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtension.swift; sourceTree = "<group>"; };
+		2680CEBB225C98BC00693692 /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
+		2680CEBC225C98BC00693692 /* knListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knListView.swift; sourceTree = "<group>"; };
+		2680CEBD225C98BC00693692 /* knUIMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knUIMaker.swift; sourceTree = "<group>"; };
+		2680CEBE225C98BC00693692 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		2680CEBF225C98BC00693692 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		2680CEC0225C98BC00693692 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		2680CEC1225C98BC00693692 /* KMPlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMPlaceholderTextView.swift; sourceTree = "<group>"; };
+		2680CEC2225C98BC00693692 /* 1.StartPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 1.StartPoint.swift; sourceTree = "<group>"; };
+		2680CEC3225C98BC00693692 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		2680CEC4225C98BC00693692 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		2680CEC5225C98BC00693692 /* knView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knView.swift; sourceTree = "<group>"; };
+		2680CEC6225C98BD00693692 /* knController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knController.swift; sourceTree = "<group>"; };
+		2680CEC7225C98BD00693692 /* OtherExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
+		2680CEC8225C98BD00693692 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		2680CEC9225C98BD00693692 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		C7DEC4811FF2CFB1A5F87783 /* Pods-Shopmate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopmate.debug.xcconfig"; path = "Target Support Files/Pods-Shopmate/Pods-Shopmate.debug.xcconfig"; sourceTree = "<group>"; };
 		D304633953D5990946743159 /* Pods-Shopmate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopmate.release.xcconfig"; path = "Target Support Files/Pods-Shopmate/Pods-Shopmate.release.xcconfig"; sourceTree = "<group>"; };
 		E187B8C3BFEA359C454A7E11 /* Pods_Shopmate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopmate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +115,7 @@
 		2680CE99225C97AE00693692 /* Shopmate */ = {
 			isa = PBXGroup;
 			children = (
-				2680CEAC225C988000693692 /* Libs */,
+				2680CEAE225C98B300693692 /* Libs */,
 				2680CE9A225C97AE00693692 /* AppDelegate.swift */,
 				2680CE9C225C97AE00693692 /* ViewController.swift */,
 				2680CE9E225C97AE00693692 /* Main.storyboard */,
@@ -72,6 +124,48 @@
 				2680CEA6225C97AE00693692 /* Info.plist */,
 			);
 			path = Shopmate;
+			sourceTree = "<group>";
+		};
+		2680CEAE225C98B300693692 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				2680CEE5225C98C500693692 /* knStore */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		2680CEE5225C98C500693692 /* knStore */ = {
+			isa = PBXGroup;
+			children = (
+				2680CEB7225C98BC00693692 /* 1.Setting.swift */,
+				2680CEC2225C98BC00693692 /* 1.StartPoint.swift */,
+				2680CEB9225C98BC00693692 /* Controller+Keyboard.swift */,
+				2680CEB2225C98BC00693692 /* DateExtension.swift */,
+				2680CEB8225C98BC00693692 /* DeviceType.swift */,
+				2680CEBB225C98BC00693692 /* General.swift */,
+				2680CEBF225C98BC00693692 /* IntExtension.swift */,
+				2680CEC1225C98BC00693692 /* KMPlaceholderTextView.swift */,
+				2680CEB5225C98BC00693692 /* knConstraints.swift */,
+				2680CEC6225C98BD00693692 /* knController.swift */,
+				2680CEB4225C98BC00693692 /* knGridView.swift */,
+				2680CEBC225C98BC00693692 /* knListView.swift */,
+				2680CEBD225C98BC00693692 /* knUIMaker.swift */,
+				2680CEC5225C98BC00693692 /* knView.swift */,
+				2680CEAF225C98BB00693692 /* NavigationExtension.swift */,
+				2680CEC7225C98BD00693692 /* OtherExtensions.swift */,
+				2680CEB3225C98BC00693692 /* ServiceConnector.swift */,
+				2680CEB6225C98BC00693692 /* StringExtension.swift */,
+				2680CEB1225C98BB00693692 /* UIApplicationExtension.swift */,
+				2680CEC9225C98BD00693692 /* UIButtonExtension.swift */,
+				2680CEC3225C98BC00693692 /* UIColorExtension.swift */,
+				2680CEC8225C98BD00693692 /* UIFontExtension.swift */,
+				2680CEC4225C98BC00693692 /* UIImageExtension.swift */,
+				2680CEBA225C98BC00693692 /* UISearchBarExtension.swift */,
+				2680CEBE225C98BC00693692 /* UITextFieldExtension.swift */,
+				2680CEC0225C98BC00693692 /* UIViewControllerExtension.swift */,
+				2680CEB0225C98BB00693692 /* UIViewExtension.swift */,
+			);
+			path = knStore;
 			sourceTree = "<group>";
 		};
 		7DEF1522A0485D1E978B984E /* Pods */ = {
@@ -153,7 +247,6 @@
 			files = (
 				2680CEA5225C97AE00693692 /* LaunchScreen.storyboard in Resources */,
 				2680CEA2225C97AE00693692 /* Assets.xcassets in Resources */,
-				2680CEAD225C988000693692 /* Libs in Resources */,
 				2680CEA0225C97AE00693692 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,7 +308,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				2680CE9D225C97AE00693692 /* ViewController.swift in Sources */,
+				2680CED9225C98BD00693692 /* UITextFieldExtension.swift in Sources */,
+				2680CECD225C98BD00693692 /* DateExtension.swift in Sources */,
+				2680CEE2225C98BD00693692 /* OtherExtensions.swift in Sources */,
+				2680CED1225C98BD00693692 /* StringExtension.swift in Sources */,
+				2680CEDE225C98BD00693692 /* UIColorExtension.swift in Sources */,
+				2680CEE0225C98BD00693692 /* knView.swift in Sources */,
+				2680CEE1225C98BD00693692 /* knController.swift in Sources */,
+				2680CED2225C98BD00693692 /* 1.Setting.swift in Sources */,
+				2680CECE225C98BD00693692 /* ServiceConnector.swift in Sources */,
+				2680CEE3225C98BD00693692 /* UIFontExtension.swift in Sources */,
 				2680CE9B225C97AE00693692 /* AppDelegate.swift in Sources */,
+				2680CECC225C98BD00693692 /* UIApplicationExtension.swift in Sources */,
+				2680CEE4225C98BD00693692 /* UIButtonExtension.swift in Sources */,
+				2680CED0225C98BD00693692 /* knConstraints.swift in Sources */,
+				2680CECF225C98BD00693692 /* knGridView.swift in Sources */,
+				2680CEDC225C98BD00693692 /* KMPlaceholderTextView.swift in Sources */,
+				2680CEDA225C98BD00693692 /* IntExtension.swift in Sources */,
+				2680CED6225C98BD00693692 /* General.swift in Sources */,
+				2680CEDB225C98BD00693692 /* UIViewControllerExtension.swift in Sources */,
+				2680CED4225C98BD00693692 /* Controller+Keyboard.swift in Sources */,
+				2680CED7225C98BD00693692 /* knListView.swift in Sources */,
+				2680CED8225C98BD00693692 /* knUIMaker.swift in Sources */,
+				2680CED3225C98BD00693692 /* DeviceType.swift in Sources */,
+				2680CECB225C98BD00693692 /* UIViewExtension.swift in Sources */,
+				2680CECA225C98BD00693692 /* NavigationExtension.swift in Sources */,
+				2680CEDD225C98BD00693692 /* 1.StartPoint.swift in Sources */,
+				2680CED5225C98BD00693692 /* UISearchBarExtension.swift in Sources */,
+				2680CEDF225C98BD00693692 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
