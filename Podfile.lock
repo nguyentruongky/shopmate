@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.8.2)
   - Kingfisher (5.3.1)
+  - SwiftyDrop (4.2.0)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
+  - SwiftyDrop (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Kingfisher
+    - SwiftyDrop
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
+  SwiftyDrop: c5b306082dfbd7d6b9c1e569dcdd2ab13306e552
 
-PODFILE CHECKSUM: 96bd0b49b93ed9a3e9f77d1e9a3eeb4ef9b8862f
+PODFILE CHECKSUM: 9a247a5246af53606b8c95e27ab5645440e2d695
 
 COCOAPODS: 1.6.1

@@ -10,6 +10,7 @@ import UIKit
 
 var appSetting = AppSetting()
 struct AppSetting {
+    let baseURL = "https://mobilebackend.turing.com"
     var token: String? {
         get { return UserDefaults.get(key: "token") as String? }
         set {
@@ -17,6 +18,8 @@ struct AppSetting {
             UserDefaults.set(key: "token", value: newValue)
         }
     }
+    var user: Customer?
+
     var didLogin: Bool {
         get { return UserDefaults.get(key: "didLogin") as Bool? ?? false }
         set { UserDefaults.set(key: "didLogin", value: newValue) }

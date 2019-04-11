@@ -28,21 +28,19 @@ class RegisterController: knStaticListController {
 
         ui.registerButton.addTarget(self, action: #selector(register))
         ui.signinButton.addTarget(self, action: #selector(showSignin))
-        ui.firstNameTextField.delegate = self
-        ui.lastNameTextField.delegate = self
+        ui.nameTextField.delegate = self
         ui.emailTextField.delegate = self
         ui.passwordTextField.delegate = self
     }
 
     @objc func register() {
         hideKeyboard()
-        validation.firstName = ui.firstNameTextField.text
-        validation.lastName = ui.lastNameTextField.text
+        validation.name = ui.nameTextField.text
         validation.email = ui.emailTextField.text
         validation.password = ui.passwordTextField.text
         let (result, error) = validation.validate()
-        if result == false {
-//            snMessage.showError(error ?? "", inSeconds: 5)
+        if result == false, let error = error {
+            MessageHub.showError(error)
             return
         }
         ui.registerButton.setProcess(visible: true)
@@ -54,24 +52,23 @@ class RegisterController: knStaticListController {
         setControllers([LoginController()])
     }
 
-    @objc func close() { dismiss() }
+    @objc func close() {
+        dismiss()
+    }
 }
 
 extension RegisterController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let isFirstNameEmpty = ui.firstNameTextField.text?.isEmpty == true
-        let isLastNameEmpty = ui.lastNameTextField.text?.isEmpty == true
+        let isFirstNameEmpty = ui.nameTextField.text?.isEmpty == true
         let isEmailEmpty = ui.emailTextField.text?.isEmpty == true
         let isPasswordEmpty = ui.passwordTextField.text?.isEmpty == true
 
-        if !isFirstNameEmpty && !isLastNameEmpty && !isEmailEmpty && !isPasswordEmpty {
+        if !isFirstNameEmpty && !isEmailEmpty && !isPasswordEmpty {
             register()
             return true
         }
 
-        if textField == ui.firstNameTextField {
-            ui.lastNameTextField.becomeFirstResponder()
-        } else if textField == ui.lastNameTextField {
+        if textField == ui.nameTextField {
             ui.emailTextField.becomeFirstResponder()
         } else if textField == ui.emailTextField {
             ui.passwordTextField.becomeFirstResponder()

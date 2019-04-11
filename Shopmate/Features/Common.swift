@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyDrop
 
 struct Common {
     static func makeTextField(placeholder: String, icon: UIImage? = nil) -> UITextField {
@@ -24,6 +25,27 @@ struct Common {
             tf.setView(.left, space: 20)
         }
         return tf
+    }
+
+    
+}
+
+struct MessageHub {
+    static func showMessage(_ message: String?, title: String?,
+                            cancelActionName: String? = "OK") -> UIAlertController {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        if cancelActionName != nil {
+            controller.addAction(UIAlertAction(title: cancelActionName, style: .destructive, handler: nil))
+        }
+        return controller
+    }
+
+    static func showError(_ message: String) {
+        Drop.down(message, state: .error, duration: 5)
+    }
+
+    static func showMessage(_ message: String) {
+        Drop.down(message, state: .info, duration: 5)
     }
 
 }

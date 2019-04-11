@@ -8,36 +8,38 @@
 
 import UIKit
 
-class smUser {
+class Address {
+    var address1: String?
+    var address2: String?
+    var city: String?
+    var region: String?
+    var postalCode: String?
+    var country: String?
+
+    init(raw: AnyObject) {
+        address1 = raw["address_1"] as? String
+        address2 = raw["address_2"] as? String
+        city = raw["city"] as? String
+        region = raw["region"] as? String
+        postalCode = raw["postal_code"] as? String
+        country = raw["country"] as? String
+    }
+}
+
+class Customer {
     var email: String?
     var token: String?
     var name: String?
-    var firstName: String?
-    var lastName: String?
-    var userId: Int?
-    var avatar: String?
-    var cover: String?
+    var customerID: Int
     var phone: String?
-//    var billingAddress: snAddress?
-//    var shippingAddress: snAddress?
+    var address: Address?
 
     init(raw: AnyObject) {
         email = raw["email"] as? String
-        firstName = raw["first_name"] as? String
-        lastName = raw["last_name"] as? String
-        name = firstName.or("") + " " + lastName.or("")
-        userId = raw["id"] as? Int
-
-        phone = raw["phone"] as? String
-//        billingAddress = snAddress(billingRaw: raw)
-//        shippingAddress = snAddress(shippingRaw: raw)
-        cover = raw["phone"] as? String
-
-        let defaulCover = "https://images.unsplash.com/photo-1503513883989-25ef8b2f1a53?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=36eaafb958cd6787048415f4096b646f&auto=format&fit=crop&w=1700&q=80"
-        cover = cover ?? defaulCover
-
-        let defaultAvatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV_ExqGjttR39hREvayDTIQarycXsSoGwFltGGT9_j6CfYmNPL"
-        avatar = raw["photo"] as? String ?? defaultAvatar
+        name = raw["name"] as? String
+        customerID = raw["customer_id"] as? Int ?? 0
+        phone = raw["mob_phone"] as? String
+        address = Address(raw: raw)
     }
 }
 
@@ -45,11 +47,11 @@ struct LoginWorker {
     private let api = "/users/login/"
     var email: String
     var password: String
-    var success: ((smUser) -> Void)?
+    var success: ((Customer) -> Void)?
     var fail: ((knError) -> Void)?
 
     init(email: String, password: String,
-         success: ((smUser) -> Void)?,
+         success: ((Customer) -> Void)?,
          fail: ((knError) -> Void)?) {
         self.email = email
         self.password = password
@@ -74,12 +76,12 @@ struct LoginWorker {
             return
         }
 
-        guard let raw = returnData["user"] as? AnyObject else {
+        guard let raw = returnData["user"] as AnyObject? else {
             let err = knError(code: "no_data", message: "No user data returned")
             failResponse(err: err)
             return
         }
-        let user = smUser(raw: raw)
+        let user = Customer(raw: raw)
         user.token = returnData["token"] as? String
         success?(user)
     }

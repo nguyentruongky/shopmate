@@ -9,20 +9,18 @@
 
 import Foundation
 struct RegisterWorker {
-    private let api = "/users/register/"
-    var firstName: String
-    var lastName: String
+    private let api = "/customers"
+    var name: String
     var email: String
     var password: String
-    var success: ((smUser) -> Void)?
+    var success: ((Customer) -> Void)?
     var fail: ((knError) -> Void)?
 
-    init(firstName: String, lastName: String,
+    init(name: String,
          email: String, password: String,
-         success: ((smUser) -> Void)?,
+         success: ((Customer) -> Void)?,
          fail: ((knError) -> Void)?) {
-        self.firstName = firstName
-        self.lastName = lastName
+        self.name = name
         self.email = email
         self.password = password
         self.fail = fail
@@ -31,26 +29,25 @@ struct RegisterWorker {
 
     func execute() {
         let params = [
-            "first_name": firstName,
-            "last_name": lastName,
+            "name": name,
             "email": email,
             "password": password
         ]
-
-        ApiConnector.post(api, params: params,
+        let finalApi = appSetting.baseURL + api
+        ApiConnector.post(finalApi, params: params,
                               success: successResponse,
                               fail: failResponse)
     }
 
     func successResponse(returnData: AnyObject) {
-        guard let raw = returnData["user"] as AnyObject? else {
+        guard let raw = returnData["customer"] as AnyObject? else {
             let err = knError(code: "no_data", message: "No user data returned")
             failResponse(err: err)
             return
         }
 
-        let user = smUser(raw: raw)
-        user.token = returnData["token"] as? String
+        let user = Customer(raw: raw)
+        user.token = returnData["accessToken"] as? String
         success?(user)
     }
 

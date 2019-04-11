@@ -6,7 +6,7 @@ target 'Shopmate' do
   use_frameworks!
   pod 'Alamofire'
   pod 'Kingfisher'
-  # Pods for Storex
+  pod 'SwiftyDrop', '~>4.0'
 
 end
 

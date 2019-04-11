@@ -9,7 +9,7 @@
 import UIKit
 
 extension LoginController {
-    func didLogin(user: smUser) {
+    func didLogin(user: Customer) {
         ui.loginButton.setProcess(visible: false)
 //        setting.user = user
 //        setting.token = user.token

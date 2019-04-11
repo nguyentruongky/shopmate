@@ -10,7 +10,7 @@ import Foundation
 
 struct knPasswordValidation {
     func checkCharCount(_ password: String) -> Bool {
-        let regexCharCount = "^.{8,}$"
+        let regexCharCount = "^.{6,}$"
         let passwordTest1 = NSPredicate(format: "SELF MATCHES %@", regexCharCount)
         return passwordTest1.evaluate(with: password)
     }

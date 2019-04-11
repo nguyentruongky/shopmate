@@ -10,10 +10,8 @@ import UIKit
 
 extension RegisterController {
     class UI: NSObject {
-        let firstNameTextField = Common.makeTextField(placeholder: "First Name",
+        let nameTextField = Common.makeTextField(placeholder: "First Name",
                                                        icon: UIImage(named: "profile"))
-        let lastNameTextField = Common.makeTextField(placeholder: "Last Name",
-                                                      icon: UIImage(named: "profile"))
         let emailTextField = Common.makeTextField(placeholder: "Email",
                                                    icon: UIImage(named: "email"))
         let passwordTextField = Common.makeTextField(placeholder: "Password",
@@ -48,7 +46,8 @@ extension RegisterController {
         }()
 
         @objc func viewTerm() {
-
+            let controller = MessageHub.showMessage("Term is coming...", title: nil, cancelActionName: "OK")
+            UIApplication.topViewController()?.present(controller)
         }
 
         func makeCell(tf: UITextField) -> knTableCell {
@@ -67,19 +66,16 @@ extension RegisterController {
             passwordTextField.isSecureTextEntry = true
             passwordTextField.returnKeyType = .next
 
-            firstNameTextField.autocapitalizationType = .words
-            firstNameTextField.returnKeyType = .next
-
-            lastNameTextField.autocapitalizationType = .words
-            lastNameTextField.returnKeyType = .next
+            nameTextField.autocapitalizationType = .words
+            nameTextField.returnKeyType = .next
+            nameTextField.autocorrectionType = .no
 
             revealButton = passwordTextField.setView(.right,
                                                      image: UIImage(named: "show_pass_inactive") ?? UIImage())
             revealButton.addTarget(self, action: #selector(showPassword))
 
             return [
-                makeCell(tf: firstNameTextField),
-                makeCell(tf: lastNameTextField),
+                makeCell(tf: nameTextField),
                 makeCell(tf: emailTextField),
                 makeCell(tf: passwordTextField)
             ]
@@ -87,7 +83,7 @@ extension RegisterController {
 
         @objc func showPassword() {
             passwordTextField.toggleSecure()
-            let image = passwordTextField.isSecureTextEntry ? UIImage(named: "show_pass_active") : UIImage(named: "show_pass_inactive")
+            let image = passwordTextField.isSecureTextEntry ? UIImage(named: "show_pass_inactive") : UIImage(named: "show_pass_active")
             revealButton.setImage(image, for: .normal)
         }
 
