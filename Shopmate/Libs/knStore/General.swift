@@ -55,7 +55,7 @@ func wrap(_ controller: UIViewController) -> UINavigationController {
 
 func openUrlInSafari(_ url: String) {
     guard let link = URL(string: url) else { return }
-    UIApplication.shared.openURL(link)
+    UIApplication.shared.open(link, options: [:], completionHandler: nil)
 }
 
 let isSimulator: Bool = {

@@ -31,13 +31,19 @@ struct Common {
 }
 
 struct MessageHub {
-    static func showMessage(_ message: String?, title: String?,
+    static func getMessage(_ message: String?, title: String?,
                             cancelActionName: String? = "OK") -> UIAlertController {
         let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
         if cancelActionName != nil {
             controller.addAction(UIAlertAction(title: cancelActionName, style: .destructive, handler: nil))
         }
         return controller
+    }
+
+    static func presentMessage(_ message: String?, title: String? = nil,
+                            cancelActionName: String? = "OK") {
+        let controller = getMessage(message, title: title, cancelActionName: cancelActionName)
+        UIApplication.topViewController()?.present(controller)
     }
 
     static func showError(_ message: String) {

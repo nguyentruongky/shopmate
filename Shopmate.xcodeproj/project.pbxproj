@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262B24D1225FDBE6004CB2FC /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D0225FDBE6004CB2FC /* Customer.swift */; };
 		2635CEE4225F232E00C1B412 /* ReviewSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */; };
 		2635CEE6225F23F500C1B412 /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */; };
 		2635CF14225F3C8300C1B412 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CF13225F3C8300C1B412 /* CartController.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		262B24D0225FDBE6004CB2FC /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSlideView.swift; sourceTree = "<group>"; };
 		2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		2635CF13225F3C8300C1B412 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		262B24D2225FDBF2004CB2FC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2680CF09225D953500693692 /* Common.swift */,
+				262B24D0225FDBE6004CB2FC /* Customer.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		2635CF12225F3C7B00C1B412 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,7 +276,7 @@
 				2680CEFA225CAC7D00693692 /* Products */,
 				2680CF20225D9B2D00693692 /* Login */,
 				2680CF21225D9C3800693692 /* Register */,
-				2680CF09225D953500693692 /* Common.swift */,
+				262B24D2225FDBF2004CB2FC /* Common */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -520,6 +531,7 @@
 				2680CF0A225D953500693692 /* Common.swift in Sources */,
 				2680CF27225D9D2B00693692 /* PasswordValidation.swift in Sources */,
 				2680CEEE225C9FB800693692 /* ProductsUI.swift in Sources */,
+				262B24D1225FDBE6004CB2FC /* Customer.swift in Sources */,
 				2680CED5225C98BD00693692 /* UISearchBarExtension.swift in Sources */,
 				2680CEDF225C98BD00693692 /* UIImageExtension.swift in Sources */,
 			);

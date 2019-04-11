@@ -15,10 +15,11 @@ class LoginController: knStaticListController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        hideNavBar(true)
+        hideNavBar(true)
     }
 
     override func setupView() {
+        removeKeyboardNotificationListeners()
         title = "Login"
         tableView.setHeader(ui.makeHeader(), height: screenHeight / 2)
 
@@ -39,13 +40,11 @@ class LoginController: knStaticListController {
     @objc func dismissScreen() { dismiss() }
 
     @objc func showRegister(){
-//        setControllers([RegisterController()])
+        setControllers([RegisterController()])
     }
 
     @objc func showForgot(){
-//        let ctr = snForgotPassCtr()
-//        ctr.ui.emailTextField.text = ui.emailTextField.text
-//        push(ctr)
+        MessageHub.presentMessage("Forgot password is coming")
     }
 
     @objc func login() {
@@ -53,8 +52,8 @@ class LoginController: knStaticListController {
         validation.email = ui.emailTextField.text
         validation.password = ui.passwordTextField.text
         let (valid, message) = validation.validate()
-        if valid == false {
-//            snMessage.showError(message ?? "", inSeconds: 5)
+        if valid == false, let message = message {
+            MessageHub.showError(message)
             return
         }
 
@@ -66,9 +65,8 @@ class LoginController: knStaticListController {
 extension LoginController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         tableView.isScrollEnabled = false
-        let bottomOffset = CGPoint(x: 0, y: 340)
+        let bottomOffset = CGPoint(x: 0, y: 300)
         tableView.setContentOffset(bottomOffset, animated: true)
-        run({ [weak self] in self?.tableView.isScrollEnabled = true }, after: 1)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -82,6 +80,8 @@ extension LoginController: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
+        tableView.isScrollEnabled = true
+        tableView.setContentOffset(CGPoint(x: 0, y: -44), animated: true)
         if textField == ui.emailTextField {
             if ui.emailTextField.text?.isValidEmail() == true {
                 textField.setView(.right, image: UIImage(named: "checked") ?? UIImage())

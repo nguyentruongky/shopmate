@@ -46,8 +46,7 @@ extension RegisterController {
         }()
 
         @objc func viewTerm() {
-            let controller = MessageHub.showMessage("Term is coming...", title: nil, cancelActionName: "OK")
-            UIApplication.topViewController()?.present(controller)
+            MessageHub.presentMessage("Term is coming...")
         }
 
         func makeCell(tf: UITextField) -> knTableCell {

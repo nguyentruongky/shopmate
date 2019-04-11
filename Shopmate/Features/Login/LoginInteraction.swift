@@ -11,13 +11,13 @@ import UIKit
 extension LoginController {
     func didLogin(user: Customer) {
         ui.loginButton.setProcess(visible: false)
-//        setting.user = user
-//        setting.token = user.token
+        appSetting.user = user
+        appSetting.token = user.token
         dismiss()
     }
 
     func didLoginFail(err: knError) {
-//        snMessage.showError(err.message ?? "Login failed")
+        MessageHub.showError(err.message ?? "Login fail")
         ui.loginButton.setProcess(visible: false)
     }
 

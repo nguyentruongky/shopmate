@@ -155,7 +155,6 @@ class knStaticListController: knController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         view.backgroundColor = .white
         setupView()
-        setupKeyboardNotifcationListenerForScrollView(scrollView: tableView)
     }
     
     func fillList(space: UIEdgeInsets = .zero) {
