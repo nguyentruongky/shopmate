@@ -10,6 +10,7 @@ import UIKit
 
 class knGridCell<U>: knCollectionCell {
     var data: U?
+    func setData(data: U) { }
 }
 
 class knGridView<C: knGridCell<U>, U>: knView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -17,13 +18,15 @@ class knGridView<C: knGridCell<U>, U>: knView, UICollectionViewDelegate, UIColle
     fileprivate let cellId = String(describing: C.self)
     var collectionView: UICollectionView!
     var contentInset = UIEdgeInsets.zero
-    var layout: UICollectionViewLayout!
+    var layout: UICollectionViewFlowLayout!
     var itemSize: CGSize!
     var lineSpacing: CGFloat = 0
     var columnSpacing: CGFloat = 0
-    
+
     override func setupView() {
-        guard let layout = layout else { fatalError() }
+        if layout == nil {
+            layout = UICollectionViewFlowLayout()
+        }
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
@@ -37,19 +40,25 @@ class knGridView<C: knGridCell<U>, U>: knView, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { return datasource.count }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = getCell(atIndex: indexPath)
+        cell.setData(data: datasource[indexPath.item])
+        return cell
+    }
+    func getCell(atIndex indexPath: IndexPath) -> C {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! C
-        cell.data = datasource[indexPath.row]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard var size = itemSize else { fatalError() }
-        if size.height == 0 {
-            size.height = collectionView.frame.height
+        if itemSize == nil {
+            itemSize = CGSize.zero
         }
-        if size.width == 0 {
-            size.width = collectionView.frame.width
+        if itemSize.height == 0 {
+            itemSize.height = collectionView.frame.height
         }
-        return size
+        if itemSize.width == 0 {
+            itemSize.width = collectionView.frame.width
+        }
+        return itemSize!
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat { return columnSpacing }
     
@@ -59,15 +68,16 @@ class knGridView<C: knGridCell<U>, U>: knView, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { didSelectItem(at: indexPath) }
     func didSelectItem(at indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {}
 }
 
-class GridController<C: knGridCell<U>, U>: knController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class knGridController<C: knGridCell<U>, U>: knController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var datasource = [U]() { didSet {
         collectionView.reloadData() }}
     fileprivate let cellId = String(describing: C.self)
     var collectionView: UICollectionView!
     var contentInset = UIEdgeInsets.zero
-    var layout: UICollectionViewLayout!
+    var layout: UICollectionViewFlowLayout!
     var itemSize: CGSize = .zero
     var lineSpacing: CGFloat = 0
     var columnSpacing: CGFloat = 0
@@ -80,7 +90,9 @@ class GridController<C: knGridCell<U>, U>: knController, UICollectionViewDelegat
     }
     
     override func setupView() {
-        guard let layout = layout else { fatalError() }
+        if layout == nil {
+            layout = UICollectionViewFlowLayout()
+        }
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
@@ -100,10 +112,11 @@ class GridController<C: knGridCell<U>, U>: knController, UICollectionViewDelegat
     func registerHeader(headerClass: AnyClass) {
         collectionView.register(headerClass, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
     }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { return datasource.count }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! C
-        cell.data = datasource[indexPath.row]
+        cell.setData(data: datasource[indexPath.item])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -103,6 +103,14 @@ extension UIViewController {
     func setNavBarColor(_ color: UIColor) {
         navigationController?.removeLine(color: color)
     }
+
+    func hideNavBar(_ value: Bool) {
+        navigationController?.hideBar(value)
+    }
+
+    func setControllers(_ ctrs: [UIViewController]) {
+        navigationController?.setViewControllers(ctrs, animated: true)
+    }
 }
 
 

@@ -10,6 +10,7 @@ import UIKit
 
 class knListCell<U>: knTableCell {
     var data: U?
+    func setData(data: U) {}
 }
 
 class knListView<C: knListCell<U>, U>: knView, UITableViewDataSource, UITableViewDelegate {
@@ -39,7 +40,7 @@ class knListView<C: knListCell<U>, U>: knView, UITableViewDataSource, UITableVie
         return datasource.count }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! C
-        cell.data = datasource[indexPath.row]
+        cell.setData(data: datasource[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return rowHeight }
@@ -124,7 +125,7 @@ class knListController<C: knListCell<U>, U>: knController, UITableViewDataSource
     
     func getCell(at index: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: index) as! C
-        cell.data = datasource[index.row]
+        cell.setData(data: datasource[index.row])
         return cell
     }
     
@@ -142,7 +143,13 @@ class knListController<C: knListCell<U>, U>: knController, UITableViewDataSource
 class knStaticListController: knController, UITableViewDelegate, UITableViewDataSource {
     var datasource = [UITableViewCell]() { didSet { tableView.reloadData() }}
     var rowHeight = UITableView.automaticDimension
-    var contentInset: UIEdgeInsets?
+    var contentInset: UIEdgeInsets? {
+        didSet {
+            if let inset = contentInset {
+                tableView.contentInset = inset
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,9 +166,6 @@ class knStaticListController: knController, UITableViewDelegate, UITableViewData
     override func setupView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
-        if let inset = contentInset {
-            tableView.contentInset = inset
-        }
     }
     
     lazy var tableView: UITableView = { [weak self] in
@@ -177,12 +181,7 @@ class knStaticListController: knController, UITableViewDelegate, UITableViewData
     deinit {
         print("Deinit \(NSStringFromClass(type(of: self)))")
     }
-    func wrapToCell(view: UIView) -> knTableCell {
-        let cell = knTableCell()
-        cell.addSubview(view)
-        view.fill(toView: cell)
-        return cell
-    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datasource.count }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

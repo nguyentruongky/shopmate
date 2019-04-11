@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    func setBorder(_ width: CGFloat, color: UIColor) {
+    func setBorder(width: CGFloat, color: UIColor) {
         layer.borderColor = color.cgColor
         layer.borderWidth = width
     }

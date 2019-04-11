@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ky Nguyen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 var appSetting = AppSetting()
 struct AppSetting {
@@ -22,3 +22,5 @@ struct AppSetting {
         set { UserDefaults.set(key: "didLogin", value: newValue) }
     }
 }
+
+let gap: CGFloat = 16

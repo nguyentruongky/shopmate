@@ -8,14 +8,14 @@
 
 import UIKit
 class UIMaker {
-    static func makeHorizontalLine(color: UIColor = UIColor(r: 242, g: 246, b: 254),
+    static func makeHorizontalLine(color: UIColor = UIColor(r: 238, g: 242, b: 246),
                                    height: CGFloat = 1) -> UIView {
         let view = makeView(background: color)
         view.height(height)
         return view
     }
 
-    static func makeVerticalLine(color: UIColor = UIColor(r: 242, g: 246, b: 254),
+    static func makeVerticalLine(color: UIColor = UIColor(r: 238, g: 242, b: 246),
                                  width: CGFloat = 1) -> UIView {
         let view = makeView(background: color)
         view.width(width)
@@ -87,7 +87,7 @@ class UIMaker {
 
         button.titleLabel?.font = font
         button.setCorner(radius: cornerRadius)
-        button.setBorder(borderWidth, color: borderColor)
+        button.setBorder(width: borderWidth, color: borderColor)
         return button
     }
 
@@ -112,7 +112,7 @@ class UIMaker {
     }
 
     static func makeMainButton(title: String,
-                               bgColor: UIColor = UIColor.gray,
+                               bgColor: UIColor = UIColor.black,
                                titleColor: UIColor = UIColor.white,
                                font: UIFont = UIFont.main(.bold, size: 18)) -> UIButton {
         let button = UIButton()
@@ -138,7 +138,7 @@ class UIMaker {
             button.addTarget(self, action: doneAction, for: .touchUpInside)
         }
         else {
-            button.addTarget(appDelegate, action: #selector(hideKeyboard), for: .touchUpInside)
+            button.addTarget(self, action: #selector(hideKeyboard), for: .touchUpInside)
         }
 
         view.addSubview(button)

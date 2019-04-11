@@ -9,93 +9,93 @@
 import UIKit
 
 extension UIView {
-    
+
     func addConstraint(attribute: NSLayoutConstraint.Attribute, equalTo view: UIView, toAttribute: NSLayoutConstraint.Attribute, multiplier: CGFloat = 1, constant: CGFloat = 0) -> NSLayoutConstraint {
         let myConstraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .equal, toItem: view, attribute: toAttribute, multiplier: multiplier, constant: constant)
         return myConstraint
     }
-    
+
     func addConstraints(withFormat format: String, views: UIView...) {
         var viewsDictionary = [String: UIView]()
-        
+
         for i in 0 ..< views.count {
             let key = "v\(i)"
             views[i].translatesAutoresizingMaskIntoConstraints = false
             viewsDictionary[key] = views[i]
         }
-        
+
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDictionary))
     }
-    
+
     func addConstraints(withFormat format: String, arrayOf views: [UIView]) {
         var viewsDictionary = [String: UIView]()
-        
+
         for i in 0 ..< views.count {
             let key = "v\(i)"
             views[i].translatesAutoresizingMaskIntoConstraints = false
             viewsDictionary[key] = views[i]
         }
-        
+
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDictionary))
     }
-    
+
     func removeAllConstraints() {
         removeConstraints(constraints)
     }
-    
+
     func addSubviews(views: UIView...) {
         for view in views {
             addSubview(view)
         }
     }
-    
+
     func addFill(_ view: UIView) {
         addSubview(view)
         view.fill(toView: self)
     }
-    
+
     @discardableResult
     public func left(toAnchor anchor: NSLayoutXAxisAnchor, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = leftAnchor.constraint(equalTo: anchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func left(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = leftAnchor.constraint(equalTo: view.leftAnchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func right(toAnchor anchor: NSLayoutXAxisAnchor, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = rightAnchor.constraint(equalTo: anchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func right(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = rightAnchor.constraint(equalTo: view.rightAnchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func top(toAnchor anchor: NSLayoutYAxisAnchor, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = topAnchor.constraint(equalTo: anchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func top(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = topAnchor.constraint(equalTo: view.topAnchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func topLeft(toView view: UIView, top: CGFloat = 0, left: CGFloat = 0, isActive: Bool = true)
         -> (top: NSLayoutConstraint, left: NSLayoutConstraint) {
@@ -103,7 +103,7 @@ extension UIView {
             let leftConstraint = self.left(toView: view, space: left)
             return (topConstraint, leftConstraint)
     }
-    
+
     @discardableResult
     public func topRight(toView view: UIView, top: CGFloat = 0, right: CGFloat = 0)
         -> (top: NSLayoutConstraint, right: NSLayoutConstraint){
@@ -111,7 +111,7 @@ extension UIView {
             let rightConstraint = self.right(toView: view, space: right)
             return (topConstraint, rightConstraint)
     }
-    
+
     @discardableResult
     public func bottomRight(toView view: UIView, bottom: CGFloat = 0, right: CGFloat = 0)
         -> (bottom: NSLayoutConstraint, right: NSLayoutConstraint){
@@ -119,7 +119,7 @@ extension UIView {
             let rightConstraint = self.right(toView: view, space: right)
             return (bottomConstraint, rightConstraint)
     }
-    
+
     @discardableResult
     public func bottomLeft(toView view: UIView, bottom: CGFloat = 0, left: CGFloat = 0)
         -> (bottom: NSLayoutConstraint, left: NSLayoutConstraint) {
@@ -127,119 +127,119 @@ extension UIView {
             let leftConstraint = self.left(toView: view, space: left)
             return (bottomConstraint, leftConstraint)
     }
-    
+
     @discardableResult
     public func bottom(toAnchor anchor: NSLayoutYAxisAnchor, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = bottomAnchor.constraint(equalTo: anchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func bottom(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func verticalSpacing(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = topAnchor.constraint(equalTo: view.bottomAnchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func verticalSpacingDown(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = bottomAnchor.constraint(equalTo: view.topAnchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func horizontalSpacing(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = rightAnchor.constraint(equalTo: view.leftAnchor, constant: -space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func leftHorizontalSpacing(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = leftAnchor.constraint(equalTo: view.rightAnchor, constant: -space)
         constraint.isActive = isActive
         return constraint
     }
-    
-    
-    
+
+
+
     public func size(_ size: CGSize) {
         widthAnchor.constraint(equalToConstant: size.width).isActive = true
         heightAnchor.constraint(equalToConstant: size.height).isActive = true
     }
-    
+
     public func size(toView view: UIView, greater: CGFloat = 0) {
         widthAnchor.constraint(equalTo: view.widthAnchor, constant: greater).isActive = true
         heightAnchor.constraint(equalTo: view.heightAnchor, constant: greater).isActive = true
     }
-    
+
     public func square(edge: CGFloat) {
         size(CGSize(width: edge, height: edge))
     }
-    
+
     public func square() {
         widthAnchor.constraint(equalTo: heightAnchor, multiplier: 1, constant: 0).isActive = true
     }
-    
+
     @discardableResult
     public func width(_ width: CGFloat, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = widthAnchor.constraint(equalToConstant: width)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func width(toDimension dimension: NSLayoutDimension, multiplier: CGFloat = 1, greater: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = widthAnchor.constraint(equalTo: dimension, multiplier: multiplier, constant: greater)
         constraint.isActive = isActive
         return constraint
     }
-    
-    
+
+
     @discardableResult
     public func width(toView view: UIView, multiplier: CGFloat = 1, greater: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: multiplier, constant: greater)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func height(_ height: CGFloat, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = heightAnchor.constraint(equalToConstant: height)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func height(toDimension dimension: NSLayoutDimension, multiplier: CGFloat = 1, greater: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = heightAnchor.constraint(equalTo: dimension, multiplier: multiplier, constant: greater)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func height(toView view: UIView, multiplier: CGFloat = 1, greater: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: multiplier, constant: greater)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func centerX(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func centerX(toAnchor anchor: NSLayoutXAxisAnchor,
                         space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
@@ -247,27 +247,27 @@ extension UIView {
         constraint.isActive = isActive
         return constraint
     }
-    
+
     public func center(toView view: UIView, spaceX: CGFloat = 0,
                        spaceY: CGFloat = 0){
         centerX(toView: view, space: spaceX)
         centerY(toView: view, space: spaceY)
     }
-    
+
     @discardableResult
     public func centerY(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func centerY(toAnchor anchor: NSLayoutYAxisAnchor, space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint {
         let constraint = centerYAnchor.constraint(equalTo: anchor, constant: space)
         constraint.isActive = isActive
         return constraint
     }
-    
+
     @discardableResult
     public func horizontal(toView view: UIView, space: CGFloat = 0, isActive: Bool = true) ->
         (left: NSLayoutConstraint, right: NSLayoutConstraint) {
@@ -278,7 +278,14 @@ extension UIView {
             right.isActive = isActive
             return (left, right)
     }
-    
+
+    @discardableResult
+    public func horizontalSuperview(space: CGFloat = 0, isActive: Bool = true) ->
+        (left: NSLayoutConstraint, right: NSLayoutConstraint)? {
+            guard let view = superview else { return nil }
+            return horizontal(toView: view, space: space)
+    }
+
     @discardableResult
     public func horizontal(toView view: UIView, leftPadding: CGFloat, rightPadding: CGFloat, isActive: Bool = true)
         -> (left: NSLayoutConstraint, right: NSLayoutConstraint) {
@@ -288,7 +295,7 @@ extension UIView {
             right.isActive = isActive
             return (left, right)
     }
-    
+
     @discardableResult
     public func vertical(toView view: UIView, space: CGFloat = 0, isActive: Bool = true)
         -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint) {
@@ -298,7 +305,14 @@ extension UIView {
             bottom.isActive = isActive
             return (top, bottom)
     }
-    
+
+    @discardableResult
+    public func verticalSuperview(space: CGFloat = 0, isActive: Bool = true)
+        -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint)? {
+            guard let view = superview else { return nil }
+            return vertical(toView: view)
+    }
+
     @discardableResult
     public func vertical(toView view: UIView, topPadding: CGFloat, bottomPadding: CGFloat, isActive: Bool = true)
         -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint) {
@@ -308,7 +322,7 @@ extension UIView {
             bottom.isActive = isActive
             return (top, bottom)
     }
-    
+
     @discardableResult
     public func fill(toView view: UIView, space: UIEdgeInsets = .zero, isActive: Bool = true)
         -> (left: NSLayoutConstraint, top: NSLayoutConstraint,
@@ -319,13 +333,102 @@ extension UIView {
             let bottomCons = bottom(toView: view, space: -space.bottom, isActive: isActive)
             return (leftCons, topCons, rightCons, bottomCons)
     }
+
+    func fillSuperView(space: UIEdgeInsets = .zero) {
+        guard let view = superview else { return }
+        fill(toView: view, space: space)
+    }
+
+    @discardableResult
+    func leftSuperView(space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint? {
+        guard let view = superview else { return nil }
+        return left(toView: view, space: space)
+    }
+
+    @discardableResult
+    func rightSuperView(space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint? {
+        guard let view = superview else { return nil }
+        return right(toView: view, space: space)
+    }
+
+    @discardableResult
+    func topSuperView(space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint? {
+        guard let view = superview else { return nil }
+        return top(toView: view, space: space)
+    }
+
+    @discardableResult
+    func bottomSuperView(space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint? {
+        guard let view = superview else { return nil }
+        return bottom(toView: view, space: space)
+    }
+
+    @discardableResult
+    func centerXSuperView(space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint? {
+        guard let view = superview else { return nil }
+        return centerX(toView: view, space: space)
+    }
+
+    @discardableResult
+    func centerYSuperView(space: CGFloat = 0, isActive: Bool = true) -> NSLayoutConstraint? {
+        guard let view = superview else { return nil }
+        return centerY(toView: view, space: space)
+    }
+
+    enum StackStickType {
+        case left, right, horizontal
+        case top, bottom, vertical
+        case none
+    }
+
+    func stackHorizontally(views: [UIView],
+                           viewSpaces: CGFloat = 0,
+                           leftSpace: CGFloat? = nil,
+                           rightSpace: CGFloat? = nil) {
+        var constraintsString = "H:"
+        if let space = leftSpace {
+            constraintsString += "|-\(space)-"
+        }
+
+        for i in 0 ..< views.count - 1 {
+            constraintsString += "[v\(i)]-\(viewSpaces)-"
+        }
+
+        constraintsString += "[v\(views.count - 1)]"
+
+        if let space = rightSpace {
+            constraintsString += "-\(space)-|"
+        }
+        addConstraints(withFormat: constraintsString, arrayOf: views)
+    }
+
+    func stackVertically(views: [UIView],
+                         viewSpaces: CGFloat,
+                         topSpace: CGFloat? = nil,
+                         bottomSpace: CGFloat? = nil) {
+        var constraintsString = "V:"
+        if let space = topSpace {
+            constraintsString += "|-\(space)-"
+        }
+
+        for i in 0 ..< views.count - 1 {
+            constraintsString += "[v\(i)]-\(viewSpaces)-"
+        }
+
+        constraintsString += "[v\(views.count - 1)]"
+
+        if let space = bottomSpace {
+            constraintsString += "-\(space)-|"
+        }
+        addConstraints(withFormat: constraintsString, arrayOf: views)
+    }
 }
 
 extension UIEdgeInsets {
     init(space: CGFloat) {
         self.init(top: space, left: space, bottom: space, right: space)
     }
-    
+
     init(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) {
         self.init()
         self.top = top

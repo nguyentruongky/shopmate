@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func setupApp() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = UIViewController()
+        window!.rootViewController = wrap(RegisterController())
         window!.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
     }
