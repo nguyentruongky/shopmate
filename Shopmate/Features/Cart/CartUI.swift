@@ -17,10 +17,10 @@ extension CartController {
 class CartCell: knListCell<CartItem> {
     override func setData(data: CartItem) {
         self.data = data
-        productImageView.downloadImage(from: data.url)
+//        productImageView.downloadImage(from: data.url)
         priceLabel.text = data.price
-        nameLabel.text = data.title
-        colorButton.backgroundColor = UIColor(hex: data.color)
+        nameLabel.text = data.name
+        colorButton.backgroundColor = UIColor(name: data.color)
         sizeLabel.text = data.size
     }
     let productImageView = UIMaker.makeImageView()

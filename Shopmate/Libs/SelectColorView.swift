@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ColorCell: knGridCell<String> {
-    override func setData(data: String) {
+class ColorCell: knGridCell<Color> {
+    override func setData(data: Color) {
         self.data = data
-        colorView.backgroundColor = UIColor(hex: data)
+        colorView.backgroundColor = UIColor(name: data.value.lowercased())
     }
     let colorView = UIMaker.makeView()
     let checkImageView = UIMaker.makeImageView(image: UIImage(named: "check"))
@@ -35,7 +35,7 @@ class ColorCell: knGridCell<String> {
     }
 }
 
-class SelectColorView: knGridView<ColorCell, String> {
+class SelectColorView: knGridView<ColorCell, Color> {
     override func setupView() {
         itemSize = CGSize(width: 32, height: 32)
         lineSpacing = 8

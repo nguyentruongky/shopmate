@@ -10,7 +10,13 @@ import UIKit
 
 class CartController: knListController<CartCell, CartItem> {
     let ui = UI()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavBar(false)
+    }
+
     override func setupView() {
+        addBackButton()
         rowHeight = 160
         super.setupView()
         view.addSubviews(views: tableView, ui.checkoutButton)
@@ -21,28 +27,17 @@ class CartController: knListController<CartCell, CartItem> {
         ui.checkoutButton.horizontalSuperview(space: gap)
         ui.checkoutButton.bottomSuperView(space: -gap * 2)
 
+        fetchData()
+    }
 
-        datasource = [
-            CartItem(price: "$210",
-                     quantity: 3,
-                     title: "Shirt for gentle man",
-                     color: "F2F2F2",
-                     size: "L",
-                     url: "http://brandstore.vistaprint.in//render/undecorated/product/PVAG-0Q4K507W3K1Y/RS-K82Q06W655QY/jpeg?compression=95&width=700"),
-            CartItem(price: "$210",
-                     quantity: 3,
-                     title: "Shirt for gentle man",
-                     color: "048134",
-                     size: "L",
-                     url: "http://brandstore.vistaprint.in//render/undecorated/product/PVAG-0Q4K507W3K1Y/RS-K82Q06W655QY/jpeg?compression=95&width=700"),
-            CartItem(price: "$210",
-                     quantity: 3,
-                     title: "Shirt for gentle man",
-                     color: "F81723",
-                     size: "M",
-                     url: "http://brandstore.vistaprint.in//render/undecorated/product/PVAG-0Q4K507W3K1Y/RS-K82Q06W655QY/jpeg?compression=95&width=700"),
+    override func fetchData() {
+        GetCartItemsWorker(successAction: didGetCart).execute()
+    }
 
-        ]
+    func didGetCart(items: [CartItem]) {
+        datasource = items
+        title = "Cart (\(items.count))"
+
     }
 }
 

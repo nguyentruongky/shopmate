@@ -9,19 +9,29 @@
 import Foundation
 
 struct CartItem {
-    var price: String
+    var productID = 0
+    var name = ""
+    var size = ""
+    var color = ""
+    var price = ""
     var quantity = 0
-    var title: String
-    var color: String
-    var size: String
-    var url: String
+    var subtotal = ""
 
-    init(price: String, quantity: Int, title: String, color: String, size: String, url: String) {
-        self.price = price
-        self.quantity = quantity
-        self.title = title
-        self.color = color
-        self.size = size
-        self.url = url
+    init(raw: AnyObject) {
+        productID = raw["item_id"] as? Int ?? 0
+        name = raw["name"] as? String ?? ""
+        if let attributesRaw = raw["attributes"] as? String {
+            let attributes = attributesRaw.splitString(", ")
+            if attributes.count > 0 {
+                color = attributes[0]
+            }
+            if attributes.count > 1 {
+                size = attributes[1]
+            }
+        }
+        price = raw["price"] as? String ?? "0"
+        price = "$" + price
+        subtotal = raw["subtotal"] as? String ?? ""
+        quantity = raw["quantity"] as? Int ?? 0
     }
 }

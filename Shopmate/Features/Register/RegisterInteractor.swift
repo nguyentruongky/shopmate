@@ -14,6 +14,9 @@ extension RegisterController {
         appSetting.user = user
         appSetting.token = user.token
         dismiss()
+        CreateCartWorker(successAction: { cartID in
+            appSetting.cartID = cartID
+        }).execute()
     }
 
     func didRegisterFail(_ err: knError) {

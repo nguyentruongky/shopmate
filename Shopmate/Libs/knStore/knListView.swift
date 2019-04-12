@@ -106,7 +106,6 @@ class knListController<C: knListCell<U>, U>: knController, UITableViewDataSource
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
 
-        setupView()
         view.backgroundColor = .white
         setupKeyboardNotifcationListenerForScrollView(scrollView: tableView)
     }
@@ -149,12 +148,6 @@ class knStaticListController: knController, UITableViewDelegate, UITableViewData
                 tableView.contentInset = inset
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        setupView()
     }
     
     func fillList(space: UIEdgeInsets = .zero) {

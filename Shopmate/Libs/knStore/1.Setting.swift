@@ -11,6 +11,7 @@ import UIKit
 var appSetting = AppSetting()
 struct AppSetting {
     let baseURL = "https://mobilebackend.turing.com"
+    let baseImageURL = "https://mobilebackend.turing.com/images/products/"
     var token: String? {
         get { return UserDefaults.get(key: "token") as String? }
         set {
@@ -18,6 +19,15 @@ struct AppSetting {
             UserDefaults.set(key: "token", value: newValue)
         }
     }
+
+    var cartID: String? {
+        get { return UserDefaults.get(key: "cartID") as String? }
+        set {
+            didLogin = newValue != nil
+            UserDefaults.set(key: "cartID", value: newValue)
+        }
+    }
+
     var user: Customer?
 
     var didLogin: Bool {

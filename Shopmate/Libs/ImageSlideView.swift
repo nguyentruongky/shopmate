@@ -13,7 +13,7 @@ class knImageSlideCell: knGridCell<String> {
         self.data = data
         imgView.downloadImage(from: data)
     }
-    let imgView = UIMaker.makeImageView(contentMode: .scaleAspectFill)
+    let imgView = UIMaker.makeImageView(contentMode: .scaleAspectFit)
     override func setupView() {
         addSubviews(views: imgView)
         imgView.fillSuperView()
@@ -29,6 +29,7 @@ class knImageSlideView: knGridView<knImageSlideCell, String> {
     
     override func setupView() {
         super.setupView()
+        clipsToBounds = true
         layout.scrollDirection = .horizontal
         collectionView.isPagingEnabled = true
 
@@ -37,8 +38,9 @@ class knImageSlideView: knGridView<knImageSlideCell, String> {
         dots.pageIndicatorTintColor = UIColor(value: 243)
         
         addSubviews(views: collectionView, dots)
-        addConstraints(withFormat: "V:|-8-[v0][v1]|", views: collectionView, dots)
-        collectionView.horizontal(toView: self)
+        collectionView.fill(toView: self)
+
+        dots.bottomSuperView()
         dots.centerX(toView: self)
         dots.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
     }

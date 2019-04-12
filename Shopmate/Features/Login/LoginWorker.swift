@@ -30,8 +30,7 @@ struct LoginWorker {
             "email": email,
             "password": password
         ]
-        let finalApi = appSetting.baseURL + api
-        ApiConnector.post(finalApi, params: params,
+        ApiConnector.post(api, params: params,
                               success: successResponse,
                               fail: failResponse)
     }

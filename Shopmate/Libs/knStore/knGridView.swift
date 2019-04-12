@@ -84,11 +84,6 @@ class knGridController<C: knGridCell<U>, U>: knController, UICollectionViewDeleg
     var hasHeader = false
     var headerSize = CGSize.zero
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-    }
-    
     override func setupView() {
         if layout == nil {
             layout = UICollectionViewFlowLayout()
@@ -144,4 +139,6 @@ class knGridController<C: knGridCell<U>, U>: knController, UICollectionViewDeleg
     }
     
     @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize { return headerSize }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {}
 }

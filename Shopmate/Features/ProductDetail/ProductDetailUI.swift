@@ -8,11 +8,14 @@
 
 import UIKit
 
+
 extension ProductDetailController {
     class UI {
         let imageSlideshow = knImageSlideView()
         let priceLabel = UIMaker.makeLabel(font: UIFont.main(.bold, size: 16),
                                            color: .black)
+        let discountPriceLabel = UIMaker.makeLabel(font: UIFont.main(size: 14),
+                                                   color: .black)
         let titleLabel = UIMaker.makeLabel(font: UIFont.main(.regular, size: 13),
                                            color: .darkGray)
         let likeButton = UIMaker.makeButton()
@@ -26,57 +29,39 @@ extension ProductDetailController {
                                           numberOfLines: 0)
         let reviewView = knReviewSlideView()
 
+        func getSelectedSize() -> String? {
+            guard let index = sizeView.selectedIndex?.item else { return nil }
+            return sizeView.datasource[index].value
+        }
+
+        func getSelectedColor() -> String? {
+            guard let index = colorView.selectedIndex?.item else { return nil }
+            return colorView.datasource[index].value
+        }
+
         let backButton = UIMaker.makeButton(image: UIImage(named: "back"))
-        let cartButton = UIMaker.makeButton(image: UIImage(named: "cart"))
+        let cartButton = BadgeButton()
 
         func setupView() -> [knTableCell] {
-
-            priceLabel.text = "$120"
-            titleLabel.text = "White shirt for gentle men"
-
-            colorView.datasource = [
-                "FFFFFF",
-                "000000",
-                "F0F0F0",
-                "0F0F0F",
-                "FF00FF",
-                "FF0000",
-                "F000FF"
-            ]
-
-            sizeView.datasource = [
-                "XS", "S", "M", "L", "XL", "XXL",
-                "XS", "S", "M", "L", "XL", "XXL"
-            ]
-
-            descLabel.text = """
-            Along the way, Carthage will have created some build artifacts. The most important of these is the Cartfile.resolved file, which lists the versions that were actually built for each framework. Make sure to commit your Cartfile.resolved, because anyone else using the project will need that file to build the same framework versions.
-            """
-
-            reviewView.datasource = [
-                knReview(name: "Ky Nguyen", date: "12/12/2018", value: 5, content: "With the debug information copied into the built products directory, Xcode will be able to symbolicate the stack trace whenever you stop at a breakpoint. This will also enable you to step through third-party code in the debugger."),
-                knReview(name: "Ky Nguyen", date: "12/12/2018", value: 5, content: "With the debug information copied into the built products directory, Xcode will be able to symbolicate the stack trace whenever you stop at a breakpoint. This will also enable you to step through third-party code in the debugger."),
-                knReview(name: "Ky Nguyen", date: "12/12/2018", value: 5, content: "With the debug information copied into the built products directory, Xcode will be able to symbolicate the stack trace whenever you stop at a breakpoint. This will also enable you to step through third-party code in the debugger."),
-                knReview(name: "Ky Nguyen", date: "12/12/2018", value: 5, content: "With the debug information copied into the built products directory, Xcode will be able to symbolicate the stack trace whenever you stop at a breakpoint. This will also enable you to step through third-party code in the debugger."),
-                knReview(name: "Ky Nguyen", date: "12/12/2018", value: 5, content: "With the debug information copied into the built products directory, Xcode will be able to symbolicate the stack trace whenever you stop at a breakpoint. This will also enable you to step through third-party code in the debugger."),
-            ]
-
             return [
                 makeNamePriceCell(),
                 makeSelectionCell(),
                 makeAddToCartCell(),
                 makeDescriptionCell(),
-                makeReviewCell(),
             ]
+
         }
 
         func makeNamePriceCell() -> knTableCell {
             let cell = knTableCell()
-            cell.addSubviews(views: priceLabel, titleLabel, ratingView)
-            cell.addConstraints(withFormat: "V:|[v0]-4-[v1]|",
+            cell.addSubviews(views: priceLabel, titleLabel, ratingView, discountPriceLabel)
+            cell.addConstraints(withFormat: "V:|-16-[v0]-4-[v1]|",
                                 views: priceLabel, titleLabel)
             priceLabel.leftSuperView(space: gap)
             titleLabel.left(toView: priceLabel)
+
+            discountPriceLabel.leftHorizontalSpacing(toView: priceLabel, space: -8)
+            discountPriceLabel.centerY(toView: priceLabel)
 
             ratingView.rightSuperView(space: -gap)
             ratingView.centerY(toView: priceLabel)
@@ -91,6 +76,10 @@ extension ProductDetailController {
                 button.fill(toView: view, space: UIEdgeInsets(space: 12))
                 return view
             }
+
+            backButton.imageView?.changeColor(to: .black)
+            cartButton.translatesAutoresizingMaskIntoConstraints = false
+            cartButton.setImage(UIImage(named: "cart"), for: .normal)
 
             let backView = makeView(button: backButton)
             let cartView = makeView(button: cartButton)
@@ -141,7 +130,6 @@ extension ProductDetailController {
             centerLine.bottom(toView: bottomLine, space: -4)
 
             cell.height(88)
-
             return cell
         }
 

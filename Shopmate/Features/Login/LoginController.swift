@@ -19,7 +19,6 @@ class LoginController: knStaticListController {
     }
 
     override func setupView() {
-        removeKeyboardNotificationListeners()
         title = "Login"
         tableView.setHeader(ui.makeHeader(), height: screenHeight / 2)
 
@@ -37,7 +36,9 @@ class LoginController: knStaticListController {
         ui.passwordTextField.delegate = self
     }
 
-    @objc func dismissScreen() { dismiss() }
+    @objc func dismissScreen() {
+        dismiss()
+    }
 
     @objc func showRegister(){
         setControllers([RegisterController()])

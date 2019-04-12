@@ -33,8 +33,7 @@ struct RegisterWorker {
             "email": email,
             "password": password
         ]
-        let finalApi = appSetting.baseURL + api
-        ApiConnector.post(finalApi, params: params,
+        ApiConnector.post(api, params: params,
                               success: successResponse,
                               fail: failResponse)
     }
@@ -52,11 +51,7 @@ struct RegisterWorker {
     }
 
     func failResponse(err: knError) {
-        var newErr = err
-        if err.code == "409" {
-            newErr.message = "Your email is registered. Please try another one"
-        }
-        fail?(newErr)
+        fail?(err)
     }
 }
 

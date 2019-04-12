@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		262B24D1225FDBE6004CB2FC /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D0225FDBE6004CB2FC /* Customer.swift */; };
+		262B24D4225FDE0D004CB2FC /* LandingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D3225FDE0D004CB2FC /* LandingController.swift */; };
+		262B24D7225FE7DE004CB2FC /* GetProductsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D6225FE7DE004CB2FC /* GetProductsWorker.swift */; };
+		262B24D922601DBF004CB2FC /* GetProductDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D822601DBF004CB2FC /* GetProductDetailWorker.swift */; };
+		262B24DB22601E91004CB2FC /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24DA22601E91004CB2FC /* ProductsInteractor.swift */; };
+		262B24DD22601EAF004CB2FC /* ProductDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24DC22601EAF004CB2FC /* ProductDetailInteractor.swift */; };
+		262B24DF226020CF004CB2FC /* GetColorsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24DE226020CF004CB2FC /* GetColorsWorker.swift */; };
+		262B24E12260288D004CB2FC /* GetSizesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24E02260288D004CB2FC /* GetSizesWorker.swift */; };
+		262B24E322602F09004CB2FC /* GetProductReviewWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24E222602F09004CB2FC /* GetProductReviewWorker.swift */; };
+		262B24E52260425C004CB2FC /* CreateCartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24E42260425C004CB2FC /* CreateCartWorker.swift */; };
+		262B24E7226042E7004CB2FC /* AddToCartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24E6226042E7004CB2FC /* AddToCartWorker.swift */; };
+		262B24EB22604965004CB2FC /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24EA22604965004CB2FC /* BadgeButton.swift */; };
+		262B24ED22604C01004CB2FC /* GetCartItemsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24EC22604C01004CB2FC /* GetCartItemsWorker.swift */; };
 		2635CEE4225F232E00C1B412 /* ReviewSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */; };
 		2635CEE6225F23F500C1B412 /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */; };
 		2635CF14225F3C8300C1B412 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CF13225F3C8300C1B412 /* CartController.swift */; };
@@ -58,9 +70,9 @@
 		2680CF08225CAEBE00693692 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF07225CAEBE00693692 /* RegisterController.swift */; };
 		2680CF0A225D953500693692 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF09225D953500693692 /* Common.swift */; };
 		2680CF0C225D95FB00693692 /* TermLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF0B225D95FB00693692 /* TermLabel.swift */; };
-		2680CF1D225D9ACF00693692 /* LoginInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF1C225D9ACF00693692 /* LoginInteraction.swift */; };
+		2680CF1D225D9ACF00693692 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF1C225D9ACF00693692 /* LoginInteractor.swift */; };
 		2680CF1F225D9B2800693692 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF1E225D9B2800693692 /* LoginWorker.swift */; };
-		2680CF23225D9C4B00693692 /* RegisterInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF22225D9C4B00693692 /* RegisterInteraction.swift */; };
+		2680CF23225D9C4B00693692 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF22225D9C4B00693692 /* RegisterInteractor.swift */; };
 		2680CF25225D9C6000693692 /* RegisterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF24225D9C6000693692 /* RegisterWorker.swift */; };
 		2680CF27225D9D2B00693692 /* PasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF26225D9D2B00693692 /* PasswordValidation.swift */; };
 		2680CF2E225DA36200693692 /* ProductDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680CF2D225DA36200693692 /* ProductDetailController.swift */; };
@@ -73,6 +85,18 @@
 
 /* Begin PBXFileReference section */
 		262B24D0225FDBE6004CB2FC /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		262B24D3225FDE0D004CB2FC /* LandingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingController.swift; sourceTree = "<group>"; };
+		262B24D6225FE7DE004CB2FC /* GetProductsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsWorker.swift; sourceTree = "<group>"; };
+		262B24D822601DBF004CB2FC /* GetProductDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductDetailWorker.swift; sourceTree = "<group>"; };
+		262B24DA22601E91004CB2FC /* ProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
+		262B24DC22601EAF004CB2FC /* ProductDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInteractor.swift; sourceTree = "<group>"; };
+		262B24DE226020CF004CB2FC /* GetColorsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetColorsWorker.swift; sourceTree = "<group>"; };
+		262B24E02260288D004CB2FC /* GetSizesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSizesWorker.swift; sourceTree = "<group>"; };
+		262B24E222602F09004CB2FC /* GetProductReviewWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductReviewWorker.swift; sourceTree = "<group>"; };
+		262B24E42260425C004CB2FC /* CreateCartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCartWorker.swift; sourceTree = "<group>"; };
+		262B24E6226042E7004CB2FC /* AddToCartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartWorker.swift; sourceTree = "<group>"; };
+		262B24EA22604965004CB2FC /* BadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
+		262B24EC22604C01004CB2FC /* GetCartItemsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCartItemsWorker.swift; sourceTree = "<group>"; };
 		2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSlideView.swift; sourceTree = "<group>"; };
 		2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		2635CF13225F3C8300C1B412 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
@@ -125,9 +149,9 @@
 		2680CF07225CAEBE00693692 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		2680CF09225D953500693692 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		2680CF0B225D95FB00693692 /* TermLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermLabel.swift; sourceTree = "<group>"; };
-		2680CF1C225D9ACF00693692 /* LoginInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteraction.swift; sourceTree = "<group>"; };
+		2680CF1C225D9ACF00693692 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		2680CF1E225D9B2800693692 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
-		2680CF22225D9C4B00693692 /* RegisterInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteraction.swift; sourceTree = "<group>"; };
+		2680CF22225D9C4B00693692 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		2680CF24225D9C6000693692 /* RegisterWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWorker.swift; sourceTree = "<group>"; };
 		2680CF26225D9D2B00693692 /* PasswordValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordValidation.swift; sourceTree = "<group>"; };
 		2680CF2D225DA36200693692 /* ProductDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailController.swift; sourceTree = "<group>"; };
@@ -157,8 +181,19 @@
 			children = (
 				2680CF09225D953500693692 /* Common.swift */,
 				262B24D0225FDBE6004CB2FC /* Customer.swift */,
+				262B24DE226020CF004CB2FC /* GetColorsWorker.swift */,
+				262B24E02260288D004CB2FC /* GetSizesWorker.swift */,
+				262B24E42260425C004CB2FC /* CreateCartWorker.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		262B24D5225FE334004CB2FC /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				262B24D3225FDE0D004CB2FC /* LandingController.swift */,
+			);
+			path = Landing;
 			sourceTree = "<group>";
 		};
 		2635CF12225F3C7B00C1B412 /* Cart */ = {
@@ -208,6 +243,7 @@
 				2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */,
 				26B22D28225DFE1C0051E8CB /* SelectSizeView.swift */,
 				2680CEE5225C98C500693692 /* knStore */,
+				262B24EA22604965004CB2FC /* BadgeButton.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -277,6 +313,7 @@
 				2680CF20225D9B2D00693692 /* Login */,
 				2680CF21225D9C3800693692 /* Register */,
 				262B24D2225FDBF2004CB2FC /* Common */,
+				262B24D5225FE334004CB2FC /* Landing */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -300,6 +337,8 @@
 			children = (
 				2680CEEB225C9F8A00693692 /* ProductsController.swift */,
 				2680CEED225C9FB800693692 /* ProductsUI.swift */,
+				262B24D6225FE7DE004CB2FC /* GetProductsWorker.swift */,
+				262B24DA22601E91004CB2FC /* ProductsInteractor.swift */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -309,7 +348,7 @@
 			children = (
 				2680CEFD225CACB600693692 /* LoginController.swift */,
 				2680CEFF225CACC700693692 /* LoginUI.swift */,
-				2680CF1C225D9ACF00693692 /* LoginInteraction.swift */,
+				2680CF1C225D9ACF00693692 /* LoginInteractor.swift */,
 				2680CF1E225D9B2800693692 /* LoginWorker.swift */,
 			);
 			path = Login;
@@ -320,7 +359,7 @@
 			children = (
 				2680CF03225CAEA500693692 /* RegisterUI.swift */,
 				2680CF07225CAEBE00693692 /* RegisterController.swift */,
-				2680CF22225D9C4B00693692 /* RegisterInteraction.swift */,
+				2680CF22225D9C4B00693692 /* RegisterInteractor.swift */,
 				2680CF24225D9C6000693692 /* RegisterWorker.swift */,
 			);
 			path = Register;
@@ -331,6 +370,11 @@
 			children = (
 				2680CF2D225DA36200693692 /* ProductDetailController.swift */,
 				2680CF31225DA75F00693692 /* ProductDetailUI.swift */,
+				262B24D822601DBF004CB2FC /* GetProductDetailWorker.swift */,
+				262B24DC22601EAF004CB2FC /* ProductDetailInteractor.swift */,
+				262B24E222602F09004CB2FC /* GetProductReviewWorker.swift */,
+				262B24E6226042E7004CB2FC /* AddToCartWorker.swift */,
+				262B24EC22604C01004CB2FC /* GetCartItemsWorker.swift */,
 			);
 			path = ProductDetail;
 			sourceTree = "<group>";
@@ -480,19 +524,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262B24E7226042E7004CB2FC /* AddToCartWorker.swift in Sources */,
 				2680CED9225C98BD00693692 /* UITextFieldExtension.swift in Sources */,
 				2680CECD225C98BD00693692 /* DateExtension.swift in Sources */,
 				2680CEE2225C98BD00693692 /* OtherExtensions.swift in Sources */,
 				2680CF02225CAD6000693692 /* Colors.swift in Sources */,
+				262B24DF226020CF004CB2FC /* GetColorsWorker.swift in Sources */,
+				262B24D922601DBF004CB2FC /* GetProductDetailWorker.swift in Sources */,
 				2680CF00225CACC700693692 /* LoginUI.swift in Sources */,
 				26B22D29225DFE1C0051E8CB /* SelectSizeView.swift in Sources */,
+				262B24E52260425C004CB2FC /* CreateCartWorker.swift in Sources */,
+				262B24E12260288D004CB2FC /* GetSizesWorker.swift in Sources */,
 				2680CED1225C98BD00693692 /* StringExtension.swift in Sources */,
 				2635CF16225F3DF300C1B412 /* CartUI.swift in Sources */,
 				2680CF25225D9C6000693692 /* RegisterWorker.swift in Sources */,
 				2680CEDE225C98BD00693692 /* UIColorExtension.swift in Sources */,
 				2680CEEC225C9F8A00693692 /* ProductsController.swift in Sources */,
 				2680CF08225CAEBE00693692 /* RegisterController.swift in Sources */,
-				2680CF1D225D9ACF00693692 /* LoginInteraction.swift in Sources */,
+				2680CF1D225D9ACF00693692 /* LoginInteractor.swift in Sources */,
 				2680CEE0225C98BD00693692 /* knView.swift in Sources */,
 				2680CF2E225DA36200693692 /* ProductDetailController.swift in Sources */,
 				26B22D27225DF4C10051E8CB /* SelectColorView.swift in Sources */,
@@ -507,24 +556,31 @@
 				2680CEFE225CACB600693692 /* LoginController.swift in Sources */,
 				2680CEE4225C98BD00693692 /* UIButtonExtension.swift in Sources */,
 				2680CED0225C98BD00693692 /* knConstraints.swift in Sources */,
+				262B24E322602F09004CB2FC /* GetProductReviewWorker.swift in Sources */,
 				2680CECF225C98BD00693692 /* knGridView.swift in Sources */,
 				2680CEEA225C998500693692 /* Boss.swift in Sources */,
 				2680CEDC225C98BD00693692 /* KMPlaceholderTextView.swift in Sources */,
 				2680CEDA225C98BD00693692 /* IntExtension.swift in Sources */,
 				2680CED6225C98BD00693692 /* General.swift in Sources */,
 				2680CF04225CAEA500693692 /* RegisterUI.swift in Sources */,
+				262B24DD22601EAF004CB2FC /* ProductDetailInteractor.swift in Sources */,
 				2635CF14225F3C8300C1B412 /* CartController.swift in Sources */,
 				2680CEDB225C98BD00693692 /* UIViewControllerExtension.swift in Sources */,
 				2680CED4225C98BD00693692 /* Controller+Keyboard.swift in Sources */,
+				262B24D4225FDE0D004CB2FC /* LandingController.swift in Sources */,
 				2680CED7225C98BD00693692 /* knListView.swift in Sources */,
 				2680CF32225DA75F00693692 /* ProductDetailUI.swift in Sources */,
 				2680CF0C225D95FB00693692 /* TermLabel.swift in Sources */,
-				2680CF23225D9C4B00693692 /* RegisterInteraction.swift in Sources */,
+				262B24D7225FE7DE004CB2FC /* GetProductsWorker.swift in Sources */,
+				2680CF23225D9C4B00693692 /* RegisterInteractor.swift in Sources */,
 				2680CED8225C98BD00693692 /* knUIMaker.swift in Sources */,
 				2680CED3225C98BD00693692 /* DeviceType.swift in Sources */,
 				2680CECB225C98BD00693692 /* UIViewExtension.swift in Sources */,
+				262B24EB22604965004CB2FC /* BadgeButton.swift in Sources */,
 				2635CEE6225F23F500C1B412 /* FAPaginationLayout.swift in Sources */,
+				262B24ED22604C01004CB2FC /* GetCartItemsWorker.swift in Sources */,
 				2680CECA225C98BD00693692 /* NavigationExtension.swift in Sources */,
+				262B24DB22601E91004CB2FC /* ProductsInteractor.swift in Sources */,
 				2680CF30225DA47A00693692 /* ImageSlideView.swift in Sources */,
 				2680CEDD225C98BD00693692 /* 1.StartPoint.swift in Sources */,
 				2635CEE4225F232E00C1B412 /* ReviewSlideView.swift in Sources */,

@@ -12,12 +12,13 @@ import Alamofire
 struct ApiConnector {
     static fileprivate var connector = AlamofireConnector()
     static private func getHeaders() -> [String: String]? {
-        return ["Content-Type": "application/json",
-                "X-Device-Id": "mobile_app"
+        return [
+            "Content-Type": "application/json",
+            "USER-KEY": appSetting.token ?? ""
         ]
     }
     private static func getUrl(from api: String) -> URL? {
-        let baseUrl = "your_root_url"
+        let baseUrl = appSetting.baseURL
         let apiUrl = api.contains("http") ? api : baseUrl + api
         return URL(string: apiUrl)
     }
@@ -166,7 +167,7 @@ struct AlamofireConnector {
                  fail: ((_ error: knError) -> Void)?) {
 
         guard let api = api else { return }
-        let encoding: ParameterEncoding = method == .get ? URLEncoding.httpBody : JSONEncoding.default
+        let encoding: ParameterEncoding = method == .get ? URLEncoding.queryString : JSONEncoding.default
         Alamofire.request(api, method: method,
                           parameters: params, encoding: encoding,
                           headers: header)
@@ -214,7 +215,7 @@ struct AlamofireConnector {
                  fail: ((_ error: knError) -> Void)?) {
 
         guard let api = api else { return }
-        let encoding: ParameterEncoding = method == .get ? URLEncoding.httpBody : JSONEncoding.default
+        let encoding: ParameterEncoding = method == .get ? URLEncoding.queryString : JSONEncoding.default
         Alamofire.request(api, method: method,
                           parameters: params,
                           encoding: encoding,

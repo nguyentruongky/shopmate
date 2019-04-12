@@ -7,7 +7,9 @@
 //
 
 import UIKit
+
 class Boss: UITabBarController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,10 +29,7 @@ class Boss: UITabBarController {
                                         iconName: "posts")
 
 
-        let settingController = UIViewController()
-        settingController.view.backgroundColor = .red
-        settingController.navigationItem.title = "Settings"
-
+        let settingController = LandingController()
         let settingNav = wrapToNavigation(controller: settingController,
                                           tabBarTitle: "Settings",
                                           iconName: "settings")
@@ -47,7 +46,6 @@ class Boss: UITabBarController {
         let nav = UINavigationController(rootViewController: controller)
         nav.tabBarItem.title = tabBarTitle
         nav.tabBarItem.image = UIImage(named: iconName)
-        nav.navigationBar.prefersLargeTitles = true
         return nav
     }
 }

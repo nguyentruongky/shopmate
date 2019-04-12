@@ -14,6 +14,18 @@ struct knReview {
     var value: Double
     var content: String
 
+    init(raw: AnyObject) {
+        name = raw["name"] as? String ?? ""
+        if let date = raw["created_on"] as? String {
+            let convertedDate = Date(dateString: date, format: "yyyy-MM-dd HH:mm:ss")
+            self.date = convertedDate.toString("dd/MM/yyyy")
+        } else {
+            date = ""
+        }
+        value = raw["rating"] as? Double ?? 5
+        content = raw["review"] as? String ?? ""
+    }
+
     init(name: String, date: String, value: Double, content: String) {
         self.name = name
         self.date = date

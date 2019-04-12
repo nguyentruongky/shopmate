@@ -9,15 +9,37 @@
 import UIKit
 
 class Product {
+    var id: Int
+
     var images = [String]()
     var price = ""
-    var title = ""
+    var discountPrice = ""
+    var name = ""
+    var description = ""
     var like = false
-    init(images: [String], price: String, title: String, like: Bool) {
-        self.images = images
-        self.price = price
-        self.title = title
-        self.like = like
+    
+    init(raw: AnyObject) {
+        id = raw["product_id"] as? Int ?? 0
+        name = raw["name"] as? String ?? ""
+        description = raw["description"] as? String ?? ""
+        price = raw["price"] as? String ?? "0"
+        price = "$" + price
+        discountPrice = raw["discounted_price"] as? String ?? "0"
+        discountPrice = "$" + discountPrice
+        if let image = raw["thumbnail"] as? String {
+            let url = appSetting.baseImageURL + image
+            images.append(url)
+        }
+        
+        if let image = raw["image_1"] as? String {
+            let url = appSetting.baseImageURL + image
+            images.append(url)
+        }
+
+        if let image = raw["image_2"] as? String {
+            let url = appSetting.baseImageURL + image
+            images.append(url)
+        }
     }
 }
 
@@ -25,37 +47,47 @@ class ProductCell: knGridCell<Product> {
     override func setData(data: Product) {
         self.data = data
         imageView.downloadImage(from: data.images.first)
-        priceLabel.text = data.price
-        titleLabel.text = data.title
+        if data.discountPrice != "$0.00" {
+            priceLabel.text = data.discountPrice
+            priceLabel.textColor = UIColor.red
 
+            discountPriceLabel.text = data.price
+            discountPriceLabel.strikeout()
+        } else {
+            discountPriceLabel.text = ""
+            priceLabel.textColor = .black
+            priceLabel.text = data.price
+        }
+
+        titleLabel.text = data.name
     }
 
     let imageView = UIMaker.makeImageView()
     let priceLabel = UIMaker.makeLabel(font: UIFont.main(.bold, size: 16),
+                                       color: .black)
+    let discountPriceLabel = UIMaker.makeLabel(font: UIFont.main(size: 14),
                                        color: .black)
     let titleLabel = UIMaker.makeLabel(font: UIFont.main(.regular, size: 13),
                                        color: .darkGray)
     let likeButton = UIMaker.makeButton()
 
     override func setupView() {
+        backgroundColor = .white
+        likeButton.isHidden = true
         imageView.setCorner(radius: 7)
-        let stackView = UIMaker.makeStackView(axis: .vertical,
-                                              distributon: .fill,
-                                              alignment: .leading,
-                                              space: 6)
-        stackView.addViews(imageView, priceLabel, titleLabel)
+
+        addSubviews(views: imageView, priceLabel, discountPriceLabel, titleLabel)
         imageView.horizontalSuperview()
+        imageView.topSuperView()
+        imageView.height(150)
 
-        addSubviews(views: stackView, likeButton)
-        stackView.fillSuperView()
+        priceLabel.leftSuperView()
+        priceLabel.verticalSpacingDown(toView: titleLabel, space: -4)
 
-        likeButton.centerY(toView: priceLabel)
-        likeButton.rightSuperView()
-        likeButton.square(edge: 44)
+        discountPriceLabel.leftHorizontalSpacing(toView: priceLabel, space: -8)
+        discountPriceLabel.centerY(toView: priceLabel)
 
-        likeButton.backgroundColor = .red
-        imageView.backgroundColor = .blue
-        priceLabel.text = "$150"
-        titleLabel.text = "Skirt"
+        titleLabel.horizontalSuperview()
+        titleLabel.bottomSuperView()
     }
 }

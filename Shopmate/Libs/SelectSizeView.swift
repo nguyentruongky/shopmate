@@ -8,10 +8,10 @@
 
 import UIKit
 
-class SizeCell: knGridCell<String> {
-    override func setData(data: String) {
+class SizeCell: knGridCell<Size> {
+    override func setData(data: Size) {
         self.data = data
-        sizeLabel.text = data
+        sizeLabel.text = data.value
     }
 
     let colorView = UIMaker.makeView(background: .white)
@@ -33,7 +33,7 @@ class SizeCell: knGridCell<String> {
     }
 }
 
-class SelectSizeView: knGridView<SizeCell, String> {
+class SelectSizeView: knGridView<SizeCell, Size> {
     override func setupView() {
         itemSize = CGSize(width: 32, height: 32)
         lineSpacing = 8
