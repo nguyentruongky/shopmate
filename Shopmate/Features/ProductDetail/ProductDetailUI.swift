@@ -43,6 +43,8 @@ extension ProductDetailController {
         let cartButton = BadgeButton()
 
         func setupView() -> [knTableCell] {
+            likeButton.isHidden = true
+            ratingView.isHidden = true
             return [
                 makeNamePriceCell(),
                 makeSelectionCell(),

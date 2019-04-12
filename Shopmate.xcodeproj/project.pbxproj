@@ -133,6 +133,7 @@
 		262B71E622612C930085DB18 /* AddAddressWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressWorker.swift; sourceTree = "<group>"; };
 		262B71E822612DDF0085DB18 /* GetCustomerDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCustomerDetailWorker.swift; sourceTree = "<group>"; };
 		262B71EA22612F0B0085DB18 /* GetShippingDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShippingDetailWorker.swift; sourceTree = "<group>"; };
+		262B71EC2261306D0085DB18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSlideView.swift; sourceTree = "<group>"; };
 		2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		2635CF13225F3C8300C1B412 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 		2680CE8E225C97AE00693692 = {
 			isa = PBXGroup;
 			children = (
+				262B71EC2261306D0085DB18 /* README.md */,
 				2680CE99225C97AE00693692 /* Shopmate */,
 				2680CE98225C97AE00693692 /* Products */,
 				7DEF1522A0485D1E978B984E /* Pods */,

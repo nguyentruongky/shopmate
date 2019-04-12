@@ -34,9 +34,6 @@ class LoginController: knStaticListController {
 
         ui.emailTextField.delegate = self
         ui.passwordTextField.delegate = self
-
-        ui.emailTextField.text = "ky@gmail.com"
-        ui.passwordTextField.text = "123456"
     }
 
     @objc func dismissScreen() {

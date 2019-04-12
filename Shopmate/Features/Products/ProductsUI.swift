@@ -31,7 +31,8 @@ class Product {
             images.append(url)
         }
         
-        if let image = raw["image_1"] as? String {
+        if let image = raw["image"] as? String {
+            images = []
             let url = appSetting.baseImageURL + image
             images.append(url)
         }

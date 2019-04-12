@@ -20,17 +20,8 @@ class Boss: UITabBarController {
                                           tabBarTitle: "Products",
                                           iconName: "products")
 
-
-        let postsController = UIViewController()
-        postsController.view.backgroundColor = .blue
-        postsController.navigationItem.title = "Posts"
-        let postsNav = wrapToNavigation(controller: postsController,
-                                        tabBarTitle: "Posts",
-                                        iconName: "posts")
-
         viewControllers = [
             productNav,
-            postsNav,
         ]
     }
 
@@ -48,8 +39,8 @@ class Boss: UITabBarController {
         let settingNav = wrapToNavigation(controller: settingController,
                                           tabBarTitle: "Settings",
                                           iconName: "settings")
-        if viewControllers!.count > 2 {
-            viewControllers?[2] = settingNav
+        if viewControllers!.count > 1 {
+            viewControllers?[1] = settingNav
         } else {
             viewControllers?.append(settingNav)
         }
@@ -60,8 +51,8 @@ class Boss: UITabBarController {
         let settingNav = wrapToNavigation(controller: settingController,
                                           tabBarTitle: "Users",
                                           iconName: "profile_tab")
-        if viewControllers!.count > 2 {
-            viewControllers?[2] = settingNav
+        if viewControllers!.count > 1 {
+            viewControllers?[1] = settingNav
         } else {
             viewControllers?.append(settingNav)
         }
