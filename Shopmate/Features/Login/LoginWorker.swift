@@ -36,18 +36,18 @@ struct LoginWorker {
     }
 
     private func successResponse(returnData: AnyObject) {
-        if let message = returnData["detail"] as? String {
+        if let message = returnData.value(forKeyPath: "error.message") as? String {
             let err = knError(code: "login_fail", message: message)
             failResponse(err: err)
             return
         }
 
-        guard let raw = returnData["user"] as AnyObject? else {
+        guard let raw = returnData["user"] as? [String: Any] else {
             let err = knError(code: "no_data", message: "No user data returned")
             failResponse(err: err)
             return
         }
-        let user = Customer(raw: raw)
+        let user = Customer(raw: raw as AnyObject)
         user.token = returnData["accessToken"] as? String
         success?(user)
     }

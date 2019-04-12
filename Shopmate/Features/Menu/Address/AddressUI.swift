@@ -13,7 +13,10 @@ extension AddressController {
         var updatePass: (() -> Void)?
 
         lazy var addressTextField = makeTextField(placeholder: "Your address")
-
+        lazy var cityTextField = makeTextField(placeholder: "City")
+        lazy var regionTextField = makeTextField(placeholder: "Region")
+        lazy var zipTextField = makeTextField(placeholder: "Postal code")
+        lazy var countryTextField = makeTextField(placeholder: "Country")
         let saveButton = UIMaker.makeMainButton(title: "Save")
 
         func makeTextField(placeholder: String) -> UITextField {
@@ -26,14 +29,18 @@ extension AddressController {
         func setupView() -> [knTableCell] {
             addressTextField.returnKeyType = .next
             return [
-                makeCell(tf: addressTextField)
+                makeCell(tf: addressTextField),
+                makeCell(tf: cityTextField),
+                makeCell(tf: regionTextField),
+                makeCell(tf: zipTextField),
+                makeCell(tf: countryTextField),
             ]
         }
 
         func makeCell(tf: UITextField) -> knTableCell {
             let cell = knTableCell()
             cell.addSubviews(views: tf)
-            tf.fill(toView: cell, space: UIEdgeInsets(top: gap, left: gap, bottom: 16, right: gap))
+            tf.fill(toView: cell, space: UIEdgeInsets(top: gap, left: gap, right: gap))
             tf.height(50)
             return cell
         }

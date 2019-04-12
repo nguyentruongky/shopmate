@@ -62,6 +62,7 @@ class ProductDetailController: knStaticListController {
     }
 
     @objc func addToCart() {
+
         guard let productID = data?.id else { return }
         guard let color = ui.getSelectedColor() else {
             MessageHub.showError("You need to select color")
@@ -73,6 +74,12 @@ class ProductDetailController: knStaticListController {
             return
         }
 
+        let loginChecker = LoginChecker()
+        if loginChecker.didLogin() == false {
+            loginChecker.showLogin()
+            return
+        }
+        
         output.addToCart(productID: productID, size: size, color: color)
         if let badge = ui.cartButton.badge, let itemCount = Int(badge) {
             ui.cartButton.badge = "\(itemCount + 1)"

@@ -7,13 +7,13 @@
 //
 
 import UIKit
-
+var boss: Boss?
 class Boss: UITabBarController {
+    let productsController = ProductsController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let productsController = ProductsController()
+        boss = self
         productsController.navigationItem.title = "Products"
 
         let productNav = wrapToNavigation(controller: productsController,
@@ -32,21 +32,39 @@ class Boss: UITabBarController {
             productNav,
             postsNav,
         ]
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if appSetting.didLogin {
-            let settingController = MenuController()
-            let settingNav = wrapToNavigation(controller: settingController,
-                                              tabBarTitle: "Settings",
-                                              iconName: "settings")
-            viewControllers?.append(settingNav)
+            showMenuPage()
         } else {
-            let settingController = LandingController()
-            let settingNav = wrapToNavigation(controller: settingController,
-                                              tabBarTitle: "Users",
-                                              iconName: "profile_tab")
+            showLandingPage()
+        }
+    }
+
+    func showMenuPage() {
+        let settingController = MenuController()
+        let settingNav = wrapToNavigation(controller: settingController,
+                                          tabBarTitle: "Settings",
+                                          iconName: "settings")
+        if viewControllers!.count > 2 {
+            viewControllers?[2] = settingNav
+        } else {
             viewControllers?.append(settingNav)
         }
+    }
 
+    func showLandingPage() {
+        let settingController = LandingController()
+        let settingNav = wrapToNavigation(controller: settingController,
+                                          tabBarTitle: "Users",
+                                          iconName: "profile_tab")
+        if viewControllers!.count > 2 {
+            viewControllers?[2] = settingNav
+        } else {
+            viewControllers?.append(settingNav)
+        }
     }
 
     func wrapToNavigation(controller: UIViewController,

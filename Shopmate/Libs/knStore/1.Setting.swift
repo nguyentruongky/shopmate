@@ -10,7 +10,7 @@ import UIKit
 
 var appSetting = AppSetting()
 var stripeWrapper = appSetting.stripeWrapper
-struct AppSetting {
+class AppSetting {
     private let stripePublicKey = "pk_test_0KYGBBDltDgGwzEFuDMBhV6C"
     private let stripeAuthKey = "Bearer sk_test_QkRXOoSQUde1PoJI2IQDuajq"
     private let stripeSecret = "sk_test_QkRXOoSQUde1PoJI2IQDuajq" // test key
@@ -57,6 +57,16 @@ struct AppSetting {
     var didLogin: Bool {
         get { return UserDefaults.get(key: "didLogin") as Bool? ?? false }
         set { UserDefaults.set(key: "didLogin", value: newValue) }
+    }
+
+    func removeUserData() {
+        token = nil
+        stripeUserID = nil
+        cartID = nil
+        userEmail = nil
+        user = nil
+        stripeWrapper.userId = nil
+        boss?.productsController.cartButton.badge = nil
     }
 }
 

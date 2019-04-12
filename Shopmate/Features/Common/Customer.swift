@@ -15,6 +15,9 @@ class Address {
     var region: String?
     var postalCode: String?
     var country: String?
+    var shippingRegionId: Int?
+    var shippingRegionType: String?
+    var shippingCost: String?
 
     init(raw: AnyObject) {
         address1 = raw["address_1"] as? String
@@ -23,6 +26,7 @@ class Address {
         region = raw["region"] as? String
         postalCode = raw["postal_code"] as? String
         country = raw["country"] as? String
+        shippingRegionId = raw["shipping_region_id"] as? Int
     }
 }
 

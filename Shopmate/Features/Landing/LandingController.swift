@@ -16,14 +16,27 @@ class LandingController: knController {
 
         ui.loginButton.addTarget(self, action: #selector(showLogin))
         ui.registerButton.addTarget(self, action: #selector(showRegister))
+        ui.closeButton.addTarget(self, action: #selector(closeScreen))
+    }
+
+    @objc func closeScreen() {
+        dismiss()
     }
 
     @objc func showLogin() {
-        present(wrap(LoginController()))
+        if tabBarController == nil {
+            push(LoginController())
+        } else {
+            present(wrap(LoginController()))
+        }
     }
 
     @objc func showRegister() {
-        present(wrap(RegisterController()))
+        if tabBarController == nil {
+            push(RegisterController())
+        } else {
+            present(wrap(RegisterController()))
+        }
     }
 }
 
@@ -31,6 +44,7 @@ class LandingController: knController {
 extension LandingController {
     class UI {
         let background = UIMaker.makeImageView(image: UIImage(named: "landing_background"))
+        let closeButton = UIMaker.makeButton(image: UIImage(named: "close"))
         let registerButton = UIMaker.makeMainButton(title: "Create account")
         let loginButton = UIMaker.makeMainButton(title: "Login",
                                                  bgColor: UIColor.white,
@@ -53,6 +67,10 @@ extension LandingController {
 
             stackView.horizontalSuperview(space: gap)
             stackView.centerYSuperView()
+
+            view.addSubview(closeButton)
+            closeButton.square(edge: 44)
+            closeButton.topRight(toView: view, top: 32, right: -32)
         }
     }
 }

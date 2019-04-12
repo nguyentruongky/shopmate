@@ -37,7 +37,6 @@ class CartController: knListController<CartCell, CartItem> {
     func didGetCart(items: [CartItem]) {
         datasource = items
         title = "Cart (\(items.count))"
-
     }
 
     override func getCell(at index: IndexPath) -> UITableViewCell {

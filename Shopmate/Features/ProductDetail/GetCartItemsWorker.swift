@@ -19,6 +19,7 @@ struct GetCartItemsWorker {
     }
 
     func execute() {
+        guard appSetting.didLogin else { return }
         ApiConnector.get(api, success: successResponse)
     }
 

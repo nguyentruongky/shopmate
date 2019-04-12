@@ -34,6 +34,10 @@
 		262B250922608AF7004CB2FC /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B250822608AF7004CB2FC /* CardCell.swift */; };
 		262B71DF2260A06D0085DB18 /* AddressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71DE2260A06D0085DB18 /* AddressController.swift */; };
 		262B71E12260A07A0085DB18 /* AddressUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71E02260A07A0085DB18 /* AddressUI.swift */; };
+		262B71E52260A2F50085DB18 /* LoginChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71E42260A2F50085DB18 /* LoginChecker.swift */; };
+		262B71E722612C930085DB18 /* AddAddressWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71E622612C930085DB18 /* AddAddressWorker.swift */; };
+		262B71E922612DDF0085DB18 /* GetCustomerDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71E822612DDF0085DB18 /* GetCustomerDetailWorker.swift */; };
+		262B71EB22612F0B0085DB18 /* GetShippingDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71EA22612F0B0085DB18 /* GetShippingDetailWorker.swift */; };
 		2635CEE4225F232E00C1B412 /* ReviewSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */; };
 		2635CEE6225F23F500C1B412 /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */; };
 		2635CF14225F3C8300C1B412 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CF13225F3C8300C1B412 /* CartController.swift */; };
@@ -125,6 +129,10 @@
 		262B250822608AF7004CB2FC /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		262B71DE2260A06D0085DB18 /* AddressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressController.swift; sourceTree = "<group>"; };
 		262B71E02260A07A0085DB18 /* AddressUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUI.swift; sourceTree = "<group>"; };
+		262B71E42260A2F50085DB18 /* LoginChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginChecker.swift; sourceTree = "<group>"; };
+		262B71E622612C930085DB18 /* AddAddressWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressWorker.swift; sourceTree = "<group>"; };
+		262B71E822612DDF0085DB18 /* GetCustomerDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCustomerDetailWorker.swift; sourceTree = "<group>"; };
+		262B71EA22612F0B0085DB18 /* GetShippingDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShippingDetailWorker.swift; sourceTree = "<group>"; };
 		2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSlideView.swift; sourceTree = "<group>"; };
 		2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		2635CF13225F3C8300C1B412 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
@@ -214,6 +222,9 @@
 				262B24E42260425C004CB2FC /* CreateCartWorker.swift */,
 				262B24EE2260766F004CB2FC /* UpdateCartWorker.swift */,
 				262B24F022607804004CB2FC /* DeleteItemWorker.swift */,
+				262B71E42260A2F50085DB18 /* LoginChecker.swift */,
+				262B71E822612DDF0085DB18 /* GetCustomerDetailWorker.swift */,
+				262B71EA22612F0B0085DB18 /* GetShippingDetailWorker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -270,6 +281,7 @@
 			children = (
 				262B71DE2260A06D0085DB18 /* AddressController.swift */,
 				262B71E02260A07A0085DB18 /* AddressUI.swift */,
+				262B71E622612C930085DB18 /* AddAddressWorker.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -644,6 +656,7 @@
 				2680CE9B225C97AE00693692 /* AppDelegate.swift in Sources */,
 				262B24FF22608408004CB2FC /* GetExpiryDateWorker.swift in Sources */,
 				2680CECC225C98BD00693692 /* UIApplicationExtension.swift in Sources */,
+				262B71E922612DDF0085DB18 /* GetCustomerDetailWorker.swift in Sources */,
 				2680CEFE225CACB600693692 /* LoginController.swift in Sources */,
 				2680CEE4225C98BD00693692 /* UIButtonExtension.swift in Sources */,
 				2680CED0225C98BD00693692 /* knConstraints.swift in Sources */,
@@ -654,6 +667,7 @@
 				2680CEDA225C98BD00693692 /* IntExtension.swift in Sources */,
 				2680CED6225C98BD00693692 /* General.swift in Sources */,
 				2680CF04225CAEA500693692 /* RegisterUI.swift in Sources */,
+				262B71EB22612F0B0085DB18 /* GetShippingDetailWorker.swift in Sources */,
 				262B24DD22601EAF004CB2FC /* ProductDetailInteractor.swift in Sources */,
 				2635CF14225F3C8300C1B412 /* CartController.swift in Sources */,
 				2680CEDB225C98BD00693692 /* UIViewControllerExtension.swift in Sources */,
@@ -666,6 +680,7 @@
 				262B250722608AEF004CB2FC /* StripeWrapper.swift in Sources */,
 				262B24D7225FE7DE004CB2FC /* GetProductsWorker.swift in Sources */,
 				2680CF23225D9C4B00693692 /* RegisterInteractor.swift in Sources */,
+				262B71E722612C930085DB18 /* AddAddressWorker.swift in Sources */,
 				2680CED8225C98BD00693692 /* knUIMaker.swift in Sources */,
 				2680CED3225C98BD00693692 /* DeviceType.swift in Sources */,
 				2680CECB225C98BD00693692 /* UIViewExtension.swift in Sources */,
@@ -676,6 +691,7 @@
 				262B24ED22604C01004CB2FC /* GetCartItemsWorker.swift in Sources */,
 				2680CECA225C98BD00693692 /* NavigationExtension.swift in Sources */,
 				262B24DB22601E91004CB2FC /* ProductsInteractor.swift in Sources */,
+				262B71E52260A2F50085DB18 /* LoginChecker.swift in Sources */,
 				2680CF30225DA47A00693692 /* ImageSlideView.swift in Sources */,
 				262B250522608A8D004CB2FC /* CardListController.swift in Sources */,
 				2680CEDD225C98BD00693692 /* 1.StartPoint.swift in Sources */,

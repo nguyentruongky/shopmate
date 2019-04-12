@@ -32,6 +32,12 @@ class ProductsController: knGridController<ProductCell, Product> {
     }
 
     @objc func showCart() {
+        let loginChecker = LoginChecker()
+        if loginChecker.didLogin() == false {
+            loginChecker.showLogin()
+            return
+        }
+        
         let controller = CartController()
         controller.hidesBottomBarWhenPushed = true
         push(controller)
@@ -40,11 +46,11 @@ class ProductsController: knGridController<ProductCell, Product> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideNavBar(false)
+        output.countCartItems()
     }
     
     override func fetchData() {
         output.getProducts()
-        output.countCartItems()
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

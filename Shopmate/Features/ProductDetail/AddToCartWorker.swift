@@ -28,27 +28,28 @@ class AddToCartWorker {
     }
 
     func execute() {
+        func addToCart(cart: String) {
+            let params = [
+                "cart_id": cart,
+                "product_id": productID,
+                "attributes": self.attributes
+                ] as [String: Any]
+            ApiConnector.post(api, params: params,
+                              success: successResponse,
+                              fail: failResponse)
+        }
         if let cartID = appSetting.cartID {
             self.cartID = cartID
-            addToCart()
+            addToCart(cart: cartID)
         } else {
-            CreateCartWorker(successAction: { [weak self] cartID in
-                self?.cartID = cartID
-                self?.addToCart()
+            CreateCartWorker(successAction: { cartID in
+                appSetting.cartID = cartID
+                addToCart(cart: cartID)
             }).execute()
         }
     }
 
-    private func addToCart() {
-        let params = [
-            "cart_id": cartID!,
-            "product_id": productID,
-            "attributes": attributes
-            ] as [String : Any]
-        ApiConnector.post(api, params: params,
-                          success: successResponse,
-                          fail: failResponse)
-    }
+
 
     func successResponse(returnData: AnyObject) {
         print(returnData)

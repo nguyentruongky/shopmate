@@ -31,17 +31,14 @@ class MenuController: knStaticListController {
     func selectMenu(_ menu: Item) {
         switch menu {
         case .addressBook:
-            let controller = AddressController()
-            controller.hidesBottomBarWhenPushed = true
-            push(controller)
+            showPush(AddressController())
 
         case .paymentMethod:
-            let controller = CardListController()
-            controller.hidesBottomBarWhenPushed = true
-            push(controller)
-            
+            showPush(CardListController())
+
         case .logout:
-            break
+            logout()
+
         default:
             break
         }
@@ -56,8 +53,18 @@ class MenuController: knStaticListController {
 
     func showPresent(_ ctr: UIViewController) {
         DispatchQueue.main.async { [weak self] in
-            self?.present(wrap(ctr))
+            self?.present(ctr)
         }
+    }
+
+    func logout() {
+        let controller = MessageHub.getMessage("Continue logout?", title: nil, cancelActionName: "No")
+        controller.addAction(UIAlertAction(title: "Logout", style: .default, handler: { _ in
+            appSetting.token = nil
+            boss?.showLandingPage()
+            appSetting.removeUserData()
+        }))
+        showPresent(controller)
     }
 }
 
