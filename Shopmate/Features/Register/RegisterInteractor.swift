@@ -17,6 +17,16 @@ extension RegisterController {
         CreateCartWorker(successAction: { cartID in
             appSetting.cartID = cartID
         }).execute()
+
+        guard let name = user.name, let email = user.email else { return }
+        appSetting
+            .stripeWrapper
+            .createUser(name: name,
+                        email: email,
+                        successAction: { userKey in
+                            appSetting.stripeWrapper.userId = userKey
+                            appSetting.stripeUserID = userKey
+            }, failAction: nil)
     }
 
     func didRegisterFail(_ err: knError) {

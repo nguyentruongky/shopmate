@@ -9,7 +9,23 @@
 import UIKit
 
 var appSetting = AppSetting()
+var stripeWrapper = appSetting.stripeWrapper
 struct AppSetting {
+    private let stripePublicKey = "pk_test_0KYGBBDltDgGwzEFuDMBhV6C"
+    private let stripeAuthKey = "Bearer sk_test_QkRXOoSQUde1PoJI2IQDuajq"
+    private let stripeSecret = "sk_test_QkRXOoSQUde1PoJI2IQDuajq" // test key
+    var stripeUserID: String? {
+        get { return UserDefaults.get(key: "stripeUserID") as String? }
+        set {
+            didLogin = newValue != nil
+            UserDefaults.set(key: "stripeUserID", value: newValue)
+        }
+    }
+    lazy var stripeWrapper = StripeWrapper(userId: stripeUserID,
+                                           authKey: stripeAuthKey,
+                                           secretKey: stripeSecret,
+                                           publicKey: stripePublicKey)
+
     let baseURL = "https://mobilebackend.turing.com"
     let baseImageURL = "https://mobilebackend.turing.com/images/products/"
     var token: String? {
@@ -28,7 +44,15 @@ struct AppSetting {
         }
     }
 
+    var userEmail: String? {
+        get { return UserDefaults.get(key: "userEmail") as String? ?? "ky@gmail.com" }
+        set {
+            UserDefaults.set(key: "userEmail", value: newValue)
+        }
+    }
+
     var user: Customer?
+
 
     var didLogin: Bool {
         get { return UserDefaults.get(key: "didLogin") as Bool? ?? false }

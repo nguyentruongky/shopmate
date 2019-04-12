@@ -9,7 +9,9 @@
 import UIKit
 class ProductsController: knGridController<ProductCell, Product> {
     lazy var output = Interactor(controller: self)
+    let cartButton = BadgeButton()
 
+    
     override func setupView() {
         columnSpacing = gap
         lineSpacing = gap
@@ -20,7 +22,19 @@ class ProductsController: knGridController<ProductCell, Product> {
         view.addSubviews(views: collectionView)
         collectionView.fillSuperView()
 
+        cartButton.setImage(UIImage(named: "cart"), for: .normal)
+        cartButton.imageView?.contentMode = .scaleAspectFit
+        cartButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        cartButton.addTarget(self, action: #selector(showCart))
+        let cartBarButton = UIBarButtonItem(customView: cartButton)
+        navigationItem.rightBarButtonItem = cartBarButton
         fetchData()
+    }
+
+    @objc func showCart() {
+        let controller = CartController()
+        controller.hidesBottomBarWhenPushed = true
+        push(controller)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +44,7 @@ class ProductsController: knGridController<ProductCell, Product> {
     
     override func fetchData() {
         output.getProducts()
+        output.countCartItems()
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

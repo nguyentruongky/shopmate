@@ -39,5 +39,17 @@ class CartController: knListController<CartCell, CartItem> {
         title = "Cart (\(items.count))"
 
     }
+
+    override func getCell(at index: IndexPath) -> UITableViewCell {
+        let cell = super.getCell(at: index) as! CartCell
+        cell.cartController = self
+        return cell
+    }
+
+    func deleteItem(item: CartItem) {
+        guard let index = datasource.firstIndex(where:
+            { return item.itemID == $0.itemID }) else { return }
+        datasource.remove(at: Int(index))
+    }
 }
 

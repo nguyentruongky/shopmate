@@ -55,7 +55,7 @@ class UIMaker {
 
     static func makeTextField(text: String? = nil,
                               placeholder: String? = nil,
-                              font: UIFont = .systemFont(ofSize: 15),
+                              font: UIFont = UIFont.main(),
                               color: UIColor = .black,
                               alignment: NSTextAlignment = .left) -> UITextField {
         let tf = UITextField()

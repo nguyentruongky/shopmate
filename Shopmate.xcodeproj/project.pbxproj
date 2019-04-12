@@ -20,6 +20,20 @@
 		262B24E7226042E7004CB2FC /* AddToCartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24E6226042E7004CB2FC /* AddToCartWorker.swift */; };
 		262B24EB22604965004CB2FC /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24EA22604965004CB2FC /* BadgeButton.swift */; };
 		262B24ED22604C01004CB2FC /* GetCartItemsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24EC22604C01004CB2FC /* GetCartItemsWorker.swift */; };
+		262B24EF2260766F004CB2FC /* UpdateCartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24EE2260766F004CB2FC /* UpdateCartWorker.swift */; };
+		262B24F122607804004CB2FC /* DeleteItemWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24F022607804004CB2FC /* DeleteItemWorker.swift */; };
+		262B24F422607E79004CB2FC /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24F322607E79004CB2FC /* MenuController.swift */; };
+		262B24F622607F46004CB2FC /* MenuUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24F522607F46004CB2FC /* MenuUI.swift */; };
+		262B24F9226083C1004CB2FC /* AddCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24F8226083C1004CB2FC /* AddCardController.swift */; };
+		262B24FB226083D6004CB2FC /* AddCardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24FA226083D6004CB2FC /* AddCardUI.swift */; };
+		262B24FD226083EF004CB2FC /* AddCardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24FC226083EF004CB2FC /* AddCardDelegate.swift */; };
+		262B24FF22608408004CB2FC /* GetExpiryDateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24FE22608408004CB2FC /* GetExpiryDateWorker.swift */; };
+		262B250122608446004CB2FC /* knPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B250022608446004CB2FC /* knPicker.swift */; };
+		262B250522608A8D004CB2FC /* CardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B250422608A8D004CB2FC /* CardListController.swift */; };
+		262B250722608AEF004CB2FC /* StripeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B250622608AEF004CB2FC /* StripeWrapper.swift */; };
+		262B250922608AF7004CB2FC /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B250822608AF7004CB2FC /* CardCell.swift */; };
+		262B71DF2260A06D0085DB18 /* AddressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71DE2260A06D0085DB18 /* AddressController.swift */; };
+		262B71E12260A07A0085DB18 /* AddressUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71E02260A07A0085DB18 /* AddressUI.swift */; };
 		2635CEE4225F232E00C1B412 /* ReviewSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */; };
 		2635CEE6225F23F500C1B412 /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */; };
 		2635CF14225F3C8300C1B412 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CF13225F3C8300C1B412 /* CartController.swift */; };
@@ -97,6 +111,20 @@
 		262B24E6226042E7004CB2FC /* AddToCartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartWorker.swift; sourceTree = "<group>"; };
 		262B24EA22604965004CB2FC /* BadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
 		262B24EC22604C01004CB2FC /* GetCartItemsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCartItemsWorker.swift; sourceTree = "<group>"; };
+		262B24EE2260766F004CB2FC /* UpdateCartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCartWorker.swift; sourceTree = "<group>"; };
+		262B24F022607804004CB2FC /* DeleteItemWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteItemWorker.swift; sourceTree = "<group>"; };
+		262B24F322607E79004CB2FC /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		262B24F522607F46004CB2FC /* MenuUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUI.swift; sourceTree = "<group>"; };
+		262B24F8226083C1004CB2FC /* AddCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardController.swift; sourceTree = "<group>"; };
+		262B24FA226083D6004CB2FC /* AddCardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardUI.swift; sourceTree = "<group>"; };
+		262B24FC226083EF004CB2FC /* AddCardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardDelegate.swift; sourceTree = "<group>"; };
+		262B24FE22608408004CB2FC /* GetExpiryDateWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExpiryDateWorker.swift; sourceTree = "<group>"; };
+		262B250022608446004CB2FC /* knPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knPicker.swift; sourceTree = "<group>"; };
+		262B250422608A8D004CB2FC /* CardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListController.swift; sourceTree = "<group>"; };
+		262B250622608AEF004CB2FC /* StripeWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeWrapper.swift; sourceTree = "<group>"; };
+		262B250822608AF7004CB2FC /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		262B71DE2260A06D0085DB18 /* AddressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressController.swift; sourceTree = "<group>"; };
+		262B71E02260A07A0085DB18 /* AddressUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUI.swift; sourceTree = "<group>"; };
 		2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSlideView.swift; sourceTree = "<group>"; };
 		2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		2635CF13225F3C8300C1B412 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
@@ -184,6 +212,8 @@
 				262B24DE226020CF004CB2FC /* GetColorsWorker.swift */,
 				262B24E02260288D004CB2FC /* GetSizesWorker.swift */,
 				262B24E42260425C004CB2FC /* CreateCartWorker.swift */,
+				262B24EE2260766F004CB2FC /* UpdateCartWorker.swift */,
+				262B24F022607804004CB2FC /* DeleteItemWorker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -194,6 +224,54 @@
 				262B24D3225FDE0D004CB2FC /* LandingController.swift */,
 			);
 			path = Landing;
+			sourceTree = "<group>";
+		};
+		262B24F222607E73004CB2FC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				262B71DD2260A0670085DB18 /* Address */,
+				262B24F322607E79004CB2FC /* MenuController.swift */,
+				262B24F522607F46004CB2FC /* MenuUI.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		262B24F7226083B9004CB2FC /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				262B250322608A83004CB2FC /* List */,
+				262B250222608A6E004CB2FC /* AddCard */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		262B250222608A6E004CB2FC /* AddCard */ = {
+			isa = PBXGroup;
+			children = (
+				262B24F8226083C1004CB2FC /* AddCardController.swift */,
+				262B24FA226083D6004CB2FC /* AddCardUI.swift */,
+				262B24FC226083EF004CB2FC /* AddCardDelegate.swift */,
+				262B24FE22608408004CB2FC /* GetExpiryDateWorker.swift */,
+			);
+			path = AddCard;
+			sourceTree = "<group>";
+		};
+		262B250322608A83004CB2FC /* List */ = {
+			isa = PBXGroup;
+			children = (
+				262B250422608A8D004CB2FC /* CardListController.swift */,
+				262B250822608AF7004CB2FC /* CardCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		262B71DD2260A0670085DB18 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				262B71DE2260A06D0085DB18 /* AddressController.swift */,
+				262B71E02260A07A0085DB18 /* AddressUI.swift */,
+			);
+			path = Address;
 			sourceTree = "<group>";
 		};
 		2635CF12225F3C7B00C1B412 /* Cart */ = {
@@ -238,6 +316,8 @@
 		2680CEAE225C98B300693692 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				262B250022608446004CB2FC /* knPicker.swift */,
+				262B250622608AEF004CB2FC /* StripeWrapper.swift */,
 				2680CF2F225DA47A00693692 /* ImageSlideView.swift */,
 				26B22D26225DF4C10051E8CB /* SelectColorView.swift */,
 				2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */,
@@ -306,6 +386,8 @@
 		2680CEE8225C997700693692 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				262B24F7226083B9004CB2FC /* Payment */,
+				262B24F222607E73004CB2FC /* Menu */,
 				2635CF12225F3C7B00C1B412 /* Cart */,
 				2680CF2C225DA35B00693692 /* ProductDetail */,
 				2680CEE9225C998500693692 /* Boss.swift */,
@@ -480,6 +562,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Shopmate/Pods-Shopmate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyDrop/SwiftyDrop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -488,6 +571,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyDrop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,7 +619,11 @@
 				26B22D29225DFE1C0051E8CB /* SelectSizeView.swift in Sources */,
 				262B24E52260425C004CB2FC /* CreateCartWorker.swift in Sources */,
 				262B24E12260288D004CB2FC /* GetSizesWorker.swift in Sources */,
+				262B250922608AF7004CB2FC /* CardCell.swift in Sources */,
+				262B24FB226083D6004CB2FC /* AddCardUI.swift in Sources */,
+				262B24F9226083C1004CB2FC /* AddCardController.swift in Sources */,
 				2680CED1225C98BD00693692 /* StringExtension.swift in Sources */,
+				262B24F422607E79004CB2FC /* MenuController.swift in Sources */,
 				2635CF16225F3DF300C1B412 /* CartUI.swift in Sources */,
 				2680CF25225D9C6000693692 /* RegisterWorker.swift in Sources */,
 				2680CEDE225C98BD00693692 /* UIColorExtension.swift in Sources */,
@@ -545,13 +633,16 @@
 				2680CEE0225C98BD00693692 /* knView.swift in Sources */,
 				2680CF2E225DA36200693692 /* ProductDetailController.swift in Sources */,
 				26B22D27225DF4C10051E8CB /* SelectColorView.swift in Sources */,
+				262B24F122607804004CB2FC /* DeleteItemWorker.swift in Sources */,
 				2680CEE1225C98BD00693692 /* knController.swift in Sources */,
 				2635CF18225F3E0A00C1B412 /* CartItem.swift in Sources */,
 				2680CED2225C98BD00693692 /* 1.Setting.swift in Sources */,
 				2680CECE225C98BD00693692 /* ServiceConnector.swift in Sources */,
 				2680CEE3225C98BD00693692 /* UIFontExtension.swift in Sources */,
 				2680CF1F225D9B2800693692 /* LoginWorker.swift in Sources */,
+				262B24FD226083EF004CB2FC /* AddCardDelegate.swift in Sources */,
 				2680CE9B225C97AE00693692 /* AppDelegate.swift in Sources */,
+				262B24FF22608408004CB2FC /* GetExpiryDateWorker.swift in Sources */,
 				2680CECC225C98BD00693692 /* UIApplicationExtension.swift in Sources */,
 				2680CEFE225CACB600693692 /* LoginController.swift in Sources */,
 				2680CEE4225C98BD00693692 /* UIButtonExtension.swift in Sources */,
@@ -566,25 +657,32 @@
 				262B24DD22601EAF004CB2FC /* ProductDetailInteractor.swift in Sources */,
 				2635CF14225F3C8300C1B412 /* CartController.swift in Sources */,
 				2680CEDB225C98BD00693692 /* UIViewControllerExtension.swift in Sources */,
+				262B71DF2260A06D0085DB18 /* AddressController.swift in Sources */,
 				2680CED4225C98BD00693692 /* Controller+Keyboard.swift in Sources */,
 				262B24D4225FDE0D004CB2FC /* LandingController.swift in Sources */,
 				2680CED7225C98BD00693692 /* knListView.swift in Sources */,
 				2680CF32225DA75F00693692 /* ProductDetailUI.swift in Sources */,
 				2680CF0C225D95FB00693692 /* TermLabel.swift in Sources */,
+				262B250722608AEF004CB2FC /* StripeWrapper.swift in Sources */,
 				262B24D7225FE7DE004CB2FC /* GetProductsWorker.swift in Sources */,
 				2680CF23225D9C4B00693692 /* RegisterInteractor.swift in Sources */,
 				2680CED8225C98BD00693692 /* knUIMaker.swift in Sources */,
 				2680CED3225C98BD00693692 /* DeviceType.swift in Sources */,
 				2680CECB225C98BD00693692 /* UIViewExtension.swift in Sources */,
 				262B24EB22604965004CB2FC /* BadgeButton.swift in Sources */,
+				262B71E12260A07A0085DB18 /* AddressUI.swift in Sources */,
+				262B24EF2260766F004CB2FC /* UpdateCartWorker.swift in Sources */,
 				2635CEE6225F23F500C1B412 /* FAPaginationLayout.swift in Sources */,
 				262B24ED22604C01004CB2FC /* GetCartItemsWorker.swift in Sources */,
 				2680CECA225C98BD00693692 /* NavigationExtension.swift in Sources */,
 				262B24DB22601E91004CB2FC /* ProductsInteractor.swift in Sources */,
 				2680CF30225DA47A00693692 /* ImageSlideView.swift in Sources */,
+				262B250522608A8D004CB2FC /* CardListController.swift in Sources */,
 				2680CEDD225C98BD00693692 /* 1.StartPoint.swift in Sources */,
 				2635CEE4225F232E00C1B412 /* ReviewSlideView.swift in Sources */,
 				2680CF0A225D953500693692 /* Common.swift in Sources */,
+				262B24F622607F46004CB2FC /* MenuUI.swift in Sources */,
+				262B250122608446004CB2FC /* knPicker.swift in Sources */,
 				2680CF27225D9D2B00693692 /* PasswordValidation.swift in Sources */,
 				2680CEEE225C9FB800693692 /* ProductsUI.swift in Sources */,
 				262B24D1225FDBE6004CB2FC /* Customer.swift in Sources */,

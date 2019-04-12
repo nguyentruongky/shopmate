@@ -135,6 +135,8 @@ class knListController<C: knListCell<U>, U>: knController, UITableViewDataSource
         didSelectRow(at: indexPath)
     }
     func didSelectRow(at indexPath: IndexPath) { }
+
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {}
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat { return 0 }
 }

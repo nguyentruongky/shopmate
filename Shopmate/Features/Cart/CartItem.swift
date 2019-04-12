@@ -9,7 +9,7 @@
 import Foundation
 
 struct CartItem {
-    var productID = 0
+    var itemID = 0
     var name = ""
     var size = ""
     var color = ""
@@ -18,7 +18,7 @@ struct CartItem {
     var subtotal = ""
 
     init(raw: AnyObject) {
-        productID = raw["item_id"] as? Int ?? 0
+        itemID = raw["item_id"] as? Int ?? 0
         name = raw["name"] as? String ?? ""
         if let attributesRaw = raw["attributes"] as? String {
             let attributes = attributesRaw.splitString(", ")

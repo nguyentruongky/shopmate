@@ -28,17 +28,25 @@ class Boss: UITabBarController {
                                         tabBarTitle: "Posts",
                                         iconName: "posts")
 
-
-        let settingController = LandingController()
-        let settingNav = wrapToNavigation(controller: settingController,
-                                          tabBarTitle: "Settings",
-                                          iconName: "settings")
-
         viewControllers = [
             productNav,
             postsNav,
-            settingNav,
         ]
+
+        if appSetting.didLogin {
+            let settingController = MenuController()
+            let settingNav = wrapToNavigation(controller: settingController,
+                                              tabBarTitle: "Settings",
+                                              iconName: "settings")
+            viewControllers?.append(settingNav)
+        } else {
+            let settingController = LandingController()
+            let settingNav = wrapToNavigation(controller: settingController,
+                                              tabBarTitle: "Users",
+                                              iconName: "profile_tab")
+            viewControllers?.append(settingNav)
+        }
+
     }
 
     func wrapToNavigation(controller: UIViewController,

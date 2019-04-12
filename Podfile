@@ -7,6 +7,7 @@ target 'Shopmate' do
   pod 'Alamofire'
   pod 'Kingfisher'
   pod 'SwiftyDrop', '~>4.0'
+  pod 'Stripe'
 
 end
 

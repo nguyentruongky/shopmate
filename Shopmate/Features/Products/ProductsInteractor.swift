@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ky Nguyen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension ProductsController {
     func requestSuccess(data: [Product]) {
@@ -21,6 +21,10 @@ extension ProductsController {
         datasource.append(contentsOf: data)
     }
 
+    func countCartItems(_ amount: Int) {
+        cartButton.badge = amount == 0 ? nil : String(amount)
+        cartButton.badgeLabel.frame.origin = CGPoint(x: 36, y: 4)
+    }
 }
 
 extension ProductsController {
@@ -70,6 +74,11 @@ extension ProductsController {
         }
 
 
+        func countCartItems() {
+            GetCartItemsWorker(successAction: { [weak self] carts in
+                self?.output?.countCartItems(carts.count)
+            }).execute()
+        }
         private weak var output: Controller?
         init(controller: Controller) { output = controller }
     }
