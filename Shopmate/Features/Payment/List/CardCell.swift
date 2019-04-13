@@ -11,13 +11,14 @@ class CardCell: knListCell<Card> {
     override func setData(data: Card) {
         nameLabel.text = data.userName
         numberLabel.text = data.number
-        iconImageView.backgroundColor = .green
+        iconImageView.image = stripeWrapper.getCardImage(card: data)
     }
     let iconImageView = UIMaker.makeImageView()
     let nameLabel = UIMaker.makeLabel(font: UIFont.main(size: 14),
                                       color: .darkGray)
     let numberLabel = UIMaker.makeLabel(font: UIFont.main(.semibold, size: 14),
                                       color: .darkGray)
+
 
     override func setupView() {
         let stackView = UIMaker.makeStackView(axis: .vertical,
@@ -34,11 +35,5 @@ class CardCell: knListCell<Card> {
 
         stackView.leftHorizontalSpacing(toView: iconImageView, space: -gap)
         stackView.centerYSuperView()
-
-//        numberLabel.leftHorizontalSpacing(toView: iconImageView, space: -gap)
-//        numberLabel.bottom(toAnchor: centerYAnchor, space: -3)
-//
-//        nameLabel.verticalSpacing(toView: numberLabel, space: 6)
-//        nameLabel.left(toView: numberLabel)
     }
 }

@@ -45,7 +45,7 @@ class AppSetting {
     }
 
     var userEmail: String? {
-        get { return UserDefaults.get(key: "userEmail") as String? ?? "ky@gmail.com" }
+        get { return UserDefaults.get(key: "userEmail") as String? ?? "nguyentruongky33@gmail.com" }
         set {
             UserDefaults.set(key: "userEmail", value: newValue)
         }

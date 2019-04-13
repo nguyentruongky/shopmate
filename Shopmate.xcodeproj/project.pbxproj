@@ -38,6 +38,8 @@
 		262B71E722612C930085DB18 /* AddAddressWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71E622612C930085DB18 /* AddAddressWorker.swift */; };
 		262B71E922612DDF0085DB18 /* GetCustomerDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71E822612DDF0085DB18 /* GetCustomerDetailWorker.swift */; };
 		262B71EB22612F0B0085DB18 /* GetShippingDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71EA22612F0B0085DB18 /* GetShippingDetailWorker.swift */; };
+		262B71EE226142BA0085DB18 /* GetTotalAmountWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71ED226142BA0085DB18 /* GetTotalAmountWorker.swift */; };
+		262B71F0226232D70085DB18 /* EmptyCartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71EF226232D70085DB18 /* EmptyCartWorker.swift */; };
 		2635CEE4225F232E00C1B412 /* ReviewSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */; };
 		2635CEE6225F23F500C1B412 /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */; };
 		2635CF14225F3C8300C1B412 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CF13225F3C8300C1B412 /* CartController.swift */; };
@@ -134,6 +136,8 @@
 		262B71E822612DDF0085DB18 /* GetCustomerDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCustomerDetailWorker.swift; sourceTree = "<group>"; };
 		262B71EA22612F0B0085DB18 /* GetShippingDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShippingDetailWorker.swift; sourceTree = "<group>"; };
 		262B71EC2261306D0085DB18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		262B71ED226142BA0085DB18 /* GetTotalAmountWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTotalAmountWorker.swift; sourceTree = "<group>"; };
+		262B71EF226232D70085DB18 /* EmptyCartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartWorker.swift; sourceTree = "<group>"; };
 		2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSlideView.swift; sourceTree = "<group>"; };
 		2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		2635CF13225F3C8300C1B412 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				262B71E42260A2F50085DB18 /* LoginChecker.swift */,
 				262B71E822612DDF0085DB18 /* GetCustomerDetailWorker.swift */,
 				262B71EA22612F0B0085DB18 /* GetShippingDetailWorker.swift */,
+				262B71ED226142BA0085DB18 /* GetTotalAmountWorker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				2635CF13225F3C8300C1B412 /* CartController.swift */,
 				2635CF15225F3DF300C1B412 /* CartUI.swift */,
 				2635CF17225F3E0A00C1B412 /* CartItem.swift */,
+				262B71EF226232D70085DB18 /* EmptyCartWorker.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -630,6 +636,7 @@
 				262B24DF226020CF004CB2FC /* GetColorsWorker.swift in Sources */,
 				262B24D922601DBF004CB2FC /* GetProductDetailWorker.swift in Sources */,
 				2680CF00225CACC700693692 /* LoginUI.swift in Sources */,
+				262B71EE226142BA0085DB18 /* GetTotalAmountWorker.swift in Sources */,
 				26B22D29225DFE1C0051E8CB /* SelectSizeView.swift in Sources */,
 				262B24E52260425C004CB2FC /* CreateCartWorker.swift in Sources */,
 				262B24E12260288D004CB2FC /* GetSizesWorker.swift in Sources */,
@@ -648,6 +655,7 @@
 				2680CF2E225DA36200693692 /* ProductDetailController.swift in Sources */,
 				26B22D27225DF4C10051E8CB /* SelectColorView.swift in Sources */,
 				262B24F122607804004CB2FC /* DeleteItemWorker.swift in Sources */,
+				262B71F0226232D70085DB18 /* EmptyCartWorker.swift in Sources */,
 				2680CEE1225C98BD00693692 /* knController.swift in Sources */,
 				2635CF18225F3E0A00C1B412 /* CartItem.swift in Sources */,
 				2680CED2225C98BD00693692 /* 1.Setting.swift in Sources */,

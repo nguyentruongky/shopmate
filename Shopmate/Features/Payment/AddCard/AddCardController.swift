@@ -15,6 +15,8 @@ class AddCardController: knStaticListController {
     let cvvHandler = knCVVHandler()
     var expireDates = [String]()
 
+    var delegate: AddCardDelegate?
+
     override func setupView() {
         navigationController?.hideBar(false)
         title = "New card"
@@ -58,11 +60,16 @@ class AddCardController: knStaticListController {
     }
 
     func didCreateCard(_ cardId: String) {
+        delegate?.didAddCard(cardId)
         back()
     }
 
     override func back() {
-        pop()
+        if delegate is CartController {
+            dismiss()
+        } else {
+            pop()
+        }
     }
 
     @objc func showExpiryDatePicker() {
@@ -79,4 +86,6 @@ extension AddCardController: knPickerViewDelegate {
     }
 }
 
-
+protocol AddCardDelegate {
+    func didAddCard(_ card: String)
+}

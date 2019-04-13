@@ -10,7 +10,7 @@ import Foundation
 import Stripe
 import Alamofire
 
-struct StripeWrapper {
+class StripeWrapper {
     private let BASEURL = "https://api.stripe.com/v1"
     var userId: String?
     private let authKey: String
@@ -44,6 +44,8 @@ struct StripeWrapper {
                 failAction?(NSError(domain: message!, code: -1, userInfo: nil))
                 return
             }
+            appSetting.stripeUserID = userId
+            self.userId = userId
             successAction?(userId)
         }
 
@@ -152,7 +154,7 @@ struct StripeWrapper {
                 successAction: @escaping (_ chargeId: String) -> Void,
                 failAction: ((_ error: Error) -> Void)?) {
         func successResponse(returnData: AnyObject) {
-            guard let chargeId = returnData["id"] as? String else {
+            guard let chargeId = returnData["receipt_url"] as? String else {
                 var message = returnData.value(forKeyPath: "error.message") as? String
                 message = message ?? "Can't charge at this time"
                 let err = NSError(domain: message!, code: -1, userInfo: nil)
@@ -163,30 +165,45 @@ struct StripeWrapper {
             successAction(chargeId)
         }
 
-        let api = "https://api.stripe.com/v1/charges"
-        let headers = [
-            "Authorization": authKey,
-            "Content-Type": "application/x-www-form-urlencoded"
-        ]
-        let params = [
+        var params = [
             "amount": amount,
             "currency": currency,
             "source": cardToken,
-            "description": "transaction_id \(transactionId)",
+            "customer": userId!
             ] as [String : Any]
+        if let email = appSetting.userEmail {
+            params["receipt_email"] = email
+        }
+        let api = "/charges"
+        execute(api: api,
+                params: params,
+                method: .post,
+                successResponse: { returnData in
+                    successResponse(returnData: returnData) },
+                failResponse: failAction)
 
-        Alamofire.request(api,
-                          method: .post,
-                          parameters: params,
-                          encoding: JSONEncoding.default, headers: headers)
-            .responseJSON { (response) in
-                if let error = response.result.error {
-                    failAction?(error)
-                    return
-                }
+    }
 
-                let returnData = response.result.value as AnyObject
-                successResponse(returnData: returnData)
+    func getCardImage(card: Card) -> UIImage? {
+        if let brand = getCardBrand(card: card) {
+            return STPImageLibrary.brandImage(for: brand)
+        }
+        return nil
+    }
+
+    private func getCardBrand(card: Card) -> STPCardBrand? {
+        guard let type = card.type?.lowercased() else { return nil }
+        switch type {
+        case "visa":
+            return STPCardBrand.visa
+        case "mastercard":
+            return STPCardBrand.masterCard
+        case "discover":
+            return STPCardBrand.discover
+        case "american express":
+            return STPCardBrand.amex
+        default:
+            return nil
         }
     }
 }
@@ -201,12 +218,13 @@ extension StripeWrapper {
             "Authorization": authKey,
             "Content-Type": "application/x-www-form-urlencoded"
         ]
-        let encoding: URLEncoding = {
+
+        let encoding: ParameterEncoding = {
             switch method {
             case .get, .delete:
-                return .queryString
+                return URLEncoding.queryString
             default:
-                return .httpBody
+                return URLEncoding.httpBody
             }
         }()
         guard let url = URL(string: BASEURL + api) else { return }
