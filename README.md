@@ -16,41 +16,42 @@ UI implementation with `knStaticListController` (detail is [here](https://www.co
 DONE
 
 2. Products list
-Load list - DONE
-Load more - DONE
+- Load list - DONE
+- Load more - DONE
 
 3. Product Detail 
-Color Selection - DONE
-Size Selection - DONE
-Image presentation - DONE 
-Get cart count - DONE
-Review - DONE
+- Color Selection - DONE
+- Size Selection - DONE
+- Image presentation - DONE 
+- Get cart count - DONE
+- Review - DONE
 
-Rating - Upcoming 
-Add to wishlist - Upcoming 
+- Rating - Upcoming 
+- Add to wishlist - Upcoming 
 
 **Note** 
 - The API should return available colors and sizes, instead of using general options.
 - Images should return urls (or a document to get images). I had to contact to Khuong to know how to download images. 
 
 4. Cart
-Get cart items - DONE
-Update items - DONE
-Remove items - DONE
+- Get cart items - DONE
+- Update items - DONE
+- Remove items - DONE
 
 5. Checkout 
-Select card - DONE 
-Add card - DONE
+- Select card - DONE 
+- Add card - DONE
 
-Add/Update address - Upcoming 
+- Add/Update address - Upcoming 
+
 **Note**
 - I use my stripe library instead of calling the API. 
 
 6. Menu 
-Payment method - DONE 
-Logout - DONE
+- Payment method - DONE 
+- Logout - DONE
 
-Address - Upcoming 
+- Address - Upcoming 
 
 ## Improvement
 - State (loading, empty)
@@ -61,6 +62,7 @@ Address - Upcoming
 
 ## Working hours 
 I can't commit for this project full time. So work few hours everyday. 
+
 - Prepare UI graphics design: 2hours
 - Login/Register: 3 hours
 - Products list: 2 hours
@@ -73,7 +75,9 @@ Total: 18hours.
 
 ## Contact 
 Ky Nguyen 
+
 nguyentruongky33@gmail.com
+
 Skype: nguyentruongky3390
 
 
