@@ -73,7 +73,7 @@ class CartController: knListController<CartCell, CartItem> {
         GetTotalAmountWorker(successAction: { [weak self] amount in
             self?.totalAmount = amount
             self?.ui.checkoutButton.setTitle("Checkout $\(amount)")
-            
+        
             }, failAction: nil).execute()
         stripeWrapper.getPaymentMethods(successAction: { [weak self] cards in
             self?.selectedCardId = cards.first?.id
@@ -95,6 +95,14 @@ class CartController: knListController<CartCell, CartItem> {
         guard let index = datasource.firstIndex(where:
             { return item.itemID == $0.itemID }) else { return }
         datasource.remove(at: Int(index))
+    }
+
+    func updateTotal() {
+        GetTotalAmountWorker(successAction: { [weak self] amount in
+            self?.totalAmount = amount
+            self?.ui.checkoutButton.setTitle("Checkout $\(amount)")
+
+            }, failAction: nil).execute()
     }
 }
 

@@ -12,12 +12,15 @@ struct UpdateCartWorker {
     private let api = "/shoppingcart/update/"
     private var itemID: Int
     private var quantity: Int
+    private var successAction: (() -> Void)?
     private var fail: ((knError) -> Void)?
 
     init(itemID: Int,
          quantity: Int,
+         successAction: (() -> Void)?,
          fail: ((knError) -> Void)?) {
         self.itemID = itemID
+        self.successAction = successAction
         self.quantity = quantity
         self.fail = fail
     }
@@ -34,11 +37,11 @@ struct UpdateCartWorker {
     }
 
     func successResponse(returnData: AnyObject) {
-
+        successAction?()
     }
 
     func failResponse(err: knError) {
-        fail?(err)
+        successAction?()
     }
 }
 

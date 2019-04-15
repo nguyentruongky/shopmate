@@ -17,7 +17,7 @@ class AppSetting {
     var stripeUserID: String? {
         get { return UserDefaults.get(key: "stripeUserID") as String? }
         set {
-            didLogin = newValue != nil
+            stripeWrapper.userId = newValue
             UserDefaults.set(key: "stripeUserID", value: newValue)
         }
     }

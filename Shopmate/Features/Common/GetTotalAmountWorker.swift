@@ -22,8 +22,9 @@ struct GetTotalAmountWorker {
     }
 
     func execute() {
+        guard let cartID = cartID else { return }
         ApiConnector.get(api,
-                         params: ["cart_id": cartID!],
+                         params: ["cart_id": cartID],
                          success: successResponse,
                          fail: failResponse)
     }

@@ -23,6 +23,15 @@ class Boss: UITabBarController {
         viewControllers = [
             productNav,
         ]
+
+        if appSetting.stripeUserID == nil {
+            stripeWrapper.createUser(name: nil,
+                                     email: appSetting.userEmail ?? "test@test.com",
+                                     successAction: { (userKey) in
+                                        stripeWrapper.userId = userKey
+                                        appSetting.stripeUserID = userKey
+                }, failAction: nil)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

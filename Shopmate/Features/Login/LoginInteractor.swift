@@ -13,6 +13,11 @@ extension LoginController {
         ui.loginButton.setProcess(visible: false)
         appSetting.user = user
         appSetting.token = user.token
+        stripeWrapper.createUser(name: user.name,
+                                 email: user.email!,
+                                 successAction: { stripeID in
+                                    appSetting.stripeUserID = stripeID
+        }, failAction: nil)
         dismiss()
     }
 

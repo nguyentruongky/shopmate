@@ -111,6 +111,9 @@ class CartCell: knListCell<CartItem> {
     @objc func updateQuantityToServer() {
         guard let id = data?.itemID else { return }
         UpdateCartWorker(itemID: id, quantity: Int(stepper.value),
+                         successAction: {
+                            self.cartController?.updateTotal()
+        },
                          fail: nil).execute()
     }
 
