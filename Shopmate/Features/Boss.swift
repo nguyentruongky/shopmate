@@ -14,14 +14,21 @@ class Boss: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         boss = self
-        productsController.navigationItem.title = "Products"
 
+        productsController.navigationItem.title = "Products"
         let productNav = wrapToNavigation(controller: productsController,
                                           tabBarTitle: "Products",
                                           iconName: "products")
 
+        let searchController = SearchController()
+        searchController.navigationItem.title = "Search"
+        let searchNav = wrapToNavigation(controller: searchController,
+                                          tabBarTitle: "Search",
+                                          iconName: "search")
+
         viewControllers = [
             productNav,
+            searchNav,
         ]
 
         if appSetting.stripeUserID == nil {
@@ -43,13 +50,14 @@ class Boss: UITabBarController {
         }
     }
 
+    let settingIndex = 2
     func showMenuPage() {
         let settingController = MenuController()
         let settingNav = wrapToNavigation(controller: settingController,
                                           tabBarTitle: "Settings",
                                           iconName: "settings")
-        if viewControllers!.count > 1 {
-            viewControllers?[1] = settingNav
+        if viewControllers!.count > settingIndex {
+            viewControllers?[settingIndex] = settingNav
         } else {
             viewControllers?.append(settingNav)
         }
@@ -60,8 +68,8 @@ class Boss: UITabBarController {
         let settingNav = wrapToNavigation(controller: settingController,
                                           tabBarTitle: "Users",
                                           iconName: "profile_tab")
-        if viewControllers!.count > 1 {
-            viewControllers?[1] = settingNav
+        if viewControllers!.count > settingIndex {
+            viewControllers?[settingIndex] = settingNav
         } else {
             viewControllers?.append(settingNav)
         }

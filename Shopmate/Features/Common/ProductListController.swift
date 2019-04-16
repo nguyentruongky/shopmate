@@ -10,6 +10,8 @@
 import UIKit
 
 class ProductListController: knGridController<ProductCell, Product> {
+    let stateView = knStateView()
+    
     override func setupView() {
         columnSpacing = gap
         lineSpacing = gap

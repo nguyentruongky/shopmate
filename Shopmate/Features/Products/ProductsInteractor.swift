@@ -11,6 +11,11 @@ import UIKit
 extension ProductsController {
     func requestSuccess(data: [Product]) {
         datasource = data
+        if data.isEmpty {
+            stateView.state = .empty
+        } else {
+            stateView.state = .success
+        }
     }
 
     func requestFail(error: knError) {

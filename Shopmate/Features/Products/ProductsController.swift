@@ -85,6 +85,7 @@ class ProductsController: ProductListController {
     
     override func fetchData() {
         output.getProducts()
+        stateView.show(state: .loading, in: view)
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
