@@ -47,6 +47,16 @@ DONE
 **Note**
 - I use my stripe library instead of calling the API. 
 
+6. Filter - DONE
+
+**Note**
+You don't support filter api, so I have to do a trick. Load all products by loading pagination and filter on loaded products. 
+
+7. Search - DONE
+
+**Note**
+Your search api sometimes returns empty, while there are some products contain that keyword, for instance `arc`.
+
 6. Menu 
 - Payment method - DONE 
 - Logout - DONE
@@ -58,7 +68,6 @@ DONE
 - Animation when add to cart 
 - Wishlist 
 - Category 
-- Filter - DONE
 - Add app icon - DONE
 
 ## Working hours 
