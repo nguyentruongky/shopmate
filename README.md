@@ -54,11 +54,12 @@ DONE
 - Address - Upcoming 
 
 ## Improvement
-- State (loading, empty)
+- State (loading, empty) - DONE
 - Animation when add to cart 
 - Wishlist 
 - Category 
-- Filter 
+- Filter - DONE
+- Add app icon - DONE
 
 ## Working hours 
 I can't commit for this project full time. So work few hours everyday. 
@@ -69,9 +70,12 @@ I can't commit for this project full time. So work few hours everyday.
 - Product detail: 4 hours
 - Cart: 4 hours
 - Payment method: 2 hours
-- Menu: 1hour
+- Menu: 1 hour
+- Filter: 2 hours
+- Search: 1 hours
+- Payment flow: 3 hours
 
-Total: 18hours. 
+Total: 24 hours. 
 
 ## Contact 
 Ky Nguyen 
