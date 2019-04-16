@@ -11,6 +11,8 @@ import SafariServices
 
 class CartController: knListController<CartCell, CartItem> {
     let ui = UI()
+    let stateView = knStateView()
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideNavBar(false)
@@ -30,6 +32,8 @@ class CartController: knListController<CartCell, CartItem> {
         
         ui.checkoutButton.addTarget(self, action: #selector(startCheckout))
         fetchData()
+
+        stateView.setStateContent(state: .empty, imageName: "empty_cart", title: "No items yet", content: "Start shopping and your items will be here")
     }
 
     @objc func startCheckout() {
@@ -38,10 +42,10 @@ class CartController: knListController<CartCell, CartItem> {
         push(controller)
     }
 
-
     var totalAmount: Double = 0
     
     override func fetchData() {
+        stateView.show(state: .loading, in: view)
         GetCartItemsWorker(successAction: didGetCart).execute()
         GetTotalAmountWorker(successAction: { [weak self] amount in
             self?.totalAmount = amount
@@ -57,6 +61,11 @@ class CartController: knListController<CartCell, CartItem> {
     
     func didGetCart(items: [CartItem]) {
         datasource = items
+        if items.isEmpty {
+            stateView.state = .empty
+        } else {
+            stateView.state = .success
+        }
         updateUI()
     }
     

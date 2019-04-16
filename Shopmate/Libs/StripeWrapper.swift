@@ -191,6 +191,11 @@ class StripeWrapper {
         return nil
     }
 
+    func getCardImage(brand: STPCardBrand) -> UIImage? {
+        return STPImageLibrary.brandImage(for: brand)
+        return nil
+    }
+
     private func getCardBrand(card: Card) -> STPCardBrand? {
         guard let type = card.type?.lowercased() else { return nil }
         switch type {

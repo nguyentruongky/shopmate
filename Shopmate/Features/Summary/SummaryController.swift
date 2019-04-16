@@ -36,8 +36,16 @@ class SummaryController: knStaticListController {
         fetchData()
 
         actions = [
+            0: showAddress,
             1: showCardsList
         ]
+
+        ui.cardLabel.text = "No card added"
+        ui.cardImageView.image = stripeWrapper.getCardImage(brand: .unknown)
+    }
+
+    func showAddress() {
+        MessageHub.presentMessage("Adding address is coming")
     }
 
     @objc func startCheckout() {
@@ -60,7 +68,6 @@ class SummaryController: knStaticListController {
         })
     }
 
-
     override func fetchData() {
         stripeWrapper.getPaymentMethods(successAction: { [weak self] cards in
             self?.setSelectedCard(card: cards.first)
@@ -68,7 +75,10 @@ class SummaryController: knStaticListController {
     }
 
     func setSelectedCard(card: Card?) {
-        guard let card = card else { return }
+        guard let card = card else {
+
+            return
+        }
         selectedCard = card
         ui.cardLabel.text = card.number + " - " + (card.userName ?? "")
         ui.cardImageView.image = stripeWrapper.getCardImage(card: card)

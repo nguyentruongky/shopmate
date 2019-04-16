@@ -24,6 +24,7 @@ class CardListController: knListController<CardCell, Card> {
                                                             target: self,
                                                             action: #selector(addNewCard))
 
+        stateView.setStateContent(state: .empty, imageName: "empty_card", title: "No card added", content: "Add your card and start shopping")
 
     }
 

@@ -20,6 +20,8 @@ class SearchController: ProductListController {
         setupSearchBar()
         view.addSubview(instructionLabel)
         instructionLabel.fillSuperView()
+
+        stateView.setStateContent(state: .empty, imageName: "empty_product", title: "No products found", content: "Change your keyword can help")
     }
 
     func setupSearchBar() {

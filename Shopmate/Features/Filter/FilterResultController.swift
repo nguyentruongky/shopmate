@@ -19,6 +19,11 @@ class FilterResultController: ProductListController {
         fetchData()
     }
 
+    override func setupView() {
+        super.setupView()
+        stateView.setStateContent(state: .empty, imageName: "empty_product", title: "No products found", content: "Change your filter to find suitable products")
+    }
+
     override func fetchData() {
         guard let min = minPrice, let max = maxPrice else { return }
         output.filter(minPrice: min, maxPrice: max)
