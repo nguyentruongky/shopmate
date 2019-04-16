@@ -22,6 +22,7 @@ class FilterResultController: ProductListController {
     override func fetchData() {
         guard let min = minPrice, let max = maxPrice else { return }
         output.filter(minPrice: min, maxPrice: max)
+        stateView.show(state: .loading, in: view)
     }
 }
 
@@ -29,6 +30,11 @@ class FilterResultController: ProductListController {
 extension FilterResultController {
     func didFilterSuccess(products: [Product]) {
         datasource = products
+        if products.isEmpty {
+            stateView.state = .empty
+        } else {
+            stateView.state = .success
+        }
     }
 }
 

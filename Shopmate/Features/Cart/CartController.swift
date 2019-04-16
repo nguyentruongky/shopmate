@@ -31,58 +31,33 @@ class CartController: knListController<CartCell, CartItem> {
         ui.checkoutButton.addTarget(self, action: #selector(startCheckout))
         fetchData()
     }
-    
-    func showAddCard() {
-        let controller = AddCardController()
-        controller.delegate = self
-        present(wrap(controller))
-    }
-    
-    @objc func startCheckout() {
-        guard let card = selectedCardId else {
-            showAddCard()
-            return
-        }
-        ui.checkoutButton.setProcess(visible: true)
-        stripeWrapper.charge(amountInSmallestUnit: totalAmount * 100,
-                             currency: "USD",
-                             cardToken: card,
-                             transactionId: appSetting.cartID ?? "",
-                             successAction: { [weak self] message in
-                                self?.showReceipt(url: message)
-                                self?.ui.checkoutButton.setProcess(visible: false)
-        }, failAction: { [weak self] err in
-            self?.ui.checkoutButton.setProcess(visible: false)
-            MessageHub.showError(err.localizedDescription)
-        })
-    }
 
-    func showReceipt(url: String) {
-        guard let link = URL(string: url) else { return }
-        hideNavBar(true)
-        let controller = SFSafariViewController(url: link)
-        controller.delegate = self
+    @objc func startCheckout() {
+        let controller = SummaryController()
+        controller.subtotal = totalAmount
         push(controller)
     }
 
+
     var totalAmount: Double = 0
-    var selectedCardId: String?
     
     override func fetchData() {
         GetCartItemsWorker(successAction: didGetCart).execute()
         GetTotalAmountWorker(successAction: { [weak self] amount in
             self?.totalAmount = amount
-            self?.ui.checkoutButton.setTitle("Checkout $\(amount)")
-        
+            if amount == 0 {
+                self?.ui.checkoutButton.setTitle("Checkout")
+                self?.ui.checkoutButton.isEnabled = false
+            } else {
+                self?.ui.checkoutButton.setTitle("Checkout $\(amount)")
+                self?.ui.checkoutButton.isEnabled = true
+            }
             }, failAction: nil).execute()
-        stripeWrapper.getPaymentMethods(successAction: { [weak self] cards in
-            self?.selectedCardId = cards.first?.id
-            }, failAction: nil)
     }
     
     func didGetCart(items: [CartItem]) {
         datasource = items
-        title = "Cart (\(items.count))"
+        updateUI()
     }
     
     override func getCell(at index: IndexPath) -> UITableViewCell {
@@ -95,29 +70,30 @@ class CartController: knListController<CartCell, CartItem> {
         guard let index = datasource.firstIndex(where:
             { return item.itemID == $0.itemID }) else { return }
         datasource.remove(at: Int(index))
+        updateUI()
+    }
+
+    func updateUI() {
+        if datasource.isEmpty {
+            title = "Cart"
+            ui.checkoutButton.setTitle("Checkout")
+            ui.checkoutButton.isEnabled = false
+        } else {
+            title = "Cart (\(datasource.count))"
+            ui.checkoutButton.setTitle("Checkout $\(totalAmount)")
+            ui.checkoutButton.isEnabled = true
+        }
     }
 
     func updateTotal() {
-        GetTotalAmountWorker(successAction: { [weak self] amount in
-            self?.totalAmount = amount
-            self?.ui.checkoutButton.setTitle("Checkout $\(amount)")
-
-            }, failAction: nil).execute()
+        var total: Double = 0
+        for i in 0 ..< datasource.count {
+            let indexPath = IndexPath(row: i, section: 0)
+            guard let cell = tableView.cellForRow(at: indexPath) as? CartCell else { continue }
+            total += cell.getTotal()
+        }
+        ui.checkoutButton.setTitle("Checkout $\(total)")
+        totalAmount = total
     }
 }
 
-
-extension CartController: AddCardDelegate {
-    func didAddCard(_ card: String) {
-        selectedCardId = card
-        startCheckout()
-    }
-}
-
-extension CartController: SFSafariViewControllerDelegate {
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        popToRoot()
-        guard let cartID = appSetting.cartID else { return }
-        EmptyCartWorker(cartID: cartID, successAction: nil).execute()
-    }
-}

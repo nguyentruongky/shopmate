@@ -289,7 +289,11 @@ struct Card {
     }
 
     init(raw: AnyObject) {
-        number = raw["last4"] as? String ?? ""
+        if let number = raw["last4"] as? String {
+            self.number = "**** " + number
+        } else {
+            number = ""
+        }
         userName = raw["name"] as? String
         expMonth = raw["exp_month"] as? String ?? "12"
         expYear = raw["exp_year"] as? String ?? "2020"

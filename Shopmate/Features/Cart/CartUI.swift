@@ -40,8 +40,21 @@ class CartCell: knListCell<CartItem> {
     let sizeLabel = UIMaker.makeLabel(font: UIFont.main(.medium, size: 13), color: .black)
     let removeButton = UIMaker.makeButton(image: UIImage(named: "close"))
 
+    func getTotal() -> Double {
+        guard let quantityText = quantityLabel.text,
+            let quantity = Double(quantityText),
+        let priceString = priceLabel.text?.remove("$"),
+            let price = Double(priceString) else { return 0 }
+        let total = quantity * price
+        let numberOfPlaces = 2.0
+        let multiplier = pow(10.0, numberOfPlaces)
+        let rounded = round(total * multiplier) / multiplier
+        return rounded
+    }
+
     override func setupView() {
         stepper.translatesAutoresizingMaskIntoConstraints = false
+        stepper.minimumValue = 1
         addSubviews(views: productImageView,
                     priceLabel,
                     nameLabel,
@@ -56,7 +69,6 @@ class CartCell: knListCell<CartItem> {
         productImageView.topSuperView(space: gap)
         productImageView.leftSuperView(space: gap)
 
-//        nameLabel.leftHorizontalSpacing(toView: productImageView, space: -gap)
         nameLabel.leftSuperView(space: gap)
         nameLabel.rightSuperView(space: -gap)
         nameLabel.top(toView: productImageView, space: 4)
@@ -104,17 +116,15 @@ class CartCell: knListCell<CartItem> {
     }
 
     @objc func changeQuantity() {
-        perform(#selector(updateQuantityToServer), with: nil, afterDelay: 2)
+        perform(#selector(updateQuantityToServer), with: nil, afterDelay: 1)
         quantityLabel.text = String(Int(stepper.value))
+        cartController?.updateTotal()
     }
 
     @objc func updateQuantityToServer() {
         guard let id = data?.itemID else { return }
         UpdateCartWorker(itemID: id, quantity: Int(stepper.value),
-                         successAction: {
-                            self.cartController?.updateTotal()
-        },
-                         fail: nil).execute()
+                         successAction: nil, fail: nil).execute()
     }
 
     @objc func removeThisItem() {

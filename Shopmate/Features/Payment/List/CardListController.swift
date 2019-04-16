@@ -8,6 +8,10 @@
 
 import UIKit
 class CardListController: knListController<CardCell, Card> {
+    var selectedIndex: Int?
+    weak var delegate: CardListDelegate?
+    let stateView = knStateView()
+
     override func setupView() {
         addBackButton()
         title = "Payment methods"
@@ -29,6 +33,7 @@ class CardListController: knListController<CardCell, Card> {
     }
 
     override func fetchData() {
+        stateView.show(state: .loading, in: view)
         if appSetting.stripeUserID == nil {
             stripeWrapper.createUser(name: nil,
                                      email: appSetting.userEmail ?? "test@test.com",
@@ -42,13 +47,22 @@ class CardListController: knListController<CardCell, Card> {
         }
     }
 
-    var selectedIndex: Int?
+    override func back() {
+        if navigationController?.viewControllers.count == 1 {
+            dismiss()
+        } else {
+            popToRoot()
+        }
+    }
 
     func getCards() {
         stripeWrapper.getPaymentMethods(successAction: { [weak self] cards in
             self?.datasource = cards
             if cards.isEmpty == false {
+                self?.stateView.state = .success
                 self?.selectedIndex = 0
+            } else {
+                self?.stateView.state = .empty
             }
         }, failAction: nil)
     }
@@ -67,6 +81,7 @@ class CardListController: knListController<CardCell, Card> {
 
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
+        delegate?.didSelectCard(card: datasource[indexPath.row])
     }
 
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -77,4 +92,8 @@ class CardListController: knListController<CardCell, Card> {
     @objc func addNewCard() {
         push(AddCardController())
     }
+}
+
+protocol CardListDelegate: class {
+    func didSelectCard(card: Card)
 }
