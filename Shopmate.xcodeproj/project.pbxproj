@@ -243,17 +243,17 @@
 			isa = PBXGroup;
 			children = (
 				2680CF09225D953500693692 /* Common.swift */,
-				262B24D0225FDBE6004CB2FC /* Customer.swift */,
-				262B24DE226020CF004CB2FC /* GetColorsWorker.swift */,
-				262B24E02260288D004CB2FC /* GetSizesWorker.swift */,
 				262B24E42260425C004CB2FC /* CreateCartWorker.swift */,
-				262B24EE2260766F004CB2FC /* UpdateCartWorker.swift */,
+				262B24D0225FDBE6004CB2FC /* Customer.swift */,
 				262B24F022607804004CB2FC /* DeleteItemWorker.swift */,
-				262B71E42260A2F50085DB18 /* LoginChecker.swift */,
+				262B24DE226020CF004CB2FC /* GetColorsWorker.swift */,
 				262B71E822612DDF0085DB18 /* GetCustomerDetailWorker.swift */,
 				262B71EA22612F0B0085DB18 /* GetShippingDetailWorker.swift */,
+				262B24E02260288D004CB2FC /* GetSizesWorker.swift */,
 				262B71ED226142BA0085DB18 /* GetTotalAmountWorker.swift */,
+				262B71E42260A2F50085DB18 /* LoginChecker.swift */,
 				262B72192265ABE30085DB18 /* ProductListController.swift */,
+				262B24EE2260766F004CB2FC /* UpdateCartWorker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -279,8 +279,8 @@
 		262B24F7226083B9004CB2FC /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				262B250322608A83004CB2FC /* List */,
 				262B250222608A6E004CB2FC /* AddCard */,
+				262B250322608A83004CB2FC /* List */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -289,8 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				262B24F8226083C1004CB2FC /* AddCardController.swift */,
-				262B24FA226083D6004CB2FC /* AddCardUI.swift */,
 				262B24FC226083EF004CB2FC /* AddCardDelegate.swift */,
+				262B24FA226083D6004CB2FC /* AddCardUI.swift */,
 				262B24FE22608408004CB2FC /* GetExpiryDateWorker.swift */,
 			);
 			path = AddCard;
@@ -299,8 +299,8 @@
 		262B250322608A83004CB2FC /* List */ = {
 			isa = PBXGroup;
 			children = (
-				262B250422608A8D004CB2FC /* CardListController.swift */,
 				262B250822608AF7004CB2FC /* CardCell.swift */,
+				262B250422608A8D004CB2FC /* CardListController.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -308,9 +308,9 @@
 		262B71DD2260A0670085DB18 /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				262B71E622612C930085DB18 /* AddAddressWorker.swift */,
 				262B71DE2260A06D0085DB18 /* AddressController.swift */,
 				262B71E02260A07A0085DB18 /* AddressUI.swift */,
-				262B71E622612C930085DB18 /* AddAddressWorker.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -326,8 +326,8 @@
 		262B7216226596400085DB18 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				262B720E2265601C0085DB18 /* FilterResultController.swift */,
 				262B72172265969F0085DB18 /* FilterProductsWorker.swift */,
+				262B720E2265601C0085DB18 /* FilterResultController.swift */,
 				262B7212226582FF0085DB18 /* FilterView.swift */,
 			);
 			path = Filter;
@@ -347,8 +347,8 @@
 			children = (
 				262B720B22652F130085DB18 /* Summary */,
 				2635CF13225F3C8300C1B412 /* CartController.swift */,
-				2635CF15225F3DF300C1B412 /* CartUI.swift */,
 				2635CF17225F3E0A00C1B412 /* CartItem.swift */,
+				2635CF15225F3DF300C1B412 /* CartUI.swift */,
 				262B71EF226232D70085DB18 /* EmptyCartWorker.swift */,
 			);
 			path = Cart;
@@ -357,11 +357,11 @@
 		2680CE8E225C97AE00693692 = {
 			isa = PBXGroup;
 			children = (
-				262B71EC2261306D0085DB18 /* README.md */,
-				2680CE99225C97AE00693692 /* Shopmate */,
-				2680CE98225C97AE00693692 /* Products */,
-				7DEF1522A0485D1E978B984E /* Pods */,
 				F6A8BF500C1B3D122ECB9C2E /* Frameworks */,
+				7DEF1522A0485D1E978B984E /* Pods */,
+				2680CE98225C97AE00693692 /* Products */,
+				2680CE99225C97AE00693692 /* Shopmate */,
+				262B71EC2261306D0085DB18 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -376,9 +376,9 @@
 		2680CE99225C97AE00693692 /* Shopmate */ = {
 			isa = PBXGroup;
 			children = (
+				2680CEE6225C98EC00693692 /* Config */,
 				2680CEE8225C997700693692 /* Features */,
 				2680CEAE225C98B300693692 /* Libs */,
-				2680CEE6225C98EC00693692 /* Config */,
 				2680CEE7225C98F900693692 /* Resources */,
 			);
 			path = Shopmate;
@@ -387,17 +387,17 @@
 		2680CEAE225C98B300693692 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				262B72222265C6780085DB18 /* UIImage+Gif.swift */,
-				262B72202265C5D50085DB18 /* knStateview.swift */,
-				262B72142265831F0085DB18 /* knPopup.swift */,
-				262B250022608446004CB2FC /* knPicker.swift */,
-				262B250622608AEF004CB2FC /* StripeWrapper.swift */,
-				2680CF2F225DA47A00693692 /* ImageSlideView.swift */,
-				26B22D26225DF4C10051E8CB /* SelectColorView.swift */,
-				2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */,
-				26B22D28225DFE1C0051E8CB /* SelectSizeView.swift */,
 				2680CEE5225C98C500693692 /* knStore */,
 				262B24EA22604965004CB2FC /* BadgeButton.swift */,
+				2680CF2F225DA47A00693692 /* ImageSlideView.swift */,
+				2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */,
+				26B22D26225DF4C10051E8CB /* SelectColorView.swift */,
+				26B22D28225DFE1C0051E8CB /* SelectSizeView.swift */,
+				262B250622608AEF004CB2FC /* StripeWrapper.swift */,
+				262B72222265C6780085DB18 /* UIImage+Gif.swift */,
+				262B250022608446004CB2FC /* knPicker.swift */,
+				262B72142265831F0085DB18 /* knPopup.swift */,
+				262B72202265C5D50085DB18 /* knStateview.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -405,27 +405,21 @@
 		2680CEE5225C98C500693692 /* knStore */ = {
 			isa = PBXGroup;
 			children = (
-				2680CF26225D9D2B00693692 /* PasswordValidation.swift */,
-				2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */,
-				2680CF0B225D95FB00693692 /* TermLabel.swift */,
 				2680CEB7225C98BC00693692 /* 1.Setting.swift */,
 				2680CEC2225C98BC00693692 /* 1.StartPoint.swift */,
 				2680CEB9225C98BC00693692 /* Controller+Keyboard.swift */,
 				2680CEB2225C98BC00693692 /* DateExtension.swift */,
 				2680CEB8225C98BC00693692 /* DeviceType.swift */,
+				2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */,
 				2680CEBB225C98BC00693692 /* General.swift */,
 				2680CEBF225C98BC00693692 /* IntExtension.swift */,
 				2680CEC1225C98BC00693692 /* KMPlaceholderTextView.swift */,
-				2680CEB5225C98BC00693692 /* knConstraints.swift */,
-				2680CEC6225C98BD00693692 /* knController.swift */,
-				2680CEB4225C98BC00693692 /* knGridView.swift */,
-				2680CEBC225C98BC00693692 /* knListView.swift */,
-				2680CEBD225C98BC00693692 /* knUIMaker.swift */,
-				2680CEC5225C98BC00693692 /* knView.swift */,
 				2680CEAF225C98BB00693692 /* NavigationExtension.swift */,
 				2680CEC7225C98BD00693692 /* OtherExtensions.swift */,
+				2680CF26225D9D2B00693692 /* PasswordValidation.swift */,
 				2680CEB3225C98BC00693692 /* ServiceConnector.swift */,
 				2680CEB6225C98BC00693692 /* StringExtension.swift */,
+				2680CF0B225D95FB00693692 /* TermLabel.swift */,
 				2680CEB1225C98BB00693692 /* UIApplicationExtension.swift */,
 				2680CEC9225C98BD00693692 /* UIButtonExtension.swift */,
 				2680CEC3225C98BC00693692 /* UIColorExtension.swift */,
@@ -434,6 +428,12 @@
 				2680CEBE225C98BC00693692 /* UITextFieldExtension.swift */,
 				2680CEC0225C98BC00693692 /* UIViewControllerExtension.swift */,
 				2680CEB0225C98BB00693692 /* UIViewExtension.swift */,
+				2680CEB5225C98BC00693692 /* knConstraints.swift */,
+				2680CEC6225C98BD00693692 /* knController.swift */,
+				2680CEB4225C98BC00693692 /* knGridView.swift */,
+				2680CEBC225C98BC00693692 /* knListView.swift */,
+				2680CEBD225C98BC00693692 /* knUIMaker.swift */,
+				2680CEC5225C98BC00693692 /* knView.swift */,
 			);
 			path = knStore;
 			sourceTree = "<group>";
@@ -450,10 +450,10 @@
 		2680CEE7225C98F900693692 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				262B72262265C6CC0085DB18 /* loading.gif */,
 				2680CEEF225CA1AD00693692 /* Fonts */,
 				2680CEA1225C97AE00693692 /* Assets.xcassets */,
 				2680CEA3225C97AE00693692 /* LaunchScreen.storyboard */,
+				262B72262265C6CC0085DB18 /* loading.gif */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -461,18 +461,18 @@
 		2680CEE8225C997700693692 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				262B721B2265BCE40085DB18 /* Search */,
-				262B24F7226083B9004CB2FC /* Payment */,
-				262B24F222607E73004CB2FC /* Menu */,
 				2635CF12225F3C7B00C1B412 /* Cart */,
-				2680CF2C225DA35B00693692 /* ProductDetail */,
-				2680CEE9225C998500693692 /* Boss.swift */,
-				262B7216226596400085DB18 /* Filter */,
-				2680CEFA225CAC7D00693692 /* Products */,
-				2680CF20225D9B2D00693692 /* Login */,
-				2680CF21225D9C3800693692 /* Register */,
 				262B24D2225FDBF2004CB2FC /* Common */,
+				262B7216226596400085DB18 /* Filter */,
 				262B24D5225FE334004CB2FC /* Landing */,
+				2680CF20225D9B2D00693692 /* Login */,
+				262B24F222607E73004CB2FC /* Menu */,
+				262B24F7226083B9004CB2FC /* Payment */,
+				2680CF2C225DA35B00693692 /* ProductDetail */,
+				2680CEFA225CAC7D00693692 /* Products */,
+				2680CF21225D9C3800693692 /* Register */,
+				262B721B2265BCE40085DB18 /* Search */,
+				2680CEE9225C998500693692 /* Boss.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -480,13 +480,13 @@
 		2680CEEF225CA1AD00693692 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				2680CEC8225C98BD00693692 /* UIFontExtension.swift */,
+				2680CF01225CAD6000693692 /* Colors.swift */,
 				2680CEF0225CA1B300693692 /* Montserrat-ExtraBold.ttf */,
 				2680CEF1225CA1B300693692 /* Montserrat-Light.ttf */,
 				2680CEF3225CA1B300693692 /* Montserrat-Medium.ttf */,
 				2680CEF4225CA1B300693692 /* Montserrat-Regular.ttf */,
 				2680CEF2225CA1B300693692 /* Montserrat-SemiBold.ttf */,
-				2680CF01225CAD6000693692 /* Colors.swift */,
+				2680CEC8225C98BD00693692 /* UIFontExtension.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -494,10 +494,10 @@
 		2680CEFA225CAC7D00693692 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2680CEEB225C9F8A00693692 /* ProductsController.swift */,
-				2680CEED225C9FB800693692 /* ProductsUI.swift */,
 				262B24D6225FE7DE004CB2FC /* GetProductsWorker.swift */,
+				2680CEEB225C9F8A00693692 /* ProductsController.swift */,
 				262B24DA22601E91004CB2FC /* ProductsInteractor.swift */,
+				2680CEED225C9FB800693692 /* ProductsUI.swift */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -506,8 +506,8 @@
 			isa = PBXGroup;
 			children = (
 				2680CEFD225CACB600693692 /* LoginController.swift */,
-				2680CEFF225CACC700693692 /* LoginUI.swift */,
 				2680CF1C225D9ACF00693692 /* LoginInteractor.swift */,
+				2680CEFF225CACC700693692 /* LoginUI.swift */,
 				2680CF1E225D9B2800693692 /* LoginWorker.swift */,
 			);
 			path = Login;
@@ -516,9 +516,9 @@
 		2680CF21225D9C3800693692 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				2680CF03225CAEA500693692 /* RegisterUI.swift */,
 				2680CF07225CAEBE00693692 /* RegisterController.swift */,
 				2680CF22225D9C4B00693692 /* RegisterInteractor.swift */,
+				2680CF03225CAEA500693692 /* RegisterUI.swift */,
 				2680CF24225D9C6000693692 /* RegisterWorker.swift */,
 			);
 			path = Register;
@@ -527,13 +527,13 @@
 		2680CF2C225DA35B00693692 /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
-				2680CF2D225DA36200693692 /* ProductDetailController.swift */,
-				2680CF31225DA75F00693692 /* ProductDetailUI.swift */,
-				262B24D822601DBF004CB2FC /* GetProductDetailWorker.swift */,
-				262B24DC22601EAF004CB2FC /* ProductDetailInteractor.swift */,
-				262B24E222602F09004CB2FC /* GetProductReviewWorker.swift */,
 				262B24E6226042E7004CB2FC /* AddToCartWorker.swift */,
 				262B24EC22604C01004CB2FC /* GetCartItemsWorker.swift */,
+				262B24D822601DBF004CB2FC /* GetProductDetailWorker.swift */,
+				262B24E222602F09004CB2FC /* GetProductReviewWorker.swift */,
+				2680CF2D225DA36200693692 /* ProductDetailController.swift */,
+				262B24DC22601EAF004CB2FC /* ProductDetailInteractor.swift */,
+				2680CF31225DA75F00693692 /* ProductDetailUI.swift */,
 			);
 			path = ProductDetail;
 			sourceTree = "<group>";
@@ -796,6 +796,7 @@
 				2680CEA4225C97AE00693692 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
