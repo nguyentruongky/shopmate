@@ -13,12 +13,12 @@ extension UIView {
         layer.borderColor = color.cgColor
         layer.borderWidth = width
     }
-    
+
     @objc func setCorner(radius: CGFloat) {
         layer.cornerRadius = radius
         clipsToBounds = true
     }
-    
+
     func createImage() -> UIImage {
         UIGraphicsBeginImageContext(bounds.size)
         layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -26,13 +26,13 @@ extension UIView {
         UIGraphicsEndImageContext()
         return image!
     }
-    
+
     func clearSubviews() {
         for view in subviews {
             view.removeFromSuperview()
         }
     }
-    
+
     func setGradientBackground(colors: [UIColor],
                                size: CGSize = .zero,
                                startPoint: CGPoint = CGPoint(x: 0, y: 0),
@@ -45,14 +45,14 @@ extension UIView {
         gradientLayer.endPoint = endPoint
         layer.insertSublayer(gradientLayer, at: 0)
     }
-    
+
     func setGradientBorder(colors: [UIColor], size: CGSize = .zero,
                            width: CGFloat = 1) {
         let gradient = CAGradientLayer()
         gradient.frame = CGRect(origin: CGPoint.zero,
-                                     size: size == .zero ? bounds.size : size)
+                                size: size == .zero ? bounds.size : size)
         gradient.colors = colors.map({ return $0.cgColor })
-        
+
         let shape = CAShapeLayer()
         shape.lineWidth = width
         shape.path = UIBezierPath(rect: bounds).cgPath
@@ -61,7 +61,7 @@ extension UIView {
         gradient.mask = shape
         layer.addSublayer(gradient)
     }
-    
+
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
@@ -73,26 +73,43 @@ extension UIView {
     func setEnabled(_ value: Bool) {
         isUserInteractionEnabled = value
     }
+
+    func zoomIn(_ isIn: Bool, complete: (() -> Void)? = nil) {
+        let initialValue: CGFloat = isIn ? 0.8 : 1
+        let endValue: CGFloat = isIn ? 1 : 0.8
+        transform = transform.scaledBy(x: initialValue , y: initialValue)
+        UIView.animate(withDuration: 0.35, delay: 0.0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0.3,
+                       options: .curveEaseInOut,
+                       animations: { [weak self] in
+                        self?.transform = CGAffineTransform.identity.scaledBy(x: endValue, y: endValue)
+            }, completion: { _ in complete?() })
+    }
+
+    func scale(value: CGFloat) {
+        transform = CGAffineTransform.identity.scaledBy(x: value, y: value)
+    }
 }
 
 
 
 
 extension UIView {
-    
+
     /**
      Rounds the given set of corners to the specified radius
-     
+
      - parameter corners: Corners to round
      - parameter radius:  Radius to round to
      */
     func setRoundCorners(corners: UIRectCorner, radius: CGFloat) {
         _ = _round(corners: corners, radius: radius)
     }
-    
+
     /**
      Rounds the given set of corners to the specified radius with a border
-     
+
      - parameter corners:     Corners to round
      - parameter radius:      Radius to round to
      - parameter borderColor: The border color
@@ -102,10 +119,10 @@ extension UIView {
         let mask = _round(corners: corners, radius: radius)
         addBorder(mask: mask, borderColor: borderColor, borderWidth: borderWidth)
     }
-    
+
     /**
      Fully rounds an autolayout view (e.g. one with no known frame) with the given diameter and border
-     
+
      - parameter diameter:    The view's diameter
      - parameter borderColor: The border color
      - parameter borderWidth: The border width
@@ -125,7 +142,7 @@ extension UIView {
         self.layer.mask = mask
         return mask
     }
-    
+
     func addBorder(mask: CAShapeLayer, borderColor: UIColor, borderWidth: CGFloat) {
         let borderLayer = CAShapeLayer()
         borderLayer.path = mask.path
@@ -135,6 +152,6 @@ extension UIView {
         borderLayer.frame = bounds
         layer.addSublayer(borderLayer)
     }
-    
+
 }
 

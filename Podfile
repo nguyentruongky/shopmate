@@ -8,6 +8,7 @@ target 'Shopmate' do
   pod 'Kingfisher'
   pod 'SwiftyDrop', '~>4.0'
   pod 'Stripe'
+  pod 'RangeSeekSlider'
 
 end
 

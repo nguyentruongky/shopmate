@@ -41,6 +41,11 @@
 		262B71EE226142BA0085DB18 /* GetTotalAmountWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71ED226142BA0085DB18 /* GetTotalAmountWorker.swift */; };
 		262B71F0226232D70085DB18 /* EmptyCartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B71EF226232D70085DB18 /* EmptyCartWorker.swift */; };
 		262B720D22652F220085DB18 /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B720C22652F220085DB18 /* Summary.swift */; };
+		262B720F2265601C0085DB18 /* FilterResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B720E2265601C0085DB18 /* FilterResultController.swift */; };
+		262B7213226582FF0085DB18 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B7212226582FF0085DB18 /* FilterView.swift */; };
+		262B72152265831F0085DB18 /* knPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B72142265831F0085DB18 /* knPopup.swift */; };
+		262B72182265969F0085DB18 /* FilterProductsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B72172265969F0085DB18 /* FilterProductsWorker.swift */; };
+		262B721A2265ABE30085DB18 /* ProductListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B72192265ABE30085DB18 /* ProductListController.swift */; };
 		2635CEE4225F232E00C1B412 /* ReviewSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */; };
 		2635CEE6225F23F500C1B412 /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */; };
 		2635CF14225F3C8300C1B412 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635CF13225F3C8300C1B412 /* CartController.swift */; };
@@ -140,6 +145,11 @@
 		262B71ED226142BA0085DB18 /* GetTotalAmountWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTotalAmountWorker.swift; sourceTree = "<group>"; };
 		262B71EF226232D70085DB18 /* EmptyCartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartWorker.swift; sourceTree = "<group>"; };
 		262B720C22652F220085DB18 /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
+		262B720E2265601C0085DB18 /* FilterResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterResultController.swift; sourceTree = "<group>"; };
+		262B7212226582FF0085DB18 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		262B72142265831F0085DB18 /* knPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = knPopup.swift; sourceTree = "<group>"; };
+		262B72172265969F0085DB18 /* FilterProductsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProductsWorker.swift; sourceTree = "<group>"; };
+		262B72192265ABE30085DB18 /* ProductListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListController.swift; sourceTree = "<group>"; };
 		2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSlideView.swift; sourceTree = "<group>"; };
 		2635CEE5225F23F500C1B412 /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		2635CF13225F3C8300C1B412 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
@@ -233,6 +243,7 @@
 				262B71E822612DDF0085DB18 /* GetCustomerDetailWorker.swift */,
 				262B71EA22612F0B0085DB18 /* GetShippingDetailWorker.swift */,
 				262B71ED226142BA0085DB18 /* GetTotalAmountWorker.swift */,
+				262B72192265ABE30085DB18 /* ProductListController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -302,6 +313,16 @@
 			path = Summary;
 			sourceTree = "<group>";
 		};
+		262B7216226596400085DB18 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				262B720E2265601C0085DB18 /* FilterResultController.swift */,
+				262B72172265969F0085DB18 /* FilterProductsWorker.swift */,
+				262B7212226582FF0085DB18 /* FilterView.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		2635CF12225F3C7B00C1B412 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +368,7 @@
 		2680CEAE225C98B300693692 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				262B72142265831F0085DB18 /* knPopup.swift */,
 				262B250022608446004CB2FC /* knPicker.swift */,
 				262B250622608AEF004CB2FC /* StripeWrapper.swift */,
 				2680CF2F225DA47A00693692 /* ImageSlideView.swift */,
@@ -452,6 +474,7 @@
 				2680CEED225C9FB800693692 /* ProductsUI.swift */,
 				262B24D6225FE7DE004CB2FC /* GetProductsWorker.swift */,
 				262B24DA22601E91004CB2FC /* ProductsInteractor.swift */,
+				262B7216226596400085DB18 /* Filter */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -593,6 +616,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Shopmate/Pods-Shopmate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyDrop/SwiftyDrop.framework",
 			);
@@ -602,6 +626,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RangeSeekSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyDrop.framework",
 			);
@@ -643,6 +668,7 @@
 				2680CED9225C98BD00693692 /* UITextFieldExtension.swift in Sources */,
 				2680CECD225C98BD00693692 /* DateExtension.swift in Sources */,
 				2680CEE2225C98BD00693692 /* OtherExtensions.swift in Sources */,
+				262B72182265969F0085DB18 /* FilterProductsWorker.swift in Sources */,
 				2680CF02225CAD6000693692 /* Colors.swift in Sources */,
 				262B24DF226020CF004CB2FC /* GetColorsWorker.swift in Sources */,
 				262B24D922601DBF004CB2FC /* GetProductDetailWorker.swift in Sources */,
@@ -657,6 +683,7 @@
 				2680CED1225C98BD00693692 /* StringExtension.swift in Sources */,
 				262B24F422607E79004CB2FC /* MenuController.swift in Sources */,
 				2635CF16225F3DF300C1B412 /* CartUI.swift in Sources */,
+				262B721A2265ABE30085DB18 /* ProductListController.swift in Sources */,
 				2680CF25225D9C6000693692 /* RegisterWorker.swift in Sources */,
 				2680CEDE225C98BD00693692 /* UIColorExtension.swift in Sources */,
 				2680CEEC225C9F8A00693692 /* ProductsController.swift in Sources */,
@@ -670,6 +697,7 @@
 				2680CEE1225C98BD00693692 /* knController.swift in Sources */,
 				2635CF18225F3E0A00C1B412 /* CartItem.swift in Sources */,
 				2680CED2225C98BD00693692 /* 1.Setting.swift in Sources */,
+				262B72152265831F0085DB18 /* knPopup.swift in Sources */,
 				2680CECE225C98BD00693692 /* ServiceConnector.swift in Sources */,
 				2680CEE3225C98BD00693692 /* UIFontExtension.swift in Sources */,
 				2680CF1F225D9B2800693692 /* LoginWorker.swift in Sources */,
@@ -697,6 +725,7 @@
 				262B24D4225FDE0D004CB2FC /* LandingController.swift in Sources */,
 				2680CED7225C98BD00693692 /* knListView.swift in Sources */,
 				2680CF32225DA75F00693692 /* ProductDetailUI.swift in Sources */,
+				262B7213226582FF0085DB18 /* FilterView.swift in Sources */,
 				2680CF0C225D95FB00693692 /* TermLabel.swift in Sources */,
 				262B250722608AEF004CB2FC /* StripeWrapper.swift in Sources */,
 				262B24D7225FE7DE004CB2FC /* GetProductsWorker.swift in Sources */,
@@ -714,6 +743,7 @@
 				2680CECA225C98BD00693692 /* NavigationExtension.swift in Sources */,
 				262B24DB22601E91004CB2FC /* ProductsInteractor.swift in Sources */,
 				262B71E52260A2F50085DB18 /* LoginChecker.swift in Sources */,
+				262B720F2265601C0085DB18 /* FilterResultController.swift in Sources */,
 				2680CF30225DA47A00693692 /* ImageSlideView.swift in Sources */,
 				262B250522608A8D004CB2FC /* CardListController.swift in Sources */,
 				2680CEDD225C98BD00693692 /* 1.StartPoint.swift in Sources */,

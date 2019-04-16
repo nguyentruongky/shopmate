@@ -63,7 +63,7 @@ class ProductCell: knGridCell<Product> {
         titleLabel.text = data.name
     }
 
-    let imageView = UIMaker.makeImageView()
+    let imageView = UIMaker.makeImageView(contentMode: .scaleAspectFill)
     let priceLabel = UIMaker.makeLabel(font: UIFont.main(.bold, size: 16),
                                        color: .black)
     let discountPriceLabel = UIMaker.makeLabel(font: UIFont.main(size: 14),
@@ -80,7 +80,7 @@ class ProductCell: knGridCell<Product> {
         addSubviews(views: imageView, priceLabel, discountPriceLabel, titleLabel)
         imageView.horizontalSuperview()
         imageView.topSuperView()
-        imageView.height(150)
+        imageView.height(175)
 
         priceLabel.leftSuperView()
         priceLabel.verticalSpacingDown(toView: titleLabel, space: -4)
