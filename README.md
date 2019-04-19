@@ -18,6 +18,7 @@ DONE
 ### 2. Products list
 - Load list - DONE
 - Load more - DONE
+- Load product in category - DONE
 
 ### 3. Product Detail 
 - Color Selection - DONE
@@ -66,10 +67,10 @@ Your search api sometimes returns empty, while there are some products contain t
 
 ## Improvement
 - State (loading, empty) - DONE
+- Category - DONE
+- Add app icon - DONE
 - Animation when add to cart 
 - Wishlist 
-- Category 
-- Add app icon - DONE
 
 ## Working hours 
 I can't commit for this project full time. So work few hours everyday. 
@@ -86,8 +87,9 @@ I can't commit for this project full time. So work few hours everyday.
 - Payment flow: 3 hours
 - Address: 1 hour
 - Shipping: 3 hours
+- Category: 1 hour
 
-Total: 28 hours. 
+Total: 29 hours. 
 
 ## Contact 
 Ky Nguyen 
