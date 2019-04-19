@@ -39,6 +39,12 @@ class Boss: UITabBarController {
                                         appSetting.stripeUserID = userKey
                 }, failAction: nil)
         }
+
+        if appSetting.didLogin {
+            GetProfileWorker(successAction: { myAccount in
+                appSetting.myAccount = myAccount
+            }, failAction: nil).execute()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

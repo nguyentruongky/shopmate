@@ -28,6 +28,8 @@ class AppSetting {
 
     let baseURL = "https://mobilebackend.turing.com"
     let baseImageURL = "https://mobilebackend.turing.com/images/products/"
+    var myAccount: Customer?
+
     var token: String? {
         get { return UserDefaults.get(key: "token") as String? }
         set {

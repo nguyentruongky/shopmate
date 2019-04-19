@@ -126,7 +126,7 @@ private class knDatePicker: knPickerView {
     }
 }
 
-private class knTextPicker: knPickerView {
+class knTextPicker: knPickerView {
     private let _picker = UIPickerView()
     var textDatasource = [String]() { didSet {
             _picker.reloadComponent(0)

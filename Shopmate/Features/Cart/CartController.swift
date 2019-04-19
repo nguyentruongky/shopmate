@@ -38,7 +38,7 @@ class CartController: knListController<CartCell, CartItem> {
 
     @objc func startCheckout() {
         let controller = SummaryController()
-        controller.subtotal = totalAmount
+        controller.setSubtotal(amount: totalAmount)
         push(controller)
     }
 
@@ -80,6 +80,7 @@ class CartController: knListController<CartCell, CartItem> {
             { return item.itemID == $0.itemID }) else { return }
         datasource.remove(at: Int(index))
         updateUI()
+        updateTotal()
     }
 
     func updateUI() {

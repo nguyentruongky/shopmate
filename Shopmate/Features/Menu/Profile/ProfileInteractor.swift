@@ -10,9 +10,7 @@ import UIKit
 extension ProfileController {
     func didGetProfile(data: Customer) {
         self.data = data
-        ui.nameTextField.text = data.name
-        ui.phoneTextField.text = data.phone
-        ui.emailTextField.text = data.email
+        appSetting.myAccount = data
     }
 
     func didGetProfileFail(error: knError) {

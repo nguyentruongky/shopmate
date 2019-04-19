@@ -166,12 +166,22 @@ class StripeWrapper {
         }
 
         var params = [
-            "amount": amount,
+            "amount": Int(amount),
             "currency": currency,
             "source": cardToken,
             "customer": userId!
             ] as [String : Any]
-        if let email = appSetting.userEmail {
+
+        var email: String?
+        if let data = appSetting.userEmail {
+            email = data
+        }
+
+        if let data = appSetting.myAccount?.email {
+            email = data
+        }
+
+        if let email = email {
             params["receipt_email"] = email
         }
         let api = "/charges"
@@ -193,7 +203,6 @@ class StripeWrapper {
 
     func getCardImage(brand: STPCardBrand) -> UIImage? {
         return STPImageLibrary.brandImage(for: brand)
-        return nil
     }
 
     private func getCardBrand(card: Card) -> STPCardBrand? {

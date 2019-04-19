@@ -10,17 +10,27 @@ import UIKit
 import SafariServices
 
 class SummaryController: knStaticListController {
-    private let ui = UI()
-    var subtotal: Double = 0 { didSet {
-        ui.subtotalLabel.text = "$\(subtotal)"
-        totalAmount += subtotal
-        }}
-    private var fee: Double = 0
-    private var totalAmount: Double = 0 { didSet {
+    let ui = UI()
+    private var subtotal: Double = 0
+    func setSubtotal(amount: Double) {
+        subtotal = amount
+        ui.subtotalLabel.text = "$\(amount)"
+        updateTotal()
+    }
+    var fee: Double = 0
+    var totalAmount: Double = 0
+
+    func updateTotal() {
+        totalAmount = subtotal + fee
         ui.totalLabel.text = "$\(totalAmount)"
-        }}
+    }
+
     private var selectedCard: Card?
     private var actions = [Int: (() -> Void)?]()
+    lazy var output = Interactor(controller: self)
+    var shippingAddress: Address?
+    var shippingMethods = [ShippingMethod]()
+    var selectedShippingMethods: ShippingMethod?
 
     override func setupView() {
         addBackButton()
@@ -42,10 +52,12 @@ class SummaryController: knStaticListController {
 
         ui.cardLabel.text = "No card added"
         ui.cardImageView.image = stripeWrapper.getCardImage(brand: .unknown)
+
+        ui.pickShippingButton.addTarget(self, action: #selector(showShippingMethodList))
     }
 
-    func showAddress() {
-        MessageHub.presentMessage("Adding address is coming")
+    @objc func showShippingMethodList() {
+        ui.picker.show(in: self)
     }
 
     @objc func startCheckout() {
@@ -69,19 +81,8 @@ class SummaryController: knStaticListController {
     }
 
     override func fetchData() {
-        stripeWrapper.getPaymentMethods(successAction: { [weak self] cards in
-            self?.setSelectedCard(card: cards.first)
-            }, failAction: nil)
-    }
-
-    func setSelectedCard(card: Card?) {
-        guard let card = card else {
-
-            return
-        }
-        selectedCard = card
-        ui.cardLabel.text = card.number + " - " + (card.userName ?? "")
-        ui.cardImageView.image = stripeWrapper.getCardImage(card: card)
+        output.getPaymentMethods()
+        output.getShippingAddress()
     }
 
     override func didSelectRow(at indexPath: IndexPath) {
@@ -91,12 +92,43 @@ class SummaryController: knStaticListController {
 }
 
 
+extension SummaryController: knPickerViewDelegate {
+    func didSelectText(_ text: String) {
+        guard let index = shippingMethods.firstIndex(where: { $0.shippingType == text }) else { return }
+        didSelectShippingMethod(method: shippingMethods[Int(index)])
+    }
+
+    func didSelectShippingMethod(method: ShippingMethod) {
+        selectedShippingMethods = method
+        ui.shippingMethodLabel.text = method.shippingType
+        if let feeText = method.shippingCost?.remove("$"), let fee = Double(feeText) {
+            ui.feeLabel.text = "$" + feeText
+            self.fee = fee
+            updateTotal()
+        }
+    }
+}
+
+extension SummaryController {
+    func showAddress() {
+        let controller = AddressController()
+        controller.delegate = output
+        present(wrap(controller))
+    }
+}
+
 extension SummaryController: CardListDelegate {
+    func setSelectedCard(card: Card?) {
+        guard let card = card else { return }
+        selectedCard = card
+        ui.cardLabel.text = card.number + " - " + (card.userName ?? "")
+        ui.cardImageView.image = stripeWrapper.getCardImage(card: card)
+    }
+
     func didSelectCard(card: Card) {
         ui.cardImageView.image = stripeWrapper.getCardImage(card: card)
         ui.cardLabel.text = card.number + " - " + (card.userName ?? "")
         selectedCard = card
-        startCheckout()
         dismiss()
     }
 
@@ -106,7 +138,6 @@ extension SummaryController: CardListDelegate {
         present(wrap(controller))
     }
 }
-
 
 extension SummaryController: SFSafariViewControllerDelegate {
     func showReceipt(url: String) {

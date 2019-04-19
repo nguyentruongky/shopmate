@@ -40,12 +40,17 @@ class ProfileController: knStaticListController {
     }
 
     override func fetchData() {
-        output.getMyProfile()
+        if appSetting.myAccount == nil {
+            output.getMyProfile()
+        } else {
+            data = appSetting.myAccount
+        }
+
     }
 
     @objc func saveChanges(){
         hideKeyboard()
-        guard var user = data else { return }
+        guard let user = data else { return }
         user.name = ui.nameTextField.text
         user.phone = ui.phoneTextField.text
         user.email = ui.emailTextField.text

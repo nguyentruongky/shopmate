@@ -186,6 +186,12 @@ struct AlamofireConnector {
 
         if let statusCode = response.response?.statusCode {
             print(statusCode)
+            if statusCode == 401 {
+                appSetting.token = nil
+                boss?.showLandingPage()
+                appSetting.removeUserData()
+                return
+            }
             // handle status code here: 401 -> show logout; 500 -> server error
         }
 

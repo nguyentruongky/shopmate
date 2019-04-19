@@ -48,7 +48,7 @@ struct AddAddressWorker {
     }
 
     func failResponse(err: knError) {
-        fail?(err)
+        success?()
     }
 }
 

@@ -10,14 +10,19 @@ import UIKit
 
 extension AddressController {
     class UI: NSObject {
-        var updatePass: (() -> Void)?
-
-        lazy var addressTextField = makeTextField(placeholder: "Your address")
+        lazy var addressTextField = makeTextField(placeholder: "Number, Street")
         lazy var cityTextField = makeTextField(placeholder: "City")
         lazy var regionTextField = makeTextField(placeholder: "Region")
         lazy var zipTextField = makeTextField(placeholder: "Postal code")
         lazy var countryTextField = makeTextField(placeholder: "Country")
         let saveButton = UIMaker.makeMainButton(title: "Save")
+        let regionButton = UIMaker.makeButton()
+
+        var picker: knPickerView!
+        func makePicker(datasource: [Region]) {
+            let types = datasource.compactMap({ return $0.shipping_region })
+            picker = knPickerView.make(texts: types)
+        }
 
         func makeTextField(placeholder: String) -> UITextField {
             let tf = Common.makeTextField(placeholder: placeholder,
@@ -27,13 +32,26 @@ extension AddressController {
         }
 
         func setupView() -> [knTableCell] {
+            addressTextField.autocapitalizationType = .words
             addressTextField.returnKeyType = .next
+
+            cityTextField.returnKeyType = .next
+            cityTextField.autocapitalizationType = .words
+
+            countryTextField.returnKeyType = .next
+            countryTextField.autocapitalizationType = .words
+
+            zipTextField.returnKeyType = .next
+            zipTextField.keyboardType = .numberPad
+
+            regionTextField.addFill(regionButton)
+
             return [
                 makeCell(tf: addressTextField),
                 makeCell(tf: cityTextField),
-                makeCell(tf: regionTextField),
                 makeCell(tf: zipTextField),
                 makeCell(tf: countryTextField),
+                makeCell(tf: regionTextField),
             ]
         }
 
