@@ -40,7 +40,7 @@ extension ProductDetailController {
         }
 
         let backButton = UIMaker.makeButton(image: UIImage(named: "back"))
-        let cartButton = BadgeButton()
+        let cartButton = UIMaker.makeButton()
 
         func setupView() -> [knTableCell] {
             likeButton.isHidden = true
@@ -75,7 +75,7 @@ extension ProductDetailController {
             func makeView(button: UIButton) -> UIView {
                 let view = UIMaker.makeView(background: UIColor.white.alpha(0.5))
                 view.addSubviews(views: button)
-                button.fill(toView: view, space: UIEdgeInsets(space: 12))
+                button.fill(toView: view, space: UIEdgeInsets(space: 10))
                 return view
             }
 

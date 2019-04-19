@@ -9,7 +9,7 @@
 import UIKit
 class ProductsController: ProductListController {
     lazy var output = Interactor(controller: self)
-    let cartButton = BadgeButton()
+    let cartButton = UIMaker.makeButton()
     let filterView = FilterView()
     let filterButton = UIMaker.makeButton(image: UIImage(named: "filter_off"))
     var filterController: FilterResultController?

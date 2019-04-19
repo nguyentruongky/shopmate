@@ -15,6 +15,7 @@
 		2618312E2269757500706032 /* GetShippingAreasWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618312D2269757500706032 /* GetShippingAreasWorker.swift */; };
 		261831302269761B00706032 /* GetShippingDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618312F2269761B00706032 /* GetShippingDetailWorker.swift */; };
 		26212A522269A4A900A2B658 /* SummaryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26212A512269A4A900A2B658 /* SummaryInteractor.swift */; };
+		26212A5A2269CBFC00A2B658 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26212A592269CBFB00A2B658 /* BadgeView.swift */; };
 		262B24D1225FDBE6004CB2FC /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D0225FDBE6004CB2FC /* Customer.swift */; };
 		262B24D4225FDE0D004CB2FC /* LandingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D3225FDE0D004CB2FC /* LandingController.swift */; };
 		262B24D7225FE7DE004CB2FC /* GetProductsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D6225FE7DE004CB2FC /* GetProductsWorker.swift */; };
@@ -26,7 +27,6 @@
 		262B24E322602F09004CB2FC /* GetProductReviewWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24E222602F09004CB2FC /* GetProductReviewWorker.swift */; };
 		262B24E52260425C004CB2FC /* CreateCartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24E42260425C004CB2FC /* CreateCartWorker.swift */; };
 		262B24E7226042E7004CB2FC /* AddToCartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24E6226042E7004CB2FC /* AddToCartWorker.swift */; };
-		262B24EB22604965004CB2FC /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24EA22604965004CB2FC /* BadgeButton.swift */; };
 		262B24ED22604C01004CB2FC /* GetCartItemsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24EC22604C01004CB2FC /* GetCartItemsWorker.swift */; };
 		262B24EF2260766F004CB2FC /* UpdateCartWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24EE2260766F004CB2FC /* UpdateCartWorker.swift */; };
 		262B24F122607804004CB2FC /* DeleteItemWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24F022607804004CB2FC /* DeleteItemWorker.swift */; };
@@ -131,6 +131,7 @@
 		2618312D2269757500706032 /* GetShippingAreasWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShippingAreasWorker.swift; sourceTree = "<group>"; };
 		2618312F2269761B00706032 /* GetShippingDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShippingDetailWorker.swift; sourceTree = "<group>"; };
 		26212A512269A4A900A2B658 /* SummaryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryInteractor.swift; sourceTree = "<group>"; };
+		26212A592269CBFB00A2B658 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		262B24D0225FDBE6004CB2FC /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		262B24D3225FDE0D004CB2FC /* LandingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingController.swift; sourceTree = "<group>"; };
 		262B24D6225FE7DE004CB2FC /* GetProductsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsWorker.swift; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 		262B24E222602F09004CB2FC /* GetProductReviewWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductReviewWorker.swift; sourceTree = "<group>"; };
 		262B24E42260425C004CB2FC /* CreateCartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCartWorker.swift; sourceTree = "<group>"; };
 		262B24E6226042E7004CB2FC /* AddToCartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartWorker.swift; sourceTree = "<group>"; };
-		262B24EA22604965004CB2FC /* BadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
 		262B24EC22604C01004CB2FC /* GetCartItemsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCartItemsWorker.swift; sourceTree = "<group>"; };
 		262B24EE2260766F004CB2FC /* UpdateCartWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCartWorker.swift; sourceTree = "<group>"; };
 		262B24F022607804004CB2FC /* DeleteItemWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteItemWorker.swift; sourceTree = "<group>"; };
@@ -427,7 +427,6 @@
 			isa = PBXGroup;
 			children = (
 				2680CEE5225C98C500693692 /* knStore */,
-				262B24EA22604965004CB2FC /* BadgeButton.swift */,
 				2680CF2F225DA47A00693692 /* ImageSlideView.swift */,
 				2635CEE3225F232E00C1B412 /* ReviewSlideView.swift */,
 				26B22D26225DF4C10051E8CB /* SelectColorView.swift */,
@@ -444,6 +443,7 @@
 		2680CEE5225C98C500693692 /* knStore */ = {
 			isa = PBXGroup;
 			children = (
+				26212A592269CBFB00A2B658 /* BadgeView.swift */,
 				2680CEB7225C98BC00693692 /* 1.Setting.swift */,
 				2680CEC2225C98BC00693692 /* 1.StartPoint.swift */,
 				2680CEB9225C98BC00693692 /* Controller+Keyboard.swift */,
@@ -764,6 +764,7 @@
 				2635CF18225F3E0A00C1B412 /* CartItem.swift in Sources */,
 				2680CED2225C98BD00693692 /* 1.Setting.swift in Sources */,
 				2618310C22696C5C00706032 /* GetProfileWorker.swift in Sources */,
+				26212A5A2269CBFC00A2B658 /* BadgeView.swift in Sources */,
 				262B72152265831F0085DB18 /* knPopup.swift in Sources */,
 				26183102226966B500706032 /* ProfileUI.swift in Sources */,
 				2618312E2269757500706032 /* GetShippingAreasWorker.swift in Sources */,
@@ -806,7 +807,6 @@
 				2680CED8225C98BD00693692 /* knUIMaker.swift in Sources */,
 				2680CED3225C98BD00693692 /* DeviceType.swift in Sources */,
 				2680CECB225C98BD00693692 /* UIViewExtension.swift in Sources */,
-				262B24EB22604965004CB2FC /* BadgeButton.swift in Sources */,
 				262B71E12260A07A0085DB18 /* AddressUI.swift in Sources */,
 				262B24EF2260766F004CB2FC /* UpdateCartWorker.swift in Sources */,
 				26183108226966F700706032 /* UpdateProfileWorker.swift in Sources */,

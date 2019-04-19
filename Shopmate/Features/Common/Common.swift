@@ -48,11 +48,11 @@ struct MessageHub {
     }
 
     static func showError(_ message: String) {
-        Drop.down(message, state: .error, duration: 5)
+        Drop.down(message, state: .error, duration: 3)
     }
 
     static func showMessage(_ message: String) {
-        Drop.down(message, state: .info, duration: 5)
+        Drop.down(message, state: .info, duration: 3)
     }
 
 }

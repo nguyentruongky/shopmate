@@ -27,9 +27,8 @@ class Boss: UITabBarController {
                                           iconName: "search")
 
         viewControllers = [
-            searchNav,
             productNav,
-
+            searchNav,
         ]
 
         if appSetting.stripeUserID == nil {

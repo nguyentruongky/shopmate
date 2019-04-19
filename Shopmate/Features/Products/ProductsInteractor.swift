@@ -27,8 +27,7 @@ extension ProductsController {
     }
 
     func countCartItems(_ amount: Int) {
-        cartButton.badge = amount == 0 ? nil : String(amount)
-        cartButton.badgeLabel.frame.origin = CGPoint(x: 36, y: 4)
+        cartButton.addBadge(amount: amount)
     }
 }
 

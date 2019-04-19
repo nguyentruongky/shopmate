@@ -37,7 +37,7 @@ extension ProductDetailController {
     }
 
     func countCartItems(amount: Int) {
-        ui.cartButton.badge = amount == 0 ? nil : String(amount)
+        ui.cartButton.addBadge(amount: amount, topSpace: -6, rightSpace: 6)
     }
 }
 

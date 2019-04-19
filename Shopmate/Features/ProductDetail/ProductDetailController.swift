@@ -81,11 +81,13 @@ class ProductDetailController: knStaticListController {
         }
         
         output.addToCart(productID: productID, size: size, color: color)
-        if let badge = ui.cartButton.badge, let itemCount = Int(badge) {
-            ui.cartButton.badge = "\(itemCount + 1)"
-        } else {
-            ui.cartButton.badge = "1"
-        }
+        ui.addButton.setTitle("Added")
+        run({ [weak self] in
+            self?.ui.addButton.setTitle("Add to cart")
+        }, after: 2)
+
+        let badgeValue = ui.cartButton.getBadgeCount() + 1
+        ui.cartButton.addBadge(amount: badgeValue, topSpace: -4, rightSpace: -4)
     }
 
     @objc func goBack() {

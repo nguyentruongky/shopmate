@@ -68,7 +68,7 @@ class AppSetting {
         userEmail = nil
         user = nil
         stripeWrapper.userId = nil
-        boss?.productsController.cartButton.badge = nil
+        boss?.productsController.cartButton.addBadge(amount: 0)
     }
 }
 
