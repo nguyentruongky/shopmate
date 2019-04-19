@@ -12,14 +12,14 @@ UI implementation with `knStaticListController` (detail is [here](https://www.co
 
 ## Features
 
-1. Login/Register
+### 1. Login/Register
 DONE
 
-2. Products list
+### 2. Products list
 - Load list - DONE
 - Load more - DONE
 
-3. Product Detail 
+### 3. Product Detail 
 - Color Selection - DONE
 - Size Selection - DONE
 - Image presentation - DONE 
@@ -33,12 +33,12 @@ DONE
 - The API should return available colors and sizes, instead of using general options.
 - Images should return urls (or a document to get images). I had to contact to Khuong to know how to download images. 
 
-4. Cart
+### 4. Cart
 - Get cart items - DONE
 - Update items - DONE
 - Remove items - DONE
 
-5. Checkout 
+### 5. Checkout 
 - Select card - DONE 
 - Add card - DONE
 - Select Address - DONE
@@ -47,17 +47,17 @@ DONE
 **Note**
 - I use my stripe library instead of calling the API. 
 
-6. Filter - DONE
+### 6. Filter - DONE
 
 **Note**
 You don't support filter api, so I have to do a trick. Load all products by loading pagination and filter on loaded products. 
 
-7. Search - DONE
+### 7. Search - DONE
 
 **Note**
 Your search api sometimes returns empty, while there are some products contain that keyword, for instance `arc`.
 
-6. Menu 
+### 8. Menu 
 - My Profile - DONE
 - Payment method - DONE 
 - Logout - DONE
