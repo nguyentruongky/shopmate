@@ -9,40 +9,51 @@
 import UIKit
 class SearchController: ProductListController {
     lazy var output = Interactor(controller: self)
-    private let searchController = UISearchController(searchResultsController: nil)
     private let instructionLabel = UIMaker.makeLabel(text: "Enter search text above...",
                                                          font: UIFont.main(size: 14),
                                                          color: .lightGray, alignment: .center)
-
+    let searchBar = UISearchBar()
     override func setupView() {
         super.setupView()
-        navigationController?.navigationBar.prefersLargeTitles = true
         setupSearchBar()
         view.addSubview(instructionLabel)
         instructionLabel.fillSuperView()
 
-        stateView.setStateContent(state: .empty, imageName: "empty_product", title: "No products found", content: "Change your keyword can help")
+        stateView.setStateContent(state: .empty,
+                                  imageName: "empty_product",
+                                  title: "No products found",
+                                  content: "Change your keyword can help")
     }
 
     func setupSearchBar() {
-        definesPresentationContext = true
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.delegate = self
-        searchController.searchBar.inputAccessoryView = UIMaker.makeKeyboardDoneView()
+        searchBar.placeholder = "Search"
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                           target: self, action: #selector(exitSearch))
+        navigationItem.rightBarButtonItem = cancelButton
+    }
+
+    @objc func exitSearch() {
+        hideKeyboard()
     }
 
     @objc override func fetchData() {
-        guard let text = searchController.searchBar.text else { return }
+        guard let text = searchBar.text else { return }
         output.searchProducts(keyword: text)
         instructionLabel.isHidden = true
         stateView.show(state: .loading, in: view)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavBar(false)
+    }
+
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard datasource.isEmpty == false else { return }
-        guard let text = searchController.searchBar.text else { return }
+        guard let text = searchBar.text else { return }
         if scrollView.contentOffset.y + scrollView.frame.height > scrollView.contentSize.height - 54 {
             output.searchMore(keyword: text)
         }
@@ -53,8 +64,7 @@ class SearchController: ProductListController {
         controller.hidesBottomBarWhenPushed = true
         controller.data = datasource[indexPath.row]
         push(controller)
-        //card
-        //cart
+        hideKeyboard()
     }
 }
 
@@ -121,8 +131,8 @@ extension SearchController {
             isLoading = true
             SearchProductsWorker(word: keyword,
                                  page: page,
-                                 successAction: successResponse,
-                                 failAction: failResponse).execute()
+                                 successAction: searchMoreSuccessResponse,
+                                 failAction: searchMoreFailResponse).execute()
         }
 
         private func searchMoreSuccessResponse(data: [Product]) {
