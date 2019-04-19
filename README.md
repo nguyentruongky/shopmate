@@ -41,8 +41,8 @@ DONE
 5. Checkout 
 - Select card - DONE 
 - Add card - DONE
-
-- Add/Update address - Upcoming 
+- Select Address - DONE
+- Select shipping method - DONE
 
 **Note**
 - I use my stripe library instead of calling the API. 
@@ -58,10 +58,11 @@ You don't support filter api, so I have to do a trick. Load all products by load
 Your search api sometimes returns empty, while there are some products contain that keyword, for instance `arc`.
 
 6. Menu 
+- My Profile - DONE
 - Payment method - DONE 
 - Logout - DONE
+- Address - DONE
 
-- Address - Upcoming 
 
 ## Improvement
 - State (loading, empty) - DONE
@@ -81,10 +82,12 @@ I can't commit for this project full time. So work few hours everyday.
 - Payment method: 2 hours
 - Menu: 1 hour
 - Filter: 2 hours
-- Search: 1 hours
+- Search: 1 hour
 - Payment flow: 3 hours
+- Address: 1 hour
+- Shipping: 3 hours
 
-Total: 24 hours. 
+Total: 28 hours. 
 
 ## Contact 
 Ky Nguyen 
