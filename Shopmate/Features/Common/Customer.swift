@@ -38,6 +38,10 @@ class Customer {
     var phone: String?
     var address: Address?
 
+    init() {
+        customerID = 0
+    }
+
     init(raw: AnyObject) {
         email = raw["email"] as? String
         name = raw["name"] as? String

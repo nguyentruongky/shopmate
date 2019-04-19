@@ -190,7 +190,7 @@ struct AlamofireConnector {
         }
 
         if let error = response.result.error {
-            let err = knError(code: "unknow", message: error.localizedDescription)
+            let err = knError(code: "unknown", message: error.localizedDescription)
             fail?(err)
             return
         }
@@ -235,11 +235,17 @@ struct AlamofireConnector {
 
         if let statusCode = response.response?.statusCode {
             print(statusCode)
+            if statusCode == 401 {
+                appSetting.token = nil
+                boss?.showLandingPage()
+                appSetting.removeUserData()
+                return
+            }
             // handle status code here: 401 -> show logout; 500 -> server error
         }
 
         if let error = response.result.error {
-            let err = knError(code: "unknow", message: error.localizedDescription)
+            let err = knError(code: "unknown", message: error.localizedDescription)
             fail?(err)
             return
         }
@@ -262,6 +268,9 @@ struct knError {
     var code: String = "unknown"
     var message: String?
     var data: AnyObject?
+    var displayMessage: String {
+        return message ?? code
+    }
 
     init() {}
     init(code: String, message: String? = nil, data: AnyObject? = nil) {

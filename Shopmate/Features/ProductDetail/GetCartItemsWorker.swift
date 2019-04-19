@@ -20,6 +20,13 @@ struct GetCartItemsWorker {
 
     func execute() {
         guard appSetting.didLogin else { return }
+        guard let _ = appSetting.cartID else {
+            CreateCartWorker(successAction: { cartID in
+                let api = self.api + cartID
+                ApiConnector.get(api, success: self.successResponse)
+            }).execute()
+            return
+        }
         ApiConnector.get(api, success: successResponse)
     }
 

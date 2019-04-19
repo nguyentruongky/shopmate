@@ -47,6 +47,15 @@ class SearchController: ProductListController {
             output.searchMore(keyword: text)
         }
     }
+
+    override func didSelectItem(at indexPath: IndexPath) {
+        let controller = ProductDetailController()
+        controller.hidesBottomBarWhenPushed = true
+        controller.data = datasource[indexPath.row]
+        push(controller)
+        //card
+        //cart
+    }
 }
 
 extension SearchController: UISearchBarDelegate {

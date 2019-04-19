@@ -15,6 +15,9 @@ extension MenuController {
             spaceCell.backgroundColor = UIColor(r: 243, g: 245, b: 248)
             spaceCell.height(16)
 
+            let profile = makeItem(icon: "profile", title: "Edit profile")
+            profile.tag = Item.profile.rawValue
+
             let address = makeItem(icon: "address", title: "Address Book")
             address.tag = Item.addressBook.rawValue
 
@@ -26,6 +29,7 @@ extension MenuController {
 
 
             return [
+                profile,
                 address,
                 payment,
                 spaceCell,

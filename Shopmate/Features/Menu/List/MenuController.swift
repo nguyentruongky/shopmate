@@ -33,6 +33,9 @@ class MenuController: knStaticListController {
         case .addressBook:
             showPush(AddressController())
 
+        case .profile:
+            showPush(ProfileController())
+
         case .paymentMethod:
             showPush(CardListController())
 
@@ -70,7 +73,7 @@ class MenuController: knStaticListController {
 
 extension MenuController {
     enum Item: Int {
-        case myDetail
+        case profile
         case changePass
         case addressBook
         case paymentMethod

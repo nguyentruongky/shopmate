@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26183102226966B500706032 /* ProfileUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26183101226966B500706032 /* ProfileUI.swift */; };
+		26183105226966DE00706032 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26183104226966DE00706032 /* ProfileController.swift */; };
+		26183108226966F700706032 /* UpdateProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26183107226966F700706032 /* UpdateProfileWorker.swift */; };
+		2618310A22696C3500706032 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618310922696C3500706032 /* ProfileInteractor.swift */; };
+		2618310C22696C5C00706032 /* GetProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618310B22696C5C00706032 /* GetProfileWorker.swift */; };
 		262B24D1225FDBE6004CB2FC /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D0225FDBE6004CB2FC /* Customer.swift */; };
 		262B24D4225FDE0D004CB2FC /* LandingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D3225FDE0D004CB2FC /* LandingController.swift */; };
 		262B24D7225FE7DE004CB2FC /* GetProductsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B24D6225FE7DE004CB2FC /* GetProductsWorker.swift */; };
@@ -116,6 +121,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26183101226966B500706032 /* ProfileUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUI.swift; sourceTree = "<group>"; };
+		26183104226966DE00706032 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		26183107226966F700706032 /* UpdateProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileWorker.swift; sourceTree = "<group>"; };
+		2618310922696C3500706032 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		2618310B22696C5C00706032 /* GetProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileWorker.swift; sourceTree = "<group>"; };
 		262B24D0225FDBE6004CB2FC /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		262B24D3225FDE0D004CB2FC /* LandingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingController.swift; sourceTree = "<group>"; };
 		262B24D6225FE7DE004CB2FC /* GetProductsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsWorker.swift; sourceTree = "<group>"; };
@@ -241,6 +251,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26183103226966C200706032 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				262B24F322607E79004CB2FC /* MenuController.swift */,
+				262B24F522607F46004CB2FC /* MenuUI.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		26183106226966E600706032 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				26183101226966B500706032 /* ProfileUI.swift */,
+				2618310922696C3500706032 /* ProfileInteractor.swift */,
+				26183104226966DE00706032 /* ProfileController.swift */,
+				2618310B22696C5C00706032 /* GetProfileWorker.swift */,
+				26183107226966F700706032 /* UpdateProfileWorker.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		262B24D2225FDBF2004CB2FC /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,8 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				262B71DD2260A0670085DB18 /* Address */,
-				262B24F322607E79004CB2FC /* MenuController.swift */,
-				262B24F522607F46004CB2FC /* MenuUI.swift */,
+				26183103226966C200706032 /* List */,
+				26183106226966E600706032 /* Profile */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -725,7 +756,9 @@
 				2680CEE1225C98BD00693692 /* knController.swift in Sources */,
 				2635CF18225F3E0A00C1B412 /* CartItem.swift in Sources */,
 				2680CED2225C98BD00693692 /* 1.Setting.swift in Sources */,
+				2618310C22696C5C00706032 /* GetProfileWorker.swift in Sources */,
 				262B72152265831F0085DB18 /* knPopup.swift in Sources */,
+				26183102226966B500706032 /* ProfileUI.swift in Sources */,
 				262B72212265C5D50085DB18 /* knStateview.swift in Sources */,
 				2680CECE225C98BD00693692 /* ServiceConnector.swift in Sources */,
 				2680CEE3225C98BD00693692 /* UIFontExtension.swift in Sources */,
@@ -768,6 +801,7 @@
 				262B24EB22604965004CB2FC /* BadgeButton.swift in Sources */,
 				262B71E12260A07A0085DB18 /* AddressUI.swift in Sources */,
 				262B24EF2260766F004CB2FC /* UpdateCartWorker.swift in Sources */,
+				26183108226966F700706032 /* UpdateProfileWorker.swift in Sources */,
 				2635CEE6225F23F500C1B412 /* FAPaginationLayout.swift in Sources */,
 				262B720D22652F220085DB18 /* SummaryController.swift in Sources */,
 				262B72232265C6780085DB18 /* UIImage+Gif.swift in Sources */,
@@ -776,6 +810,7 @@
 				262B24DB22601E91004CB2FC /* ProductsInteractor.swift in Sources */,
 				262B71E52260A2F50085DB18 /* LoginChecker.swift in Sources */,
 				262B720F2265601C0085DB18 /* FilterResultController.swift in Sources */,
+				2618310A22696C3500706032 /* ProfileInteractor.swift in Sources */,
 				2680CF30225DA47A00693692 /* ImageSlideView.swift in Sources */,
 				262B250522608A8D004CB2FC /* CardListController.swift in Sources */,
 				2680CEDD225C98BD00693692 /* 1.StartPoint.swift in Sources */,
@@ -785,6 +820,7 @@
 				262B250122608446004CB2FC /* knPicker.swift in Sources */,
 				2680CF27225D9D2B00693692 /* PasswordValidation.swift in Sources */,
 				2680CEEE225C9FB800693692 /* ProductsUI.swift in Sources */,
+				26183105226966DE00706032 /* ProfileController.swift in Sources */,
 				262B24D1225FDBE6004CB2FC /* Customer.swift in Sources */,
 				2680CED5225C98BD00693692 /* UISearchBarExtension.swift in Sources */,
 				2680CEDF225C98BD00693692 /* UIImageExtension.swift in Sources */,
