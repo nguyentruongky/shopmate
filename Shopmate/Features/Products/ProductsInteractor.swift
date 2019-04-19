@@ -29,6 +29,10 @@ extension ProductsController {
     func countCartItems(_ amount: Int) {
         cartButton.addBadge(amount: amount)
     }
+
+    func didGetCategories(data: [Category]) {
+        categoryView.datasource = data
+    }
 }
 
 extension ProductsController {
@@ -37,12 +41,20 @@ extension ProductsController {
         private var canLoad = true
         private var isLoading = false
 
-        func getProducts() {
-            guard canLoad, isLoading == false else { return }
+        func getProducts(category: Int = 0) {
+            guard isLoading == false else { return }
             isLoading = true
-            GetProductsWorker(page: page,
-                             successAction: successResponse,
-                             failAction: failResponse).execute()
+            page = 1
+            if category == 0 {
+                GetProductsWorker(page: page,
+                                 successAction: successResponse,
+                                 failAction: failResponse).execute()
+            } else {
+                GetProductsInCategoryWorker(category: category,
+                                            page: page,
+                                            successAction: successResponse,
+                                            failAction: failResponse).execute()
+            }
         }
 
         private func successResponse(data: [Product]) {
@@ -58,12 +70,19 @@ extension ProductsController {
         }
 
 
-        func getMoreProducts() {
+        func getMoreProducts(category: Int = 0) {
             guard canLoad, isLoading == false else { return }
             isLoading = true
+            if category == 0 {
             GetProductsWorker(page: page,
                              successAction: getMoreSuccessResponse,
                              failAction: getMoreFailResponse).execute()
+            } else {
+                GetProductsInCategoryWorker(category: category,
+                                            page: page,
+                                            successAction: getMoreSuccessResponse,
+                                            failAction: getMoreFailResponse).execute()
+            }
         }
 
         private func getMoreSuccessResponse(data: [Product]) {
@@ -76,6 +95,12 @@ extension ProductsController {
         private func getMoreFailResponse(error: knError) {
             isLoading = false
         }
+
+
+        func getCategories() {
+            GetCategoriesWorker(successAction: output?.didGetCategories).execute()
+        }
+
 
 
         func countCartItems() {

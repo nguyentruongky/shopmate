@@ -13,8 +13,12 @@ class ProductsController: ProductListController {
     let filterView = FilterView()
     let filterButton = UIMaker.makeButton(image: UIImage(named: "filter_off"))
     var filterController: FilterResultController?
+    let categoryView = CategoryView()
+    var selectedCategoryID = 0
     
     override func setupView() {
+        categoryView.productsController = self
+
         super.setupView()
         cartButton.setImage(UIImage(named: "cart"), for: .normal)
         cartButton.imageView?.contentMode = .scaleAspectFit
@@ -29,6 +33,16 @@ class ProductsController: ProductListController {
         filterView.applyButton.addTarget(self, action: #selector(applyFilter))
         filterView.clearButton.addTarget(self, action: #selector(clearFilter))
         filterButton.addTarget(self, action: #selector(showFilterOption))
+
+        collectionView.removeFromSuperview()
+        view.addSubviews(views: collectionView, categoryView)
+        categoryView.horizontalSuperview()
+        categoryView.top(toAnchor: view.safeAreaLayoutGuide.topAnchor, space: gap)
+        categoryView.height(48)
+
+        collectionView.horizontalSuperview()
+        collectionView.verticalSpacing(toView: categoryView, space: gap)
+        collectionView.bottom(toAnchor: view.safeAreaLayoutGuide.bottomAnchor)
 
         fetchData()
     }
@@ -84,14 +98,15 @@ class ProductsController: ProductListController {
     }
     
     override func fetchData() {
-        output.getProducts()
+        output.getProducts(category: selectedCategoryID)
+        output.getCategories()
         stateView.show(state: .loading, in: view)
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard datasource.isEmpty == false else { return }
         if scrollView.contentOffset.y + scrollView.frame.height > scrollView.contentSize.height - 54 {
-            output.getMoreProducts()
+            output.getMoreProducts(category: selectedCategoryID)
         }
     }
 
@@ -102,5 +117,9 @@ class ProductsController: ProductListController {
         push(controller)
     }
 
+    func didSelectCategory(category: Category) {
+        selectedCategoryID = category.category_id
+        output.getProducts(category: selectedCategoryID)
+    }
 }
 

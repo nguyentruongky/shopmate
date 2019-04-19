@@ -37,6 +37,7 @@ class ProductDetailController: knStaticListController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hideNavBar(true)
+        output.countCartItem()
     }
 
     override func setupView() {
@@ -87,7 +88,7 @@ class ProductDetailController: knStaticListController {
         }, after: 2)
 
         let badgeValue = ui.cartButton.getBadgeCount() + 1
-        ui.cartButton.addBadge(amount: badgeValue, topSpace: -4, rightSpace: -4)
+        ui.cartButton.addBadge(amount: badgeValue, topSpace: -6, rightSpace: -6)
     }
 
     @objc func goBack() {
@@ -100,6 +101,5 @@ class ProductDetailController: knStaticListController {
         output.getReview(productID: id)
         output.getColors()
         output.getSizes()
-        output.countCartItem()
     }
 }
