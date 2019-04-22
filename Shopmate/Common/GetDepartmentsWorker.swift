@@ -7,31 +7,25 @@
 //
 
 import Foundation
-struct Department: Decodable {
-    let department_id: Int
-    let name: String
-    let description: String
-}
-
-
 
 struct GetDepartmentsWorker {
     private let api = "/departments"
-    private var successAction: (([Department]) -> Void)?
 
-    init(successAction: (([Department]) -> Void)?) {
+    private var successAction: (([Category]) -> Void)?
+    init(successAction: (([Category]) -> Void)?) {
         self.successAction = successAction
     }
 
     func execute() {
-        ApiConnector.get(api, returnData: successResponse)
+        ApiConnector.get(api, success: successResponse)
     }
 
-    private func successResponse(returnData: Data) {
-        guard let results = try? JSONDecoder().decode([Department].self, from: returnData) else {
+    private func successResponse(returnData: AnyObject) {
+        guard let rawData = returnData as? [AnyObject] else {
             successAction?([])
             return
         }
+        let results = rawData.map({ return Category(departmentRaw: $0) })
         successAction?(results)
     }
 }

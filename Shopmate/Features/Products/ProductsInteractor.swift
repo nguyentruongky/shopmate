@@ -10,6 +10,7 @@ import UIKit
 
 extension ProductsController {
     func requestSuccess(data: [Product]) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         datasource = data
         if data.isEmpty {
             stateView.state = .empty
@@ -31,7 +32,12 @@ extension ProductsController {
     }
 
     func didGetCategories(data: [Category]) {
-        categoryView.datasource = data
+        guard !data.isEmpty else { return }
+        if data[0].type == .department {
+            categoryView.datasource.insert(contentsOf: data, at: 0)
+        } else {
+            categoryView.datasource.append(contentsOf: data)
+        }
     }
 }
 
@@ -41,16 +47,16 @@ extension ProductsController {
         private var canLoad = true
         private var isLoading = false
 
-        func getProducts(category: Int = 0) {
+        func getProducts(category: Category?) {
             guard isLoading == false else { return }
             isLoading = true
             page = 1
-            if category == 0 {
+            if category == nil {
                 GetProductsWorker(page: page,
                                  successAction: successResponse,
                                  failAction: failResponse).execute()
             } else {
-                GetProductsInCategoryWorker(category: category,
+                GetProductsInCategoryWorker(category: category!,
                                             page: page,
                                             successAction: successResponse,
                                             failAction: failResponse).execute()
@@ -70,15 +76,15 @@ extension ProductsController {
         }
 
 
-        func getMoreProducts(category: Int = 0) {
+        func getMoreProducts(category: Category?) {
             guard canLoad, isLoading == false else { return }
             isLoading = true
-            if category == 0 {
+            if category == nil {
             GetProductsWorker(page: page,
                              successAction: getMoreSuccessResponse,
                              failAction: getMoreFailResponse).execute()
             } else {
-                GetProductsInCategoryWorker(category: category,
+                GetProductsInCategoryWorker(category: category!,
                                             page: page,
                                             successAction: getMoreSuccessResponse,
                                             failAction: getMoreFailResponse).execute()
@@ -99,6 +105,7 @@ extension ProductsController {
 
         func getCategories() {
             GetCategoriesWorker(successAction: output?.didGetCategories).execute()
+            GetDepartmentsWorker(successAction: output?.didGetCategories).execute()
         }
 
 

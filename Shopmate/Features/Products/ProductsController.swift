@@ -14,7 +14,7 @@ class ProductsController: ProductListController {
     let filterButton = UIMaker.makeButton(image: UIImage(named: "filter_off"))
     var filterController: FilterResultController?
     let categoryView = CategoryView()
-    var selectedCategoryID = 0
+    var selectedCategory: Category?
     
     override func setupView() {
         categoryView.productsController = self
@@ -98,7 +98,7 @@ class ProductsController: ProductListController {
     }
     
     override func fetchData() {
-        output.getProducts(category: selectedCategoryID)
+        output.getProducts(category: selectedCategory)
         output.getCategories()
         stateView.show(state: .loading, in: view)
     }
@@ -106,7 +106,7 @@ class ProductsController: ProductListController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard datasource.isEmpty == false else { return }
         if scrollView.contentOffset.y + scrollView.frame.height > scrollView.contentSize.height - 54 {
-            output.getMoreProducts(category: selectedCategoryID)
+            output.getMoreProducts(category: selectedCategory)
         }
     }
 
@@ -118,8 +118,9 @@ class ProductsController: ProductListController {
     }
 
     func didSelectCategory(category: Category) {
-        selectedCategoryID = category.category_id
-        output.getProducts(category: selectedCategoryID)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        selectedCategory = category
+        output.getProducts(category: category)
     }
 }
 

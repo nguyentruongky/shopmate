@@ -15,6 +15,7 @@ class ProductDetailController: knStaticListController {
     func setData(data: Product) {
         self.data = data
         ui.imageSlideshow.datasource = data.images
+        ui.imageSlideshow.stopLoading()
 
         if data.discountPrice != "$0.00" {
             ui.priceLabel.text = data.discountPrice
@@ -97,6 +98,7 @@ class ProductDetailController: knStaticListController {
 
     override func fetchData() {
         guard let id = data?.id else { return }
+        ui.imageSlideshow.showLoading()
         output.getProduct(id: id)
         output.getReview(productID: id)
         output.getColors()

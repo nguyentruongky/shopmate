@@ -45,6 +45,18 @@ extension ProductDetailController {
         func setupView() -> [knTableCell] {
             likeButton.isHidden = true
             ratingView.isHidden = true
+            colorView.datasource = [
+                Color(attribute_value_id: 0, value: "green"),
+                Color(attribute_value_id: 0, value: "black"),
+                Color(attribute_value_id: 0, value: "blue"),
+                Color(attribute_value_id: 0, value: "red"),
+            ]
+            sizeView.datasource = [
+                Size(attribute_value_id: 0, value: ""),
+                Size(attribute_value_id: 0, value: ""),
+                Size(attribute_value_id: 0, value: ""),
+                Size(attribute_value_id: 0, value: ""),
+            ]
             return [
                 makeNamePriceCell(),
                 makeSelectionCell(),

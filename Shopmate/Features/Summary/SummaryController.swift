@@ -32,6 +32,16 @@ class SummaryController: knStaticListController {
     var shippingMethods = [ShippingMethod]()
     var selectedShippingMethods: ShippingMethod?
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.getShippingAddress()
+        if let _ = appSetting.myAccount?.address?.address1 {
+            ui.shippingMethodLabel.text = "Select shipping method"
+        } else {
+            ui.shippingMethodLabel.text = "Select address and shipping method"
+        }
+    }
+
     override func setupView() {
         addBackButton()
         super.setupView()
@@ -57,7 +67,7 @@ class SummaryController: knStaticListController {
     }
 
     @objc func showShippingMethodList() {
-        ui.picker.show(in: self)
+        ui.picker?.show(in: self)
     }
 
     @objc func startCheckout() {
@@ -82,7 +92,6 @@ class SummaryController: knStaticListController {
 
     override func fetchData() {
         output.getPaymentMethods()
-        output.getShippingAddress()
     }
 
     override func didSelectRow(at indexPath: IndexPath) {

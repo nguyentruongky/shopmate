@@ -8,6 +8,28 @@
 
 import UIKit
 
+extension UIView {
+    static let imageLoadingViewTag = 1938123987
+    func showLoading(style: UIActivityIndicatorView.Style = .gray) {
+        var loading = viewWithTag(UIImageView.imageLoadingViewTag) as? UIActivityIndicatorView
+        if loading == nil {
+            loading = UIActivityIndicatorView(style: style)
+        }
+
+        loading?.translatesAutoresizingMaskIntoConstraints = false
+        loading!.startAnimating()
+        loading!.hidesWhenStopped = true
+        loading?.tag = UIImageView.imageLoadingViewTag
+        addSubview(loading!)
+        loading?.centerSuperView()
+    }
+
+    func stopLoading() {
+        let loading = viewWithTag(UIImageView.imageLoadingViewTag) as? UIActivityIndicatorView
+        loading?.stopAnimating()
+    }
+}
+
 class knImageSlideCell: knGridCell<String> {
     override func setData(data: String) {
         self.data = data

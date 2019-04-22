@@ -7,27 +7,30 @@
 //
 
 import UIKit
+enum CategoryType {
+    case category, department
+}
 struct Category {
     let department_id: Int
     let name: String
     let description: String
     let category_id: Int
-    var color: UIColor {
-        return UIColor(r: randomizeNumber(),
-                       g: randomizeNumber(),
-                       b: randomizeNumber())
-    }
+    var type: CategoryType
 
     init(raw: AnyObject) {
         department_id = raw["department_id"] as? Int ?? 0
         name = raw["name"] as? String ?? ""
         description = raw["description"] as? String ?? ""
         category_id = raw["category_id"] as? Int ?? 0
-
+        type = .category
     }
 
-    private func randomizeNumber() -> CGFloat {
-        return CGFloat.random(in: 50...255)
+    init(departmentRaw: AnyObject) {
+        department_id = departmentRaw["department_id"] as? Int ?? 0
+        name = departmentRaw["name"] as? String ?? ""
+        description = departmentRaw["description"] as? String ?? ""
+        type = .department
+        category_id = 0
     }
 }
 

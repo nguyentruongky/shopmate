@@ -14,11 +14,17 @@ struct GetProductsInCategoryWorker {
     private var successAction: (([Product]) -> Void)?
     private var failAction: ((knError) -> Void)?
     
-    init(category: Int,
+    init(category: Category,
          page: Int = 1,
          successAction: (([Product]) -> Void)?,
          failAction: ((knError) -> Void)?) {
-        api += String(category)
+
+        switch category.type {
+        case .category:
+            api = "/products/inCategory/\(category.category_id)"
+        case .department:
+            api = "/products/inDepartment/\(category.department_id)"
+        }
         self.page = page
         self.successAction = successAction
         self.failAction = failAction

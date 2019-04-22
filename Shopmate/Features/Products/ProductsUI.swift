@@ -17,6 +17,7 @@ class Product {
     var name = ""
     var description = ""
     var like = false
+    var display = true
     
     init(raw: AnyObject) {
         id = raw["product_id"] as? Int ?? 0
@@ -26,6 +27,7 @@ class Product {
         price = "$" + price
         discountPrice = raw["discounted_price"] as? String ?? "0"
         discountPrice = "$" + discountPrice
+        display = raw["display"] as? Bool ?? true
         if let image = raw["thumbnail"] as? String {
             let url = appSetting.baseImageURL + image
             images.append(url)
@@ -76,6 +78,7 @@ class ProductCell: knGridCell<Product> {
         backgroundColor = .white
         likeButton.isHidden = true
         imageView.setCorner(radius: 7)
+        imageView.backgroundColor = UIColor.green
 
         addSubviews(views: imageView, priceLabel, discountPriceLabel, titleLabel)
         imageView.horizontalSuperview()

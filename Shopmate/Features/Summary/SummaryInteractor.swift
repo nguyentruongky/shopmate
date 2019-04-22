@@ -11,7 +11,9 @@ import UIKit
 extension SummaryController {
     func didGetAddress(_ address: Address, fullAddressText: String) {
         shippingAddress = address
-        ui.addressLabel.text = fullAddressText
+        if fullAddressText.isEmpty == false {
+            ui.addressLabel.text = fullAddressText
+        } 
         guard let shippingID = address.shippingRegionId else { return }
         output.getShippingMethod(regionID: shippingID)
     }
@@ -29,7 +31,7 @@ extension SummaryController {
 extension SummaryController {
     class Interactor {
         func getShippingAddress() {
-            if let address = appSetting.myAccount?.address {
+            if let address = appSetting.myAccount?.address, let _ = address.address1 {
                 let fullText = generateAddressTextFromAddress(address)
                 output?.didGetAddress(address, fullAddressText: fullText)
             } else {

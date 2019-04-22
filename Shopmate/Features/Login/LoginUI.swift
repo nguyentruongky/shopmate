@@ -69,9 +69,11 @@ extension LoginController {
             headerCell.addSubviews(views: coverImgView)
             coverImgView.fill(toView: headerCell)
 
-            closeButton.square(edge: 44)
+            closeButton.square(edge: 32)
+            closeButton.backgroundColor = .white
+            closeButton.setCorner(radius: 16)
             headerCell.addSubviews(views: closeButton)
-            closeButton.topLeft(toView: headerCell, top: 16, left: 8)
+            closeButton.topLeft(toView: headerCell, top: 44, left: 8)
 
             return headerCell
         }

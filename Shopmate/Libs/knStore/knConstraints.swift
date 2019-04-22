@@ -248,10 +248,16 @@ extension UIView {
         return constraint
     }
 
-    public func center(toView view: UIView, spaceX: CGFloat = 0,
+    public func center(toView view: UIView,
+                       spaceX: CGFloat = 0,
                        spaceY: CGFloat = 0){
         centerX(toView: view, space: spaceX)
         centerY(toView: view, space: spaceY)
+    }
+    public func centerSuperView(spaceX: CGFloat = 0,
+                                spaceY: CGFloat = 0){
+        guard let superView = superview else { return }
+        center(toView: superView, spaceX: spaceX, spaceY: spaceY)
     }
 
     @discardableResult

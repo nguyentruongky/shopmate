@@ -32,6 +32,7 @@ class AddressController: knStaticListController {
     }
 
     override func setupView() {
+        setupKeyboardNotifcationListenerForScrollView(scrollView: tableView)
         title = "Your address"
         addBackButton()
 

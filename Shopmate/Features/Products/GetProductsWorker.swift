@@ -36,7 +36,8 @@ struct GetProductsWorker {
             return
         }
 
-        let products = raw.map({ return Product(raw: $0) })
+        var products = raw.map({ return Product(raw: $0) })
+        products = products.filter({ return $0.display })
         successAction?(products)
     }
 

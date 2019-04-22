@@ -10,12 +10,14 @@ import UIKit
 
 extension SummaryController {
     class UI {
-        let addressLabel = UIMaker.makeLabel(font: .main(.medium, size: 15),
+        let addressLabel = UIMaker.makeLabel(text: "Add your address",
+                                             font: .main(.medium, size: 15),
                                              color: .black,
                                              numberOfLines: 2)
         let cardLabel = UIMaker.makeLabel(font: .main(.medium, size: 15),
                                           color: .black)
-        let shippingMethodLabel = UIMaker.makeLabel(font: .main(.medium, size: 15),
+        let shippingMethodLabel = UIMaker.makeLabel(text: "Select address and shipping method",
+                                                    font: .main(.medium, size: 15),
                                                     color: .black)
         let cardImageView = UIMaker.makeImageView()
         let subtotalLabel = UIMaker.makeLabel(font: .main(.medium, size: 14),

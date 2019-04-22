@@ -11,8 +11,15 @@ import UIKit
 class ColorCell: knGridCell<Color> {
     override func setData(data: Color) {
         self.data = data
+        colorName = data.value.lowercased()
+        if colorName == "white" {
+            colorView.setBorder(width: 1, color: .black)
+        } else {
+            colorView.setBorder(width: 0, color: .black)
+        }
         colorView.backgroundColor = UIColor(name: data.value.lowercased())
     }
+    var colorName = ""
     let colorView = UIMaker.makeView()
     let checkImageView = UIMaker.makeImageView(image: UIImage(named: "check"))
     override func setupView() {
@@ -29,6 +36,11 @@ class ColorCell: knGridCell<Color> {
 
     func selectThis(_ value: Bool) {
         checkImageView.isHidden = !value
+        if value == true && (colorName == "white" || colorName == "yellow") {
+            checkImageView.changeColor(to: .black)
+        } else {
+            checkImageView.changeColor(to: .white)
+        }
     }
     override func prepareForReuse() {
         selectThis(false)
@@ -45,7 +57,6 @@ class SelectColorView: knGridView<ColorCell, Color> {
 
         addSubviews(views: collectionView)
         collectionView.fillSuperView()
-        collectionView.contentInset = UIEdgeInsets(left: -40)
     }
 
     var selectedIndex: IndexPath?
