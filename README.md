@@ -51,7 +51,7 @@ DONE
 ### 6. Filter - DONE
 
 **Note**
-You don't support filter api, so I have to do a trick. Load all products by loading pagination and filter on loaded products. 
+Don't support filter api, so have to do a trick. Load all products by loading pagination and filter on loaded products. 
 
 ### 7. Search - DONE
 
